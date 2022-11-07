@@ -1,0 +1,80 @@
+name: Publish on GitHub pages
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron:  '30 23 1 * *'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+
+      - name: Login to GitHub Packages Docker Registry
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+          logout: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install required dependencies
+        run: |
+          ./scripts/github-setup.sh
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2.6.0
+        with:
+          hugo-version: '0.104.3'
+          extended: true
+
+      - name: Create IIIF derivates
+        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest-jxl-uploader sh -c "cd ${PWD} && ./scripts/iiif.sh"
+
+      - name: Generate Files
+        env:
+          SKIP_IIIF: yes
+        run: |
+          ./scripts/setup.sh
+
+      - name: Build Hugo site
+        run: hugo --printI18nWarnings --printUnusedTemplates
+
+      - name: Validate JSON
+        env:
+          OSTYPE: linux
+        run: |
+          yarn run validate
+
+      - name: Puppeteer
+        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
+
+      - name: Cleanup disk
+        run: |
+          df -h
+          docker rmi -f ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
+          rm -rf node_modules
+          rm -rf content
+          df -h
+
+      - name: Deploy site
+        uses: peaceiris/actions-gh-pages@v3.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          force_orphan: true
