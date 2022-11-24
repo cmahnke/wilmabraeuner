@@ -40,11 +40,11 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.6.0
         with:
-          hugo-version: '0.104.3'
+          hugo-version: '0.106.0'
           extended: true
 
-      - name: Create IIIF derivates
-        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest-jxl-uploader sh -c "cd ${PWD} && ./scripts/iiif.sh"
+#      - name: Create IIIF derivates
+#        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest-jxl-uploader sh -c "cd ${PWD} && ./scripts/iiif.sh"
 
       - name: Generate Files
         env:

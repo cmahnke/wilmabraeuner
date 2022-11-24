@@ -1,3 +1,68 @@
 baseURL = 'xn--wilmabruner-r8a.projektemacher.org'
 languageCode = 'de-de'
-title = 'Spurensuche im Sylter Archiv… Zum Leben und Werk von Wilma Bräuner (1891-1985)'
+title = 'Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (1891-1985)'
+
+theme = ["projektemacher-base"]
+publishDir = "docs"
+canonifyurls = true
+disableKinds = ["term", "taxonomy"]
+languagecode = "de"
+defaultcontentlanguage = "de"
+
+[params]
+    author = "Christian Mahnke"
+    homeTitle = "Spurensuche im Sylter Archiv"
+    keywords = "blog, book, digitization, history, cultural history"
+    disableScale = "minimum-scale=1"
+
+[module]
+    [[module.mounts]]
+        source = "assets/scss"
+        target = "assets/scss"
+
+    [[module.mounts]]
+        source = "assets/js"
+        target = "assets/js"
+
+    [[module.mounts]]
+        source = "static"
+        target = "static"
+
+[languages]
+    [languages.de]
+        languagename = "Deutsch"
+
+        [languages.de.menu]
+
+            [[languages.de.menu.main]]
+                name = "Über"
+                weight = 1
+                url = "about/"
+
+
+[mediaTypes]
+  [mediaTypes."application/json"]
+    suffixes = ["geojson", "gjson"]
+
+[outputFormats]
+  [outputFormats.geojson]
+    mediaType = "application/json"
+    isPlainText = true
+    isHTML = false
+    baseName = "map"
+    notAlternative = true
+
+  [outputFormats.iiif]
+    mediaType = "application/json"
+    isPlainText = true
+    isHTML = false
+    baseName = "manifest"
+    notAlternative = true
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+
+[imaging]
+    quality = 95
