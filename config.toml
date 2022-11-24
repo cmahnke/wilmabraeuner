@@ -10,10 +10,10 @@ languagecode = "de"
 defaultcontentlanguage = "de"
 
 [params]
-    author = "Christian Mahnke"
+    author = "Sylter Archiv"
     homeTitle = "Spurensuche im Sylter Archiv"
     keywords = "blog, book, digitization, history, cultural history"
-    disableScale = "minimum-scale=1"
+    Copyright = "false"
 
 [module]
     [[module.mounts]]

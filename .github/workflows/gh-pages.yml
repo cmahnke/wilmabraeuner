@@ -61,8 +61,8 @@ jobs:
         run: |
           yarn run validate
 
-      - name: Puppeteer
-        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
+#      - name: Puppeteer
+#        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
 
       - name: Cleanup disk
         run: |
