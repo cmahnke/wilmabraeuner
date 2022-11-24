@@ -1,0 +1,20 @@
+@import "normalize";
+@import "icons";
+@import "mirador";
+@import "ol-iiif";
+@import "iframe-consent";
+@import "fonts/source-code-pro";
+@import "fonts/league-spartan";
+@import "map";
+@import "share";
+/* Menu */
+$font-color-body: var(--base00);
+$secondary-icon-color: #69c;
+$frame-bg-color: var(--base01);
+$color-body-text: var(--base00);
+$fullscreen-color: var(--base07);
+@import "menu";
+@import "include";
+@import "audioplayer";
+@import "exhibition";
+@import "color-sample";
