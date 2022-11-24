@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+
+<main role="main" class="article">
+  <div class="hugo-info">
+      <h1>Hugo information</h1>
+      <div class="entry">Hugo version: {{ .Hugo.Version }}</div>
+      <div class="entry">Hugo evironment: {{ .Hugo.Environment }}</div>
+  </div>
+  <div class="theme-info">
+      <h1>Theme information</h1>
+      <div class="entry">Tag string "book":{{ i18n "book" }}</div>
+      <div class="entry">Tag string "preview":{{ i18n "preview" }}</div>
+  </div>
+</main>
+
+{{ partial "footer.html" . }}

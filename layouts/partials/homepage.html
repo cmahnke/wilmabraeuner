@@ -1,0 +1,59 @@
+{{ $baseurl := .Site.BaseURL }}
+<div class="container">
+    <main role="main" class="homepage">
+
+      {{ partial "hero.html" . }}
+
+      <h1 class="headline">{{ i18n "posts" }}</h1>
+      {{- $pages := where (where .Site.RegularPages "Section" "post") "Params.displayinlist" "!=" false -}}
+      {{- .Scratch.Set "pages" $pages -}}
+      {{- $mainSite := .Sites.First -}}
+      {{- if ne $mainSite .Site -}}
+          {{- .Scratch.Set "pages" ($pages | lang.Merge (where $mainSite.RegularPages "Section" "post") ) -}}
+      {{- end -}}
+      {{- $pages = .Scratch.Get "pages" -}}
+
+    {{/*
+      {{- $pages := where .Site.RegularPages "Section" "post" -}}
+      {{- $pages = $pages | lang.Merge (where .Site.RegularPages "Section" "post") -}}
+    */}}
+      {{- $paginator := .Paginate ($pages) (or .Sites.First.Params.paginate 3) -}}
+      <div class="article-list">
+        {{ range $paginator.Pages }}
+          {{ partial "article-list-item.html" . }}
+        {{ end }}
+      </div>
+
+      {{ partial "paginator.html" $paginator }}
+
+    {{ with .Site.Taxonomies.categories }}
+
+      <h1 class="headline">Kategorien</h1>
+
+      <section class="categories">
+        {{ range $name, $value := . }}
+        <h2 class="category">
+          <a href="{{ $baseurl }}categories/{{ $name | urlize }}">{{ humanize $name | title }}</a>
+          <small>({{ .Count }})</small>
+        </h2>
+        {{ end }}
+      </section>
+
+    {{ end }}
+
+    {{ with .Site.Taxonomies.tags }}
+
+      <h1 class="headline">Tags</h1>
+
+      <section class="tags">
+        {{ range $name, $value := . }}
+        <span class="tag">
+          <a href="{{ $baseurl }}tags/{{ $name | urlize }}">{{ $name }}</a>&nbsp<small>({{ .Count }})</small>
+        </span>
+        {{ end }}
+      </section>
+
+    {{ end }}
+
+    </main>
+</div>
