@@ -18,3 +18,4 @@ content/post/*/front/*
 content/**/ogPreview.*g
 content/**/ogPreview-overlay.*g
 **/.DS_Store
+content/about/archivtuer/
