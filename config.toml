@@ -28,17 +28,32 @@ defaultcontentlanguage = "de"
         source = "static"
         target = "static"
 
-[languages]
-    [languages.de]
-        languagename = "Deutsch"
+[menu]
+    [[menu.main]]
+        name = "Ort"
+        URL = "/location"
+        weight = 1
 
-        [languages.de.menu]
+    [[menu.main]]
+        name = "Über"
+        URL = "/about"
+        weight = 2
 
-            [[languages.de.menu.main]]
-                name = "Über"
-                weight = 1
-                url = "about/"
-
+#[languages]
+#    [languages.de]
+#        languagename = "Deutsch"
+#
+#        [languages.de.menu]
+#
+#            [[languages.de.menu.main]]
+#                name = "Ort"
+#                weight = 1
+#                url = "location/"
+#
+#            [[languages.de.menu.main]]
+#                name = "Über"
+#                weight = 2
+#                url = "about/"
 
 [mediaTypes]
   [mediaTypes."application/json"]

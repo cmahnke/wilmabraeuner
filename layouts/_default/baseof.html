@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+  <head>
+    <meta charset="utf-8">
+
+    {{ partial "html/head/meta.html" . }}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+    {{- partial "html/head/style.html" (dict "context" . ) -}}
+    {{- partial "html/head/script.html" (dict "js" (partial "html/head/iiif-js.html" .)) -}}
+
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32.png" | absURL }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_16 | default "/images/favicon-16.png" | absURL }}" sizes="16x16">
+    {{ if and .Site.Params.faviconSVG (ne .Site.Params.faviconsvg "") }}
+        <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon_svg | safeHTML }}">
+    {{ end }}
+
+    <link rel="shortcut icon" href="{{ "img/favicon.ico" | absURL }}" type="image/x-icon">
+    <link rel="icon" href="{{ "img/favicon.ico" | absURL }}" type="image/x-icon">
+
+    {{/* External Styles - Fonts etc */}}
+    {{ range .Site.Params.stylesheets -}}
+        <link href="{{ . }}" rel="stylesheet">
+    {{- end -}}
+
+    {{ range .AlternativeOutputFormats -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+
+  </head>
+
+     {{- $class := "" }}
+     {{- if or (hasPrefix .Page.File.Path "about") (hasPrefix .Page.File.Path "/about") -}}
+         {{- $class = "about" -}}
+     {{- end -}}
+
+     {{- if .Params.metaPage -}}
+         {{- $class = printf "%s %s" $class "meta" -}}
+     {{- end -}}
+     <body class="{{ $class }} {{ if .IsHome }}home{{ end }}">
+       <div class="page-wrapper">
+         {{ partial "header.html" . }}
+         <main class="main">
+             {{ block "content" . }}{{ end }}
+         </main>
+         {{- partial "footer.html" . -}}
+       </div>
+   </body>
+ </html>

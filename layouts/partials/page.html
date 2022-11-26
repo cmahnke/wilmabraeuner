@@ -1,0 +1,55 @@
+{{- $page := .Page -}}
+{{- $context := path.Dir .File.Path -}}
+{{- $pageURL := .Permalink -}}
+<div class="post-container post {{ .Params.type }}">
+    <div class="content-area">
+        <div class="previous-page-1"></div>
+        <div class="content">
+            {{- if not .Params.metaPage -}}
+                <div class="date">
+                    {{- partial "date.html" (dict "date" .Date "language" $.Page.Language "months" $.Site.Data.months) -}}
+                </div>
+            {{- end -}}
+            <h1 class="post-title">{{ .Title }}</h1>
+            {{- if not .Params.metaPage -}}
+                <div class="date">
+                    <a href="{{ .RelPermalink }}">{{- partial "date.html" . -}}</a>
+                </div>
+            {{- end -}}
+            <div class="post-body">
+                {{ .Content }}
+            </div>
+            <div class="post-relations">
+                {{- if or (eq .Kind "section") (ne .CurrentSection.File.Dir "")  -}}
+                    {{- partial "post-relations" . -}}
+                {{- end -}}
+            </div>
+
+            {{- if .Params.iiif -}}
+                <div class="iiif">
+                  {{- range .Params.resources -}}
+                    {{- if or (and (ne $.Params.type "work") (ne $.Params.type "book")) (not (or (or (eq .name "front") (eq .name "title")) (eq .name "cover"))) -}}
+                      {{- if .params.iiif -}}
+                        {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+                      {{- end -}}
+                    {{- end -}}
+                  {{- end -}}
+                </div>
+            {{- end -}}
+
+            {{- if and .Params.type (or .Params.description .Params.bookTitle) -}}
+                {{- partial (printf "media/%s.html" .Params.type ) . -}}
+            {{- end -}}
+
+            {{- if not .Params.metaPage -}}
+                <div class="meta">
+                  {{ partial "meta/tags.html" . }}
+                </div>
+            {{ end }}
+         </div>
+         <div class="following-page-1"></div>
+         <div class="following-page-2"></div>
+
+     </div>
+
+</div>
