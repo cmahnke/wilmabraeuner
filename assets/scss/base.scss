@@ -1,11 +1,11 @@
 @import "normalize";
 @import "icons";
-@import "mirador";
 @import "ol-iiif";
 @import "iframe-consent";
-@import "fonts/source-code-pro";
-@import "fonts/league-spartan";
-@import "map";
+@import "fonts/lato";
+@import "fonts/sono";
+@import "fonts/cormorant-garamond";
+@import "fonts/roboto";
 @import "share";
 /* Menu */
 $font-color-body: var(--base00);
@@ -14,7 +14,82 @@ $frame-bg-color: var(--base01);
 $color-body-text: var(--base00);
 $fullscreen-color: var(--base07);
 @import "menu";
-@import "include";
 @import "audioplayer";
-@import "exhibition";
-@import "color-sample";
+
+$font-face-body: Roboto, helvetica;
+$font-face-header: 'Cormorant Garamond', times;
+
+
+
+body,
+html {
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+.page-wrapper {
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 3em;
+    max-height: 3em;
+    flex: 0 1 auto;
+
+}
+
+.main {
+    flex: 1 1 auto;
+
+}
+
+p {
+    font-family: $font-face-body;
+}
+h1, h2, h3, h4 {
+    font-family: $font-face-header;
+}
+
+footer {
+    flex: 0 1 5.5em;
+    background: #3c3d41;
+
+    font-family: Lato, Helvetica, sans-serif;;
+    margin-top: 3em;
+    max-height: 5.5em;
+
+    a, a:hover {
+      text-decoration: none;
+    }
+
+    .footer-container {
+        min-width: 100%;
+        margin: auto;
+        text-align: center;
+        color: #fafafa;
+        background: #293133;
+        padding: 15px 0 5px;
+
+        .projektemacher {
+            padding-bottom: 10px;
+
+        }
+
+        p {
+            margin: unset;
+        }
+
+        a {
+            color: #ffffff;;
+            text-decoration: none;
+        }
+    }
+}
+
+.footer-nav-list {
+
+}
