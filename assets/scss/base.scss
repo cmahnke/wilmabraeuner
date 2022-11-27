@@ -43,6 +43,7 @@ html {
     max-height: $header-height;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     box-sizing: border-box;
     overflow : hidden;
 
@@ -54,21 +55,48 @@ html {
     .title-container {
         display: flex;
         flex-direction: column;
+        margin: unset;
     }
 
     .header-nav-list {
-      display: flex;
-      flex-direction: row;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+
+        .nav-item {
+            padding-right: 1rem;
+
+            a {
+                color: $font-color-body;
+            }
+        }
     }
 
-    .nav-item a {
-          color: $font-color-body;
+    /* TODO: Fix this for mobile / resposive view */
+    .menu {
+        display: none;
     }
 }
+
+$gradient-margin: 4em;
 
 .main {
     min-height: calc(100vh - $header-height - $footer-height);
     box-sizing: border-box;
+    background: linear-gradient(0deg, #BDE3F2 0%, #FFFFFF $gradient-margin, #FFFFFF calc(100% - $gradient-margin), #5D8094 100%);
+
+    .post-container {
+        max-width: 70%;
+        margin: auto;
+    }
+
+    .post-body {
+        display: flex;
+        flex-direction: column;
+        margin-top: calc($gradient-margin + calc($gradient-margin * .3));
+        margin-bottom: calc($gradient-margin + calc($gradient-margin * .3));
+    }
 }
 
 p {
@@ -79,6 +107,9 @@ h1, h2, h3, h4 {
 }
 
 footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background: #3c3d41;
     box-sizing: border-box;
     font-family: $font-face-body;
@@ -108,16 +139,23 @@ footer {
     .footer-container {
         font-family: Lato, Helvetica, sans-serif;
         min-width: 100%;
-        margin: auto;
-        text-align: center;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-around;
         color: #fafafa;
         background: #293133;
-        padding: 15px 0 15px;
+        padding: .4rem 0;
 
+        a:visited {
+            color: #fafafa;
+        }
+
+        /*
         .projektemacher {
             padding-bottom: 10px;
 
         }
+        */
 
         p {
             margin: unset;
@@ -127,7 +165,8 @@ footer {
 }
 
 .imprint-archive {
-
+    align-self: flex-end;
+    display: inline-block;
 }
 
 .nav-item {
