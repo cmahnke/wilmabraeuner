@@ -22,7 +22,7 @@ $font-face-header: 'Cormorant Garamond', times;
 
 /* Sizes */
 $header-height: 4em;
-$footer-height: 25.4em;
+$footer-height: 26em;
 
 body,
 html {
@@ -104,7 +104,7 @@ $gradient-margin: 4em;
 .main {
     min-height: calc(100vh - $header-height - $footer-height);
     box-sizing: border-box;
-    background: linear-gradient(0deg, #BDE3F2 0%, #FFFFFF $gradient-margin, #FFFFFF calc(100% - $gradient-margin), #5D8094 100%);
+    background: linear-gradient(0deg, #5D8094 0%, #FFFFFF $gradient-margin, #FFFFFF calc(100% - $gradient-margin), #BDE3F2 100%);
 
     .post-container {
         max-width: 1080px;
@@ -163,9 +163,10 @@ ul {
 footer {
     /* display: flex;
     flex-direction: column;
+        background: #3c3d41;
     */
     justify-content: flex-end;
-    background: #3c3d41;
+    background: #f7dba7;
     box-sizing: border-box;
     font-family: Lato, Helvetica, Arial, sans-serif;
                 /*width: 1080px;*/
@@ -178,9 +179,20 @@ footer {
       text-decoration: none;
     }
 
+    .landscape {
+        min-height: 50px;
+        height: 50px;
+        width: 100%;
+        content: ' ';
+
+        background: #5D8094 url(/images/footer2.svg);
+        background-repeat: repeat-x;
+        background-size: contain;
+    }
+
     .footer-content {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 15px;
+        padding-bottom: 48px;
         margin: auto;
         box-sizing: border-box;
         display: flex;
@@ -274,6 +286,9 @@ footer {
     .imprint-archive {
         float: right;
         display: inline-block;
+        img {
+          border-radius: 10px;
+        }
 
     }
 
