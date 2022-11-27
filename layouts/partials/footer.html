@@ -1,15 +1,6 @@
 <footer class="footer">
   <ul class="footer-nav-list">
-  {{- range .Site.Menus.main -}}
-
-    <li class="footer-nav-item">
-      <a href="{{ .URL }}">
-          {{ .Pre }}
-              <span>{{ .Name }}</span>
-        </a>
-    </li>
-
-  {{- end -}}
+    {{ partialCached "menu-nav.html" . }}
   </ul>
   {{ partialCached "footer-content.html" . }}
 </footer>

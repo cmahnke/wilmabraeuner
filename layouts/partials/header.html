@@ -1,0 +1,14 @@
+<header class="header header-main" id="head">
+  <div class="menu">
+    {{ partial "menu.html" . }}
+  </div>
+  <a href="/"><img class="header-logo" alt="{{ .Site.Title }}" src="/images/header.svg"></a>
+    <h1 class="header-title">{{ .Title }}</h1>
+    {{- $subtitle := .Params.subtitle | default "" -}}
+    {{- if ne $subtitle "" -}}
+          <h2 class="header-subtitle">{{ $subtitle }}</h2>
+    {{- end -}}
+    <ul class="header-nav-list">
+      {{ partialCached "menu-nav.html" . }}
+    </ul>
+</header>
