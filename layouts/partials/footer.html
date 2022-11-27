@@ -1,8 +1,18 @@
 <footer class="footer">
-  <div class="footer-menu-heading">Services</div>
-  <ul class="footer-nav-list">
-    {{ partialCached "menu-nav.html" . }}
-  </ul>
+  <div class="footer-content">
+    <div class="logo-area">
+      <a href="https://gemeinde-sylt.de/">
+        <p>Gemeinde Sylt</p>
+        <img class="footer-logo" src="/images/gemeinde-logo.svg" alt="Logo Gemeinde Sylt">
+      </a>
+    </div>
+    <div class="menu-area">
+      <div class="footer-menu-heading">Services</div>
+      <ul class="footer-nav-list">
+        {{ partialCached "menu-nav.html" . }}
+      </ul>
+    </div>
+  </div>
   {{ partialCached "footer-content.html" . }}
 </footer>
 
