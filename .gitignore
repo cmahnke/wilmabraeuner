@@ -4,6 +4,7 @@ public
 docs
 node_modules/
 static/images/gemeinde-logo.svg
+static/images/footer2.svg
 resources
 .hugo_build.lock
 hugo_stats.json

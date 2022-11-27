@@ -17,6 +17,8 @@ done
 
 #./scripts/svgo.sh
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/logo/Gemeinde Sylt Logo.svg" -o "./static/images/gemeinde-logo.svg" --multipass
+yarn run svgo --config ./config/svgo.config.js -i "./Source Files/footer2.svg" -o "./static/images/footer2.svg" --multipass
+
 
 # Favicons
 SOURCE="./Source Files/logo/Gemeinde Sylt Logo.svg" OPTIONS="-transparent white static/images/favicon-128.png" ./themes/projektemacher-base/scripts/favicon.sh

@@ -7,8 +7,10 @@ metaPage: true
 {{< figure src="./archivtuer.jpg" class="imprint-archive" link="https://gemeinde-sylt.de/bildung/sylt-archiv/" alt="Tür des Sylter Archivs">}}
 # Impressum
 Sylter Archiv
+
 Stephanstraße 6 a
-25980 Westerland,
+
+25980 Westerland
 
 Telefon: 04651/851-260,
 Fax: 04651/ 851-269,
