@@ -19,13 +19,16 @@ $fullscreen-color: var(--base07);
 $font-face-body: Roboto, helvetica;
 $font-face-header: 'Cormorant Garamond', times;
 
-
+/* Sizes */
+$header-height: 4em;
+$footer-height: 10.5em;
 
 body,
 html {
     min-height: 100vh;
     margin: 0;
     position: relative;
+
 }
 
 .page-wrapper {
@@ -36,15 +39,36 @@ html {
 }
 
 .header {
-    height: 3em;
-    max-height: 3em;
-    flex: 0 1 auto;
+    height: $header-height;
+    max-height: $header-height;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    overflow : hidden;
 
+    .header-logo {
+      max-width: 3em;
+      overflow: hidden;
+    }
+
+    .title-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-nav-list {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .nav-item a {
+          color: $font-color-body;
+    }
 }
 
 .main {
-    flex: 1 1 auto;
-
+    min-height: calc(100vh - $header-height - $footer-height);
+    box-sizing: border-box;
 }
 
 p {
@@ -55,24 +79,40 @@ h1, h2, h3, h4 {
 }
 
 footer {
-    flex: 0 1 5.5em;
     background: #3c3d41;
+    box-sizing: border-box;
+    font-family: $font-face-body;
 
-    font-family: Lato, Helvetica, sans-serif;;
-    margin-top: 3em;
-    max-height: 5.5em;
+    max-height: $footer-height;
+    height: $footer-height;
+    overflow : hidden;
 
     a, a:hover {
       text-decoration: none;
     }
 
+    .footer-nav-list {
+        text-align: end;
+        width: 70%;
+
+        .nav-item {
+            padding-bottom: 1em;
+
+            a {
+                color: #ffffff;
+            }
+        }
+
+    }
+
     .footer-container {
+        font-family: Lato, Helvetica, sans-serif;
         min-width: 100%;
         margin: auto;
         text-align: center;
         color: #fafafa;
         background: #293133;
-        padding: 15px 0 5px;
+        padding: 15px 0 15px;
 
         .projektemacher {
             padding-bottom: 10px;
@@ -83,16 +123,23 @@ footer {
             margin: unset;
         }
 
-        a {
-            color: #ffffff;;
-            text-decoration: none;
-        }
     }
 }
 
-.footer-nav-list {
+.imprint-archive {
 
 }
+
+.nav-item {
+      list-style-type: none;
+      font-family: $font-face-body;
+
+      a {
+          text-decoration: none;
+      }
+}
+
+
 
 
 /*

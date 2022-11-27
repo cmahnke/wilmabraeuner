@@ -11,7 +11,8 @@ defaultcontentlanguage = "de"
 
 [params]
     author = "Sylter Archiv"
-    homeTitle = "Spurensuche im Sylter Archiv"
+    homeTitle = "Spurensuche im Sylter Archiv..."
+    subTitle = "Zum Leben und Werk von Wilma Bräuner (1891-1985)"
     keywords = "blog, book, digitization, history, cultural history"
     Copyright = "false"
 
@@ -30,12 +31,12 @@ defaultcontentlanguage = "de"
 
 [menu]
     [[menu.main]]
-        name = "Ort"
+        name = "Veranstaltungsort"
         URL = "/location"
         weight = 1
 
     [[menu.main]]
-        name = "Über"
+        name = "Kontakt & Impressum"
         URL = "/about"
         weight = 2
 

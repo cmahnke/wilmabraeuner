@@ -3,11 +3,18 @@
     {{ partial "menu.html" . }}
   </div>
   <a href="/"><img class="header-logo" alt="{{ .Site.Title }}" src="/images/header.svg"></a>
-    <h1 class="header-title">{{ .Title }}</h1>
-    {{- $subtitle := .Params.subtitle | default "" -}}
-    {{- if ne $subtitle "" -}}
-          <h2 class="header-subtitle">{{ $subtitle }}</h2>
-    {{- end -}}
+    {{- $hometitle := .Site.Params.hometitle | default "" -}}
+    <div class="title-container">
+        {{- if ne $hometitle "" -}}
+            <h1 class="header-title">{{ $hometitle }}</h1>
+        {{- else -}}
+            <h1 class="header-title">{{ .Title }}</h1>
+        {{- end -}}
+        {{- $subtitle := .Site.Params.subtitle | default "" -}}
+        {{- if ne $subtitle "" -}}
+              <h2 class="header-subtitle">{{ $subtitle }}</h2>
+        {{- end -}}
+    </div>
     <ul class="header-nav-list">
       {{ partialCached "menu-nav.html" . }}
     </ul>
