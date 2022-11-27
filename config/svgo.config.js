@@ -3,7 +3,7 @@ module.exports = {
   plugins: [
     "removeEditorsNSData",
     {name: "removeAttrs",
-      params: { "attrs": "(style|font-weight|font-size|font-family)" }
+      params: { "attrs": "(font-weight|font-size|font-family)" }
     }
   ]
 }
