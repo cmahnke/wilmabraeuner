@@ -1,8 +1,9 @@
 <header class="header header-main" id="head">
-  <div class="menu">
-    {{ partial "menu.html" . }}
-  </div>
-  <a href="/"><img class="header-logo" alt="{{ .Site.Title }}" src="/images/header.svg"></a>
+  <div class="header-container">
+    <div class="menu">
+      {{ partial "menu.html" . }}
+    </div>
+    <a href="/"><img class="header-logo" alt="{{ .Site.Title }}" src="/images/header.svg"></a>
     {{- $hometitle := .Site.Params.hometitle | default "" -}}
     <div class="title-container">
         {{- if ne $hometitle "" -}}
@@ -18,4 +19,5 @@
     <ul class="header-nav-list">
       {{ partialCached "menu-nav.html" . }}
     </ul>
+  </div>
 </header>
