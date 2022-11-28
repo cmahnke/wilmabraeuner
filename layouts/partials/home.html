@@ -1,6 +1,6 @@
-{{ $pages := .Site.Pages }}
-<div class="home-container">
-    <div class="">
+{{- $page := . -}}
+{{- if .IsHome -}}
+  {{- $page = .Site.GetPage "/home/index.md" -}}
+{{- end -}}
 
-    </div>
-</div>
+{{ partial "page.html" $page }}

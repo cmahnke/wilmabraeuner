@@ -17,3 +17,7 @@ content/**/ogPreview.*g
 content/**/ogPreview-overlay.*g
 **/.DS_Store
 content/about/archivtuer/
+static/images/footer3.svg
+static/images/favicon.svg
+static/images/signature.svg
+content/home/Plakat/
