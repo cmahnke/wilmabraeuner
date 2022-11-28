@@ -12,7 +12,7 @@ defaultcontentlanguage = "de"
 [params]
     author = "Sylter Archiv"
     homeTitle = "Spurensuche im Sylter Archiv..."
-    subTitle = "<span class='prefix'>Zum Leben und Werk von </span><img class='header-img' src='/images/signature.svg' alt='Unterschrift von Wilma Bräuner'> <span class='year'>(1891-1985)<span>"
+    subTitle = "<span class='prefix'>Zum Leben und Werk von </span><a href='/'><img class='header-img' src='/images/signature.svg' alt='Unterschrift von Wilma Bräuner'></a> <span class='year'>(1891-1985)<span>"
     keywords = "blog, book, digitization, history, cultural history"
     Copyright = "false"
 
