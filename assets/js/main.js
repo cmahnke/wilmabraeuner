@@ -8,7 +8,7 @@ window.Headroom = Headroom;
 $( document ).ready(function() {
   'use strict';
 
-  var options = {};
+  var options = {} /*{offset: {down: '3em'}}*/;
   var header = new Headroom(document.querySelector("header"), options);
   header.init();
 });
