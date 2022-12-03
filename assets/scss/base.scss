@@ -27,6 +27,7 @@ $gradient-margin: 4em;
 /* Sizes */
 $header-height: 9em;
 $footer-height: 45em;
+$max-width: 1080px;
 
 /* Icons */
 $link-marker: '☞'; /* alternative: ☞ */
@@ -57,8 +58,8 @@ html {
     background-color: #f9edde;
 
     .header-container {
-        max-width: 1080px;
-        width: 1080px;
+        max-width: $max-width;
+        width: $max-width;
         display: flex;
         flex-direction: row;
         justify-content:space-between;
@@ -139,6 +140,7 @@ html {
 
             .year {
                 font-size: 1.6em;
+                transform: scale(100%);
                 transition: all 300ms ease-in;
             }
 
@@ -182,8 +184,8 @@ html {
     */
 
     .post-container {
-        max-width: 1080px;
-        width: 1080px;
+        max-width: $max-width;
+        width: $max-width;
         margin: auto;
     }
 
@@ -202,6 +204,11 @@ html {
     }
 
     p {
+        margin: auto;
+        width: 70%;
+        text-align: justify;
+        line-height: 136%;
+        text-indent: 1rem;
         padding-bottom: 1em;
         margin-block-start: unset;
         margin-block-end: unset;
@@ -219,6 +226,29 @@ html {
           font-size: 3em;
         }
 
+    }
+
+    .frame {
+        max-width: $max-width;
+        margin-block-start: unset;
+        margin-block-end: unset;
+        margin-inline-start: unset;
+        margin-inline-end: unset;
+        img {
+            max-width: inherit;
+        }
+        figcaption {
+
+            float: right;
+            text-align: right;
+            h4 {
+                font-family: $font-face-body;
+                font-weight: 300;
+            }
+            p {
+                display: none;
+            }
+        }
     }
 }
 
@@ -247,7 +277,7 @@ footer,
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-around;
-    max-width: 1080px;
+    max-width: $max-width;
     margin: auto;
     font-weight: 300;
     font-variant: small-caps;
@@ -298,17 +328,33 @@ footer,
     }
 }
 
+@media (max-width : 64em) {
+  .section-listing {
+      display: flex;
+      flex-direction: column;
+
+      .section-tile {
+          .section-tile-image {
+              width: 90%;
+              border-radius: .6rem;
+              filter: blur(2px);
+          }
+      }
+  }
+}
+
+
 .subsection-listing {
     display: flex;
     font-weight: 400;
-
-
 
     .sub-section {
         display: block;
         font-size: 2em;
         font-family: $font-face-header;
-
+        margin: auto;
+        width: 70%;
+        flex-direction: column;
 
         a {
             color: $header-text-color;
@@ -355,7 +401,7 @@ footer {
         margin: auto;
         box-sizing: border-box;
         display: flex;
-        max-width: 1080px;
+        max-width: $max-width;
 
         .logo-area {
           width: 48.5%;
@@ -499,7 +545,7 @@ footer {
             display: none;
             opacity: 0;
             transform: translateY(-100%);
-            transition: all 300ms ease-in;
+            transition: all 100ms ease-in;
         }
 
         .header-subtitle {
@@ -518,13 +564,12 @@ footer {
                 font-size: 1.2em;
                 white-space: nowrap;
                 transition: all 300ms lease-in;
+                transform: scale(0%);
             }
 
             .prefix {
-              /*transform: translateY(-100%);*/
               transform: scaleX(0%);
               transition: all 300ms ease-in;
-              /* opacity: 0; */
               display: none;
             }
         }
