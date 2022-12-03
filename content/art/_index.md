@@ -1,7 +1,5 @@
 ---
 title: Künstlerisches Schaffen
-displayinlist: false
-metaPage: true
 description: "Das künstlerische Schaffen Wilma Bräuners"
 outputs:
   - html

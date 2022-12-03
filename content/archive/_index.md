@@ -1,10 +1,6 @@
 ---
 title: Hintergrund
-displayinlist: false
-metaPage: true
 description: "Die Arbeit des Sylter Archivs"
-archive: false
-news: false
 outputs:
   - html
   - qrcode

@@ -17,20 +17,23 @@ $fullscreen-color: var(--base07);
 @import "menu";
 @import "audioplayer";
 
-$font-face-body: Roboto, helvetica;
+$font-face-body: Roboto, helvetica, sans-serif;
+$font-face-archive: Sono, helvetica, sans-serif;
 $font-face-header: 'Cormorant Garamond', times;
 
 /* Colors */
 $header-text-color: #282d26;
 $gradient-margin: 4em;
+$dark-rust: #4a1a06;
 
 /* Sizes */
 $header-height: 9em;
 $footer-height: 45em;
 $max-width: 1080px;
 
-/* Icons */
+/* Unicode "Icons" */
 $link-marker: '☞'; /* alternative: ☞ */
+$nav-separator: 'ᐳ';
 
 body,
 html {
@@ -207,9 +210,9 @@ html {
         margin: auto;
         width: 70%;
         text-align: justify;
-        line-height: 136%;
+        line-height: 123%;
         text-indent: 1rem;
-        padding-bottom: 1em;
+        padding-bottom: 20pt;
         margin-block-start: unset;
         margin-block-end: unset;
     }
@@ -250,6 +253,37 @@ html {
             }
         }
     }
+
+    .content-header-nav {
+      font-family: $font-face-archive;
+      font-weight: 200;
+      font-size: 1.8em;
+      text-align: right;
+      width: max-content;
+      padding: .4rem;
+      transform: rotate(3deg);
+      background-color: #f9edde;
+
+      &:after {
+          color: $dark-rust;
+          content: $nav-separator;
+
+      }
+
+        .content-header-nav-item {
+            display: inline;
+            margin-right: .4em;
+
+            &.start {
+                display: none;
+            }
+        }
+
+    }
+}
+
+body.archive {
+    font-family: $font-face-archive !important;
 }
 
 p {
@@ -342,7 +376,6 @@ footer,
       }
   }
 }
-
 
 .subsection-listing {
     display: flex;

@@ -1,5 +1,5 @@
 ---
-title: Engagement für den Naturschutz
+title: Naturschutz
 displayinlist: false
 metaPage: true
 description: "Wilma Bräuners Engagement gegen Atlantis und für den Naturschutz"
