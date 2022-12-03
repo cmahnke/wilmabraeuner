@@ -57,22 +57,33 @@ defaultcontentlanguage = "de"
 #                url = "about/"
 
 [mediaTypes]
-  [mediaTypes."application/json"]
+  [mediaTypes."application/geo+json"]
     suffixes = ["geojson", "gjson"]
+  [mediaTypes."application/ld+json"]
+    suffixes = ["json"]
+  [mediaTypes."application/x-qrcode-template"]
+    suffixes = ["json"]
 
 [outputFormats]
   [outputFormats.geojson]
-    mediaType = "application/json"
+    mediaType = "application/geo+json"
     isPlainText = true
     isHTML = false
     baseName = "map"
     notAlternative = true
 
   [outputFormats.iiif]
-    mediaType = "application/json"
+    mediaType = "application/ld+json"
     isPlainText = true
     isHTML = false
     baseName = "manifest"
+    notAlternative = true
+
+  [outputFormats.qrcode]
+    mediaType = "application/x-qrcode-template"
+    isPlainText = true
+    isHTML = false
+    baseName = "qrcode"
     notAlternative = true
 
 [markup]
