@@ -1,0 +1,24 @@
+<ul class="content-header-nav">
+    <li class="content-header-nav-item start"><a href="/">Home</a></li>
+    {{- $.Scratch.Set "url" "" -}}
+    {{- range (split .RelPermalink "/") -}}
+        {{- if (gt (len .) 0) -}}
+            {{- $.Scratch.Set "isPage" "false" -}}
+            {{- $.Scratch.Add "url" (print "/" . ) -}}
+            {{- if $.Site.GetPage (print . ".md") -}}
+                {{- with $.Site.GetPage (print . ".md") -}}
+                    {{- if .IsPage -}}
+                        {{- $.Scratch.Set "isPage" "true" -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
+            {{- if eq ($.Scratch.Get "isPage") "true" -}}
+                {{- with $.Site.GetPage (print . ".md") -}}
+                    <li class="content-header-nav-item"><a href="{{ $.Scratch.Get `url` }}">{{ .Title }}</a></li>
+                {{- end -}}
+            {{- else -}}
+                <li class="content-header-nav-item"><a href="{{ $.Scratch.Get `url` }}">{{ humanize . }}</a></li>
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+</ul>

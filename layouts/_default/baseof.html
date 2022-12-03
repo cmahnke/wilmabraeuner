@@ -34,7 +34,7 @@
      {{- if or (hasPrefix .Page.File.Path "about") (hasPrefix .Page.File.Path "/about") -}}
          {{- $class = "about" -}}
      {{- end -}}
-
+     {{- $class = printf "%s %s" $class (path.Dir .FirstSection.File.Path) -}}
      {{- if .Params.metaPage -}}
          {{- $class = printf "%s %s" $class "meta" -}}
      {{- end -}}

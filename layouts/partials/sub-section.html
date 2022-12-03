@@ -5,6 +5,8 @@
     {{- if (isset $rootSection.Params "color") -}}
         {{- $color = $rootSection.Params.Get "color" -}}
     {{- end -}}
+
+    {{ partial "breadcrumb-nav.html" . }}
     <div class="content">
       <div class="post-body">
           {{ .Content }}
