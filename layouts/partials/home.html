@@ -9,6 +9,7 @@
           {{- range .Pages -}}
             {{- $image := "" -}}
             {{- $color := "" -}}
+            {{- $style := "" -}}
             {{- $section := path.BaseName (path.Dir .File.Path) -}}
             {{- if (isset .Params "image") -}}
                 {{- $image = .Params.Get "image" -}}
@@ -22,11 +23,14 @@
             {{- if (isset .Params "color") -}}
                 {{- $color = .Params.Get "color" -}}
             {{- end -}}
+            {{- if (isset .Params "style") -}}
+                {{- $style = .Params.Get "style" -}}
+            {{- end -}}
             <li class="section">
               <a href="{{ .RelPermalink }}">
                 <div class="section-tile">
                   <img class="section-tile-image" src="{{ $image }}" alt="{{ .Title }}">
-                  <div class="tile-caption">{{ .Title }}</div>
+                  <div class="tile-caption" {{if ne $style ""}} style="{{ $style | safeCSS }}" {{- end }}>{{ .Title }}</div>
                 </div>
               </a>
             </li>
