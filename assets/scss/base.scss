@@ -269,10 +269,18 @@ footer,
         .section-tile {
             position: relative;
             display: flex;
+            transform: scale(1);
+            transition: all 200ms linear;
+
+            &:hover {
+              transform: scale(1.05);
+              transition: all 200ms linear;
+            }
 
             .section-tile-image {
                 width: 100%;
                 border-radius: .6rem;
+                filter: blur(2px);
             }
 
             .tile-caption {
@@ -280,9 +288,10 @@ footer,
                 bottom: 0.4em;
                 right: 0.2em;
                 font-size: 2em;
-                color: white;
+                color: black;
                 text-align: right;
                 float: right;
+                $styleadow: 0 0 7px black;
             }
 
         }
