@@ -19,6 +19,9 @@
       {{- if ne $subtitle "" -}}
             <h2 class="header-subtitle">{{ $subtitle | safeHTML }}</h2>
       {{- end -}}
+      <ul class="header-nav-list small-header">
+        {{ partialCached "menu-nav.html" . }}
+      </ul>
     </div>
   </div>
   <div class="header-shadow"></div>

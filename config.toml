@@ -15,6 +15,7 @@ defaultcontentlanguage = "de"
     subTitle = "<span class='prefix'>Zum Leben und Werk von </span><a href='/'><img class='header-img' src='/images/signature.svg' alt='Unterschrift von Wilma Bräuner'></a> <span class='year'>(1891-1985)<span>"
     keywords = "blog, book, digitization, history, cultural history"
     Copyright = "false"
+    homeList = true
 
 [module]
     [[module.mounts]]
@@ -34,11 +35,14 @@ defaultcontentlanguage = "de"
         name = "Veranstaltungsort"
         URL = "/location"
         weight = 1
+        type = "meta"
 
     [[menu.main]]
         name = "Kontakt & Impressum"
         URL = "/about"
         weight = 2
+        type = "meta"
+
 
 #[languages]
 #    [languages.de]

@@ -1,4 +1,8 @@
-{{- range .Site.Menus.main -}}
+{{- $menuitems := .Site.Menus.main -}}
+{{/* TODO: Filter menu items here */}}
+{{/*- $menuitems = where $menuitems "type" "==" "meta" -*/}}
+
+{{- range $menuitems -}}
   <li class="nav-item">
     <a href="{{ .URL }}">
         {{ .Name }}
