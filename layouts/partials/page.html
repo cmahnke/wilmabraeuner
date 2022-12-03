@@ -6,12 +6,6 @@
 
         <div class="content">
             {{- if not .Params.metaPage -}}
-                <div class="date">
-                    {{- partial "date.html" (dict "date" .Date "language" $.Page.Language "months" $.Site.Data.months) -}}
-                </div>
-            {{- end -}}
-
-            {{- if not .Params.metaPage -}}
                 <h1 class="post-title">{{ .Title }}</h1>
                 <div class="date">
                     <a href="{{ .RelPermalink }}">{{- partial "date.html" . -}}</a>

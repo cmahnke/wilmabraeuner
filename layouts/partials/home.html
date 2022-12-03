@@ -1,6 +1,42 @@
-{{- $page := . -}}
-{{- if .IsHome -}}
-  {{- $page = .Site.GetPage "/home/index.md" -}}
-{{- end -}}
+<div class="post-container post {{ .Params.type }}">
+  <div class="content-area">
+    {{- $pages := .Pages -}}
+    {{- if .IsHome -}}
+      {{- if site.Params.homelist -}}
 
-{{ partial "page.html" $page }}
+        {{- $pages = where $pages "Params.metaPage" "!=" true -}}
+        <ul class="section-listing">
+          {{- range .Pages -}}
+            {{- $image := "" -}}
+            {{- $color := "" -}}
+            {{- $section := path.BaseName (path.Dir .File.Path) -}}
+            {{- if (isset .Params "image") -}}
+                {{- $image = .Params.Get "image" -}}
+            {{- else -}}
+                {{- continue -}}
+            {{- end -}}
+            {{- if in $image "{}" -}}
+                {{- $image = replace $image "{}" $section -}}
+            {{- end -}}
+            {{- $image = path.Join .RelPermalink $image -}}
+            {{- if (isset .Params "color") -}}
+                {{- $color = .Params.Get "color" -}}
+            {{- end -}}
+            <li class="section">
+              <a href="{{ .RelPermalink }}">
+                <div class="section-tile">
+                  <img class="section-tile-image" src="{{ $image }}" alt="{{ .Title }}">
+                  <div class="tile-caption">{{ .Title }}</div>
+                </div>
+              </a>
+            </li>
+            {{- end -}}
+          </ul>
+      {{- else -}}
+        {{- partial "page.html" (.Site.GetPage "/home/index.md") -}}
+      {{- end -}}
+    {{- else -}}
+      {{/* TODO: Other list will be rendered here, currently disabled, since we haven't got any tags yet */}}
+    {{- end -}}
+  </div>
+</div>

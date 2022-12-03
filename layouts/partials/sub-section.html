@@ -1,0 +1,23 @@
+<div class="post-container post {{ .Params.type }}">
+  <div class="content-area">
+    {{- $rootSection := .FirstSection -}}
+    {{- $color := "" -}}
+    {{- if (isset $rootSection.Params "color") -}}
+        {{- $color = $rootSection.Params.Get "color" -}}
+    {{- end -}}
+    <div class="content">
+      <div class="post-body">
+          {{ .Content }}
+      </div>
+      <ul class="subsection-listing">
+        {{- range .Pages -}}
+          <li class="sub-section">
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+          </li>
+        {{- end -}}
+      </ul>
+    </div>
+  </div>
+</div>
