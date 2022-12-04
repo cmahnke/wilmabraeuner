@@ -1,15 +1,12 @@
 {{- $page := .Page -}}
 {{- $context := path.Dir .File.Path -}}
 {{- $pageURL := .Permalink -}}
-<div class="post-container post {{ .Params.type }}">
+<div class="content-container {{ .Params.type }}">
     <div class="content-area">
 
         <div class="content">
             {{- if not .Params.metaPage -}}
                 <h1 class="post-title">{{ .Title }}</h1>
-                <div class="date">
-                    <a href="{{ .RelPermalink }}">{{- partial "date.html" . -}}</a>
-                </div>
             {{- end -}}
             <div class="post-body">
                 {{ .Content }}
