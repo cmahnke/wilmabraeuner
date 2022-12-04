@@ -1,4 +1,4 @@
-<div class="post-container post {{ .Params.type }}">
+<div class="content-container {{ .Params.type }}">
   <div class="content-area">
     {{- $rootSection := .FirstSection -}}
     {{- $color := "" -}}
@@ -6,9 +6,11 @@
         {{- $color = $rootSection.Params.Get "color" -}}
     {{- end -}}
 
-    {{ partial "breadcrumb-nav.html" . }}
+    <div class="content-header">
+      {{ partial "breadcrumb-nav.html" . }}
+    </div>
     <div class="content">
-      <div class="post-body">
+      <div class="content-body">
           {{ .Content }}
       </div>
       <ul class="subsection-listing">

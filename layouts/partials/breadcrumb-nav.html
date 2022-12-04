@@ -1,24 +1,25 @@
-<ul class="content-header-nav">
-    <li class="content-header-nav-item start"><a href="/">Home</a></li>
-    {{- $.Scratch.Set "url" "" -}}
-    {{- range (split .RelPermalink "/") -}}
-        {{- if (gt (len .) 0) -}}
-            {{- $.Scratch.Set "isPage" "false" -}}
-            {{- $.Scratch.Add "url" (print "/" . ) -}}
-            {{- if $.Site.GetPage (print . ".md") -}}
-                {{- with $.Site.GetPage (print . ".md") -}}
-                    {{- if .IsPage -}}
-                        {{- $.Scratch.Set "isPage" "true" -}}
-                    {{- end -}}
-                {{- end -}}
-            {{- end -}}
-            {{- if eq ($.Scratch.Get "isPage") "true" -}}
-                {{- with $.Site.GetPage (print . ".md") -}}
-                    <li class="content-header-nav-item"><a href="{{ $.Scratch.Get `url` }}">{{ .Title }}</a></li>
-                {{- end -}}
-            {{- else -}}
-                <li class="content-header-nav-item"><a href="{{ $.Scratch.Get `url` }}">{{ humanize . }}</a></li>
-            {{- end -}}
+{{- $rotate := "" }}
+{{- range (seq 0 1) -}}
+    {{- $rotate = printf "%s%d" $rotate (index (shuffle (seq 0 99)) 0) -}}
+{{- end -}}
+{{- $rotate = printf "%s%d.%s" (index (shuffle (slice "-" "")) 0) (index (shuffle (seq 0 1)) 0) $rotate -}}
+{{- $style := printf "transform: rotate(%sdeg);" $rotate -}}
+<ol class="content-header-nav" style="{{ $style | safeCSS }}">
+    {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+</ol>
+{{ define "breadcrumbnav" }}
+  {{ if .p1.Parent }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+  {{ else if not .p1.IsHome }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+  {{ end }}
+  <li class="content-header-nav-item {{ if eq .p1 .p2 }} active{{ end }}{{- if .p1.IsHome -}} home{{ end }}">
+      <a href="{{ .p1.Permalink }}">
+        {{- if .p1.IsHome -}}
+          <img class="home-icon" src="/images/archive-home.svg">
+        {{- else -}}
+          {{- .p1.Title -}}
         {{- end -}}
-    {{- end -}}
-</ul>
+      </a>
+  </li>
+{{ end }}
