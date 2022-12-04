@@ -4,5 +4,7 @@
     "headroom.js": "^0.12.0",
     "juxtaposejs": "^1.1.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "sassdash": "^0.9.0"
+  }
 }
