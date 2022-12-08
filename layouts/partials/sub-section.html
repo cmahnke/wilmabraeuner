@@ -15,7 +15,7 @@
       </div>
       {{- if eq .Params.type "frame" -}}
         {{- partial "frame.html" . -}}
-      {{- if eq .Params.type "wall" -}}
+      {{- else if eq .Params.type "wall" -}}
         {{- partial "wall.html" . -}}
       {{- else -}}
         <ol class="subsection-listing">
