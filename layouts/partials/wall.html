@@ -1,0 +1,32 @@
+{{/* TODO add overview */}}
+
+<ol class="subsection-listing wall-contents">
+  {{- range .Pages -}}
+    {{ $class := "" }}
+    {{/* TODO: Add text and audio here */}}
+    {{- if .Params "type" -}}
+      {{- $class = "online" -}}
+    {{- end -}}
+    <li class="sub-section">
+      <div class="object-number">{{ .Title }}</div>
+      {{- if eq .Params.type "text" -}}
+        <div class="text">
+          {{ .Content }}
+        </div>
+        {{/* TODO include audio here */}}
+
+      {{- else -}}
+        <div class="preview">
+          {{/* TODO generate preview here */}}
+          <img src="" alt="{{ .Title }}">
+        </div>
+        <div class="single-view">
+          <a href="{{ .RelPermalink }}">
+            Einzelansicht {{ .Title }}
+          </a>
+        </div>
+      {{- end -}}
+
+    </li>
+  {{- end -}}
+</ol>
