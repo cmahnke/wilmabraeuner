@@ -15,7 +15,12 @@
         {{- if not .Content -}}
           {{- errorf "%s is empty!" .File.Path -}}
         {{- end -}}
-      {{- else if or (eq .Params.type "wall") (eq .Params.type "frame") -}}
+      {{- else if eq .Params.type "wall" -}}
+        {{- $preview := .Resources.Match "preview" -}}
+        {{- if eq $preview nil -}}
+          {{- errorf "Preview image for %s not found" .File.Path -}}
+        {{- end -}}
+      {{- else if eq .Params.type "frame" -}}
         {{- $preview := .Resources.Match "preview" -}}
         {{- if eq $preview nil -}}
           {{- warnf "Preview image for %s not found" .File.Path -}}

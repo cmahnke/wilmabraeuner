@@ -5,5 +5,8 @@ outputs:
   - qrcode
 type: wall
 aliases:
-  /k/12/
+  - /k/12/
+resources:
+- name: preview
+  src: "12_Stellwand-Winter-1.jpg"  
 ---

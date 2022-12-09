@@ -3,5 +3,5 @@ title:
 outputs:
   - html
   - qrcode
-type: wall
+type: frame
 ---
