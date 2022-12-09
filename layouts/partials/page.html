@@ -1,6 +1,8 @@
 {{- $page := .Page -}}
 {{- $context := path.Dir .File.Path -}}
 {{- $pageURL := .Permalink -}}
+{{- partial "content-check.html" . -}}
+
 <div class="content-container {{ .Params.type }}">
     <div class="content-area">
 

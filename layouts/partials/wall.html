@@ -4,7 +4,7 @@
   {{- range .Pages -}}
     {{ $class := "" }}
     {{/* TODO: Add text and audio here */}}
-    {{- if .Params "type" -}}
+    {{- if .Params.type -}}
       {{- $class = "online" -}}
     {{- end -}}
     <li class="sub-section">

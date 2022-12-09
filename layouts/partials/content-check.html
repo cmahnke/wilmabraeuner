@@ -1,0 +1,48 @@
+{{- if not .Params.check -}}
+  {{- if ne .Params.check false -}}
+    {{- if eq (.OutputFormats.Get "qrcode") nil -}}
+      {{- errorf "%s hasn't got QR Code output" .File.Path -}}
+    {{- end -}}
+    {{- if not .Params.type -}}
+      {{- errorf "%s hasn't have 'type' set" .File.Path -}}
+    {{- else -}}
+      {{- if eq .Params.type "audio" -}}
+        {{- $audio := .Resources.Match "audio" -}}
+        {{- if eq $audio nil -}}
+          {{- warnf "Audio for %s not found" .File.Path -}}
+        {{- end -}}
+      {{- else if eq .Params.type "text" -}}
+        {{- if not .Content -}}
+          {{- errorf "%s is empty!" .File.Path -}}
+        {{- end -}}
+      {{- else if or (eq .Params.type "wall") (eq .Params.type "frame") -}}
+        {{- $preview := .Resources.Match "preview" -}}
+        {{- if eq $preview nil -}}
+          {{- warnf "Preview image for %s not found" .File.Path -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not .Title -}}
+      {{- warnf "%s has no title" .File.Path -}}
+    {{- end -}}
+    {{- if ne .Params.type "topic" -}}
+      {{- if not .Aliases -}}
+        {{- warnf "%s has no alias" .File.Path -}}
+      {{- else -}}
+        {{- range .Aliases -}}
+          {{- if not (hasPrefix . "/") -}}
+            {{- warnf "%s in %s is missing a leading slash" . .File.Path -}}
+          {{- end -}}
+          {{- if not (strings.HasSuffix . "/") -}}
+            {{- warnf "%s in %s is missing a trailing slash" . .File.Path -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- else -}}
+      {{- warnf "Ignoring aliases for %s" .File.Path -}}
+    {{- end -}}
+    {{- if .Params.draft -}}
+      {{- warnf "%s is a draft!" .File.Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
