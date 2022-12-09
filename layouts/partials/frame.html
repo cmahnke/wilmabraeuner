@@ -3,7 +3,7 @@
 <ol class="subsection-listing frame-contents">
   {{- range .Pages -}}
     {{ $class := "" }}
-    {{- if .Params "online" -}}
+    {{- if eq .Params.type "online" -}}
       {{- $class = "online" -}}
     {{- end -}}
     <li class="sub-section {{ $class }}">
