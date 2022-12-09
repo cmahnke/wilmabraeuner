@@ -7,6 +7,9 @@ outputs:
 aliases:
   - /n/23/
 type: wall
+resources:
+- name: preview
+  src: "23_Stellwand-Naturschutz-1.jpg"
 ---
 
 

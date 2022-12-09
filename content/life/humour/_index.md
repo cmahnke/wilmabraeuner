@@ -6,4 +6,7 @@ type: wall
 outputs:
   - html
   - qrcode
+resources:
+- name: preview
+  src: "26_Stellwand-Humor.jpg"
 ---

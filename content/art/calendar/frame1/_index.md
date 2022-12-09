@@ -1,9 +1,7 @@
 ---
 title:
+type: frame
 outputs:
   - html
   - qrcode
-type: frame
-aliases:
-#  - /k/
 ---

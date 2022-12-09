@@ -6,4 +6,7 @@ outputs:
 type: wall
 aliases:
   - /k/17/
+resources:
+- name: preview
+  src: "17_Stellwand-Haeuser-3.jpg"  
 ---
