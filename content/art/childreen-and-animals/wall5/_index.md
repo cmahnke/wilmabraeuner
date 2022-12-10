@@ -4,7 +4,7 @@ outputs:
   - html
   - qrcode
 aliases:
-  - /a/5/
+  - /k/5/
 type: wall
 resources:
 - name: preview

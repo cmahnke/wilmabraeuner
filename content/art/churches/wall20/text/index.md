@@ -1,5 +1,5 @@
 ---
-title:
+title: Kirchen
 type: text
 outputs:
   - html

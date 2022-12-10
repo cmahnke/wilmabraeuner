@@ -1,5 +1,5 @@
 ---
-title:
+title: Häuser / Orte
 type: text
 outputs:
   - html

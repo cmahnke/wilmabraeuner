@@ -1,5 +1,5 @@
 ---
-title:
+title: Kirchen und Religiosität 1 (Stellwand 19)
 outputs:
   - html
   - qrcode

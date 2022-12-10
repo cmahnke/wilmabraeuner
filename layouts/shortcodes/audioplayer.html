@@ -1,0 +1,4 @@
+{{- $src := .Get "src" -}}
+{{- $autoplay := .Get "autoplay" -}}
+
+{{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" $autoplay) -}}
