@@ -1,5 +1,5 @@
 ---
-title:
+title: Ein Tag in der Dünenwelt, 1. Absatz
 type: audio
 outputs:
   - html

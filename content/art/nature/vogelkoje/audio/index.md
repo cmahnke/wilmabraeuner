@@ -6,4 +6,5 @@ outputs:
   - qrcode
 aliases:
   - /k/22/1a/
+draft: true
 ---
