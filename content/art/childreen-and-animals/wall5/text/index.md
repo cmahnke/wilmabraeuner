@@ -1,5 +1,5 @@
 ---
-title:
+title: Menschen und Tiere
 type: text
 outputs:
   - html

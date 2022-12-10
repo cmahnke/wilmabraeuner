@@ -14,6 +14,9 @@
       {{- else if not .Aliases -}}
         {{- errorf "No alias for audio type, file %s" .File.Path -}}
       {{- end -}}
+      {{- if ne (substr (index .Aliases 0) -2 1) "a" -}}
+        {{- errorf "Alias for audio type doesn't ends with 'a', file %s" .File.Path -}}
+      {{- end -}}
       {{- if not .Title -}}
         {{- errorf "%s has no title" .File.Path -}}
       {{- end -}}
@@ -23,6 +26,9 @@
       {{- end -}}
       {{- if not .Aliases -}}
         {{- errorf "%s has no alias!" .File.Path -}}
+      {{- end -}}
+      {{- if ne (substr (index .Aliases 0) -2 1) "t" -}}
+        {{- errorf "Alias for audio type doesn't ends with 'a', file %s" .File.Path -}}
       {{- end -}}
       {{- if not .Title -}}
         {{- errorf "%s has no title" .File.Path -}}

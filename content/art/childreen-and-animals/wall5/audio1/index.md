@@ -1,12 +1,12 @@
 ---
-title: Die gräfliche Spucke
+title: Swami Sambuddhananda
 type: audio
 outputs:
   - html
   - qrcode
 aliases:
-  - /k/14/10a/
+  - /k/5/10a/
 resources:
 - name: audio
-  src: "14_Kalender.mp3"
+  src: "5_Swami.mp3"
 ---

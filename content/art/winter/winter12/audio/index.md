@@ -1,9 +1,9 @@
 ---
-title:
+title: Ausbildung zur Fotografin
 type: audio
 resources:
 - name: audio
-  src: ""
+  src: "12_Ausbildung-fotografin.mp3"
 outputs:
   - html
   - qrcode

@@ -53,6 +53,10 @@
                   {{ partial "meta/tags.html" . }}
                 </div>
             {{ end }}
+
+            {{- if eq .Params.type "audio" -}}
+              <a class="up" href="{{ .Parent.RelPermalink}}">{{ i18n "overview" }}</a>
+            {{- end -}}
          </div>
 
 
