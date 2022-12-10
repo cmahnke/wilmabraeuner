@@ -9,4 +9,5 @@ outputs:
 resources:
 - name: preview
   src: "3_Stellwand-Biographie.jpg"
+weight: 2
 ---

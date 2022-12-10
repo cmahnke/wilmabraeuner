@@ -18,7 +18,27 @@ Zusätzlich zu den Nummern der Stellwände gibt es Buchstabe um die Vitrine und 
 * ***N***: Nordwand
 * ***S***: Südwand
 
-# Inhaltstypen
+# Objektnummern
+
+Die Objektnummern werden aus dem themenbereich als Präfix, der Stellwandnummer und dann dem Rahmen / Bild gebildet.
+Für Rahmen werden danach die Ggerahmenten Fotos oder Dokumente durchgezählt.
+
+Objekte, die derivate von anderen sind, ändern nur ihr Suffix, nicht ihre Nummer, dies betrifft haupsächlich Texte und ihre Audiovarianaten.
+Objekte, die nur online verfügbar sid, haben ausschließlich zweistellige Objektnummern.
+
+Zum Abschluss (also nur für das letzte Element) wird ein Suffix nach Typ angehängt:
+
+* ***a***: Audio
+* ***d***: Dokument
+* ***f***: Foto
+* ***k***: Kunstwerk (Gemälde, Druck, Aquarell usw.)
+* ***o***: Objekt
+* ***t***: Text
+* ***w***: Webseite
+
+# Inhaltsklassifikation
+
+## Inhaltstypen
 
 * 'wall'
 * 'frame'
@@ -30,3 +50,13 @@ Zusätzlich zu den Nummern der Stellwände gibt es Buchstabe um die Vitrine und 
 * 'text'
 * 'audio'
 * 'topic'
+
+# Erzwungene Metadaten
+
+* Für Texte und Audio werden folgende Metadaten / Inhalte erzwungen
+  * Text
+  * Audiodateien
+  * Alias und damit Objektnummern
+
+* Für Stellwände werden folgende Metadaten erzwungen
+  * Vorschaubilder

@@ -1,7 +1,7 @@
 ---
 title: "Archivbrand 1950"
 aliases:
-  - /a/3/2t/
+  - /l/3/2t/
 outputs:
   - html
   - qrcode

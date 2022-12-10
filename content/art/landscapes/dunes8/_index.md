@@ -8,5 +8,6 @@ aliases:
   - /k/8/
 resources:
 - name: preview
-  src: "8_Stellwand-Duenen-1.jpg"  
+  src: "8_Stellwand-Duenen-1.jpg"
+weight: 2
 ---

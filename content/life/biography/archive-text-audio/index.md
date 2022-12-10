@@ -1,7 +1,7 @@
 ---
 title: "Der Blich ins Archiv: Was die Quellen verraten – wenn man sie entziffern kann... Hörfassung"
 aliases:
-  - /a/3/2a/
+  - /l/3/2a/
 outputs:
   - html
   - qrcode

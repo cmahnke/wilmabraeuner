@@ -14,18 +14,20 @@
       <div class="content-body">
           {{ .Content }}
       </div>
-      {{- if eq .Params.type "frame" -}}
-        {{- partial "frame.html" . -}}
-      {{- else if eq .Params.type "wall" -}}
-        {{- partial "wall.html" . -}}
+      {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
+        {{- partial "overview.html" . -}}
       {{- else -}}
         <ol class="subsection-listing">
           {{- range .Pages -}}
-            <li class="sub-section">
-              <a href="{{ .RelPermalink }}">
-                {{ .Title }}
-              </a>
-            </li>
+            {{- if .Title -}}
+              {{- if or (eq .Kind "section") .Content -}}
+                <li class="sub-section">
+                  <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                  </a>
+                </li>
+              {{- end -}}
+            {{- end -}}
           {{- end -}}
         </ol>
       {{- end -}}

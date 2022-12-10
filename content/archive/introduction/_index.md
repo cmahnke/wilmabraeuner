@@ -8,5 +8,6 @@ outputs:
 type: wall
 resources:
 - name: preview
-  src: "1_Stellwand-Einleitung.jpg" 
+  src: "1_Stellwand-Einleitung.jpg"
+weight: 1
 ---

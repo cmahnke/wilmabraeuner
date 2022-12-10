@@ -10,6 +10,7 @@ type: wall
 resources:
 - name: preview
   src: "23_Stellwand-Naturschutz-1.jpg"
+weight: 1
 ---
 
 

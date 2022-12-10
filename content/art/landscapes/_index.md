@@ -4,4 +4,5 @@ type: topic
 outputs:
   - html
   - qrcode
+weight: 3
 ---
