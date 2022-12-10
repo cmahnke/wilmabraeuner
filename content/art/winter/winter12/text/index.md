@@ -1,5 +1,5 @@
 ---
-title:
+title: Winter - Ausstellungsbesprechung 1918 und Totenschiff 
 outputs:
   - html
   - qrcode

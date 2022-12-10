@@ -1,9 +1,9 @@
 ---
-title: Rahmen
-type: frame
+title:
+type: painting
 outputs:
   - html
   - qrcode
 aliases:
-  - /n/23/2/
+  - /k/n/4/
 ---

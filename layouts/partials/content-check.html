@@ -10,9 +10,12 @@
     {{- if eq .Params.type "audio" -}}
       {{- $audio := .Resources.Match "audio" -}}
       {{- if eq $audio nil -}}
-        {{- warnf "Audio for %s not found" .File.Path -}}
+        {{- errorf "Audio for %s not found" .File.Path -}}
       {{- else if not .Aliases -}}
         {{- errorf "No alias for audio type, file %s" .File.Path -}}
+      {{- end -}}
+      {{- if not .Title -}}
+        {{- errorf "%s has no title" .File.Path -}}
       {{- end -}}
     {{- else if eq .Params.type "text" -}}
       {{- if not .Content -}}
@@ -20,6 +23,9 @@
       {{- end -}}
       {{- if not .Aliases -}}
         {{- errorf "%s has no alias!" .File.Path -}}
+      {{- end -}}
+      {{- if not .Title -}}
+        {{- errorf "%s has no title" .File.Path -}}
       {{- end -}}
     {{- else if eq .Params.type "wall" -}}
       {{- $preview := .Resources.Match "preview" -}}
@@ -29,10 +35,22 @@
       {{- if not .Aliases -}}
         {{- errorf "%s has no alias!" .File.Path -}}
       {{- end -}}
+      {{- if ne .Kind "section" -}}
+        {{- errorf "%s is type 'wall' but not a section" .File.Path -}}
+      {{- end -}}
+      {{- if not .Title -}}
+        {{- errorf "%s has no title" .File.Path -}}
+      {{- end -}}
     {{- else if eq .Params.type "frame" -}}
       {{- $preview := .Resources.Match "preview" -}}
       {{- if eq $preview nil -}}
-        {{- warnf "Preview image for %s not found" .File.Path -}}
+        {{- errorf "Preview image for %s not found" .File.Path -}}
+      {{- end -}}
+      {{- if not .Aliases -}}
+        {{- errorf "%s has no alias!" .File.Path -}}
+      {{- end -}}
+      {{- if ne .Kind "section" -}}
+        {{- errorf "%s is type 'frame' but not a section" .File.Path -}}
       {{- end -}}
     {{- end -}}
 
@@ -62,4 +80,6 @@
       {{- warnf "%s is a draft!" .File.Path -}}
     {{- end -}}
   {{- end -}}
+{{- else -}}
+  {{- warnf "Check for %s is disabled!" .File.Path -}}
 {{- end -}}

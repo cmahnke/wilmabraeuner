@@ -14,6 +14,14 @@
                 {{ .Content }}
             </div>
 
+            {{- if eq .Params.type "audio" -}}
+              {{- $audio := .Resources.Match "audio" -}}
+              {{- with $audio -}}
+                {{- $src := $audio.RelPermalink -}}
+                {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
+              {{- end -}}
+            {{- end -}}
+
             {{- if .Params.iiif -}}
                 <div class="iiif">
                   {{- range .Params.resources -}}

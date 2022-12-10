@@ -1,5 +1,5 @@
 ---
-title:
+title: Bräuners Lebensende
 outputs:
   - html
   - qrcode

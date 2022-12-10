@@ -1,12 +1,12 @@
 ---
 title:
+type: painting
 outputs:
   - html
   - qrcode
-type: frame
 aliases:
-  - /k/13/2/
+  - /k/n/3/
 resources:
 - name: preview
-  src: "Rahmen-13-Winter-2.jpg"  
+  src: "15_Stellwand-Haeuser-1.jpg"  
 ---

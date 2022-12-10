@@ -1,5 +1,5 @@
 ---
-title:
+title: Alte Köpfe
 type: text
 aliases:
   - /k/4/1a/

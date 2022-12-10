@@ -1,12 +1,12 @@
 ---
-title:
+title: Rahmen
+type: frame
 outputs:
   - html
   - qrcode
-type: frame
 aliases:
-  - /k/13/2/
+  - /n/23/2/
 resources:
 - name: preview
-  src: "Rahmen-13-Winter-2.jpg"  
+  src: "Rahmen-23-Atlantis.jpg"
 ---

@@ -1,0 +1,13 @@
+{{- $autoplay := .autoplay -}}
+{{- $src := .src -}}
+
+{{- $id := printf "_audioplayer-%s" (md5 (printf "%s-%s" $src now.UnixNano)) -}}
+<div class="audioplayer" id="{{ $id }}">
+    <div class="button-container">
+        <button class="audioplayer-button play"></button >
+    </div>
+    <script type="text/javascript">
+        var player = document.getElementById('{{ $id }}');
+        audioplayer(player, '{{ $src }}', player.querySelector('button.audioplayer-button'));
+    </script>
+</div>

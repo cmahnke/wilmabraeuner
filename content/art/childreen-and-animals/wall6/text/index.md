@@ -1,5 +1,5 @@
 ---
-title:
+title: Tiere und Bildbarbeitung
 type: text
 outputs:
   - html

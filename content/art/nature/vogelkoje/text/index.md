@@ -1,5 +1,5 @@
 ---
-title:
+title: Vogelkoje
 type: text
 outputs:
   - html

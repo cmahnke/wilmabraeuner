@@ -5,5 +5,8 @@ outputs:
   - qrcode
 type: frame
 aliases:
-#  - /k/
+  - /k/4/3/
+resources:
+- name: preview
+  src: "Rahmen-4-Akte.jpg"  
 ---

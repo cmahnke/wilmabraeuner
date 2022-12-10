@@ -1,5 +1,5 @@
 ---
-title:
+title: Kalender
 type: text
 outputs:
   - html
