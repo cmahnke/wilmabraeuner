@@ -6,7 +6,7 @@ outputs:
   - html
   - qrcode
 aliases:
-  - /k/n/1/
+  - /k/n/1t/
 ---
 
 Zu den Aufgaben des Archivs gehört es, wie zuvor gezeigt, die Archivalien zu verzeichnen, zugänglich zu machen und ggf. Restaurierungs- und Digitalisierungsmaßnahmen durchzuführen, um die Lebensdauer des Materials zu verlängern, es zu erhalten und zu schützen.

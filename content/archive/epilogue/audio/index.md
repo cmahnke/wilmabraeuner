@@ -8,5 +8,5 @@ outputs:
 type: audio
 resources:
 - name: audio
-  src: ""
+  src: "Ausgang-Epilog-2.mp3"
 ---

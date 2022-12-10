@@ -15,10 +15,20 @@
             </div>
 
             {{- if eq .Params.type "audio" -}}
-              {{- $audio := .Resources.Match "audio" -}}
+              {{- $audio := .Resources.GetMatch "audio" -}}
               {{- with $audio -}}
-                {{- $src := $audio.RelPermalink -}}
+                {{- $src := .RelPermalink -}}
                 {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
+              {{- end -}}
+            {{- end -}}
+
+            {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
+              {{- $preview := .Resources.GetMatch "preview" -}}
+              {{ with $preview }}
+                {{ $image := .Resize "600x" }}
+                <div class="preview">
+                  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}">
+                </div>
               {{- end -}}
             {{- end -}}
 
