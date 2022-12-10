@@ -4,6 +4,8 @@ type: text
 outputs:
   - html
   - qrcode
+aliases:
+  - /k/14/1t/
 ---
 
 Über Jahrzehnte entstanden tausende Ölgemälde und Fotografien. Bräuner produzierte – teils mit Unterstützung von Dritten – Postkarten von Handabzügen ihrer Fotografien.

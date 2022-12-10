@@ -1,7 +1,7 @@
 ---
 title: "Kunstgewerbeladen auf Sylt und Privatleben"
 aliases:
-  - /a/3/1t/
+  - /l/3/1t/
 outputs:
   - html
   - qrcode

@@ -96,6 +96,17 @@ html {
                 opacity: 1;
             }
 
+        @media (max-width : 64em) {
+            .header-top {
+                display: none;
+
+                .header-title {
+                    font-size: .8em;
+                    margin-left: .4em;
+                }
+            }
+        }
+
         }
 
         .header-nav-list {
@@ -117,6 +128,19 @@ html {
               transform: translateX(-100%);
               transition: all 300ms ease-in;
 
+            }
+        }
+
+        @media (max-width : 64em) {
+            .header-subtitle {
+                .prefix {
+                    font-size: 1.2em !important;
+                    margin-left: .4em;
+                }
+
+                .header-img {
+                    max-width: 10em;
+                }
             }
         }
 
@@ -197,6 +221,11 @@ html {
     .content {
         margin-top: calc($gradient-margin + calc($gradient-margin * .3));
         margin-bottom: calc($gradient-margin + calc($gradient-margin * .3));
+        background-color: #fff;
+        /*box-shadow: 2px 2px 5px 0px #000;*/
+        border-radius: 0.6rem;
+        padding-bottom: 4em;
+
     }
 
     .content-body {
@@ -279,6 +308,8 @@ html {
           margin-inline-end: 0px;
           overflow-x: hidden;
           display: flex;
+          box-shadow: 2px 2px 4px 0px #000;
+
 
           .content-header-nav-item {
               display: inline-flex;
@@ -419,21 +450,28 @@ footer,
 .subsection-listing {
     display: flex;
     font-weight: 400;
+    flex-direction: column;
+    padding-inline-start: 0px;
+    max-width: 1080px;
+    width: 70%;
+    align-items: center;
 
     .sub-section {
         display: block;
         font-size: 2em;
         font-family: $font-face-header;
         margin: auto;
-        width: 70%;
+        width: 80%;
         flex-direction: column;
+        margin: 1rem;
 
         a {
             color: $header-text-color;
             text-decoration: none;
             &:before {
                 content: $link-marker;
-              }
+                vertical-align: middle;
+            }
         }
     }
 }
@@ -575,6 +613,16 @@ footer {
             border: 1px solid;
             box-shadow: 5px 5px 7px -4px #000000;
         }
+    }
+}
+
+.content {
+    .object-title {
+        display: inline-block;
+        margin-left: .4rem;
+    }
+    .object-number {
+        display: none;
     }
 }
 

@@ -8,5 +8,5 @@ outputs:
 type: audio
 resources:
 - name: audio
-  src: ""
+  src: "1_Einleitung-Archiv-3.mp3"
 ---

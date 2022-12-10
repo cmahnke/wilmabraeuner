@@ -9,4 +9,5 @@ aliases:
 resources:
 - name: preview
   src: "17_Stellwand-Haeuser-3.jpg"  
+weight: 3
 ---

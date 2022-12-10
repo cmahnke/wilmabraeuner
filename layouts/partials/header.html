@@ -7,9 +7,9 @@
       <div class="header-top">
         {{- $hometitle := .Site.Params.hometitle | default "" -}}
         {{- if ne $hometitle "" -}}
-            <h1 class="header-title"><a href="/">{{ $hometitle }}</a></h1>
+            <h1 class="header-title"><a href="/" title={{ i18n "homepageLink" }}>{{ $hometitle }}</a></h1>
         {{- else -}}
-            <h1 class="header-title"><a href="/">{{ .Title }}</a></h1>
+            <h1 class="header-title"><a href="/" title={{ i18n "homepageLink" }}>{{ .Title }}</a></h1>
         {{- end -}}
         <ul class="header-nav-list">
           {{ partialCached "menu-nav.html" . }}
@@ -17,7 +17,7 @@
       </div>
       {{- $subtitle := .Site.Params.subtitle | default "" -}}
       {{- if ne $subtitle "" -}}
-            <h2 class="header-subtitle">{{ $subtitle | safeHTML }}</h2>
+            <a href="/" title={{ i18n "homepageLink" }}><h2 class="header-subtitle">{{ $subtitle | safeHTML }}</h2></a>
       {{- end -}}
       <ul class="header-nav-list small-header">
         {{ partialCached "menu-nav.html" . }}

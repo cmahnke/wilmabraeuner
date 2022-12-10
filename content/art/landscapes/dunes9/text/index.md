@@ -4,6 +4,8 @@ type: text
 outputs:
   - html
   - qrcode
+aliases:
+  - /k/9/1t/
 ---
 
 Bevor Bräuner sich auf Sylt niederließ, stellte sie einige Male in Hamburg aus, in der Galerie Commeter und im Kunsthaus Bock. Die Besprechung der Ausstellung im Kunsthaus Bock aus dem Jahre 1918 ebenso wie ihre Anerkennung als Berufsfotografin zeugen von der Qualität ihrer Arbeiten und ihrem Talent.

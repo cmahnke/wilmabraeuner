@@ -9,4 +9,5 @@ type: wall
 resources:
 - name: preview
   src: "14_Stellwand-Kalender.jpg"  
+weight: 4
 ---

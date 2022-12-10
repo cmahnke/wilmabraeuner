@@ -1,0 +1,53 @@
+{{/* TODO add overview */}}
+{{ $singleTypes := slice "picture painting print object" }}
+<ol class="subsection-listing wall-contents">
+  {{- range .Pages -}}
+    {{ $class := "" }}
+    {{/* TODO: Add text and audio here */}}
+    {{- if .Params.subtype -}}
+      {{- $class = .Params.subtype -}}
+    {{- end -}}
+    <li class="sub-section">
+      {{- if .Title -}}
+        {{- if or .Content .Resources -}}
+          <a href="{{- .RelPermalink -}}" title="{{- .Title -}}">
+        {{- end -}}
+        <div class="object-title">
+          {{ .Title }}
+        </div>
+        {{- if .Aliases -}}
+          {{- partial "object-number.html" . -}}
+        {{- end -}}
+        {{- if eq .Params.type "text" -}}
+          <div class="text">
+            {{ .Content }}
+          </div>
+        {{- else if eq .Params.type "audio" -}}
+          <div class="audio">
+            {{/* TODO include audio here */}}
+          </div>
+        {{- else -}}
+          {{- if .Resources -}}
+            {{- $preview := .Resources.Match "preview" -}}
+            {{ with $preview }}
+              {{ $image := $preview.Resize "600x" }}
+              <div class="preview">
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+              </div>
+            {{ end }}
+            {{- if in $singleTypes .Params.type  -}}
+              <div class="single-view">
+                <a href="{{ .RelPermalink }}">
+                  {{ i18n "singleView" }} {{ .Title }}
+                </a>
+              </div>
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if or .Content .Resources -}}
+          </a>
+        {{- end -}}
+      {{- end -}}
+    </li>
+  {{- end -}}
+</ol>

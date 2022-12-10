@@ -7,4 +7,6 @@ resources:
 outputs:
   - html
   - qrcode
+aliases:
+  - /k/12/1a/
 ---

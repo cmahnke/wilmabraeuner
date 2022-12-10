@@ -4,6 +4,8 @@ type: text
 outputs:
   - html
   - qrcode
+aliases:
+  - /a/v/1t/
 ---
 
 Die meisten Materialien bestehen in Flachware, also aus Papier in Form schriftlicher Dokumente oder Fotomaterialien.

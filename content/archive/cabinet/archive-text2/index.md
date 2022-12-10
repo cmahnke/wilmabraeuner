@@ -4,6 +4,8 @@ type: text
 outputs:
   - html
   - qrcode
+aliases:
+  - /a/v/2t/
 ---
 
 Neben gesetzlichen Schutzfristen kann der Erhaltungszustand des Materials ein weiterer Grund sein, die Benutzung von Originalquellen einzuschränken. Das hier gezeigte Beispiel zeigt einen Fraßschaden an Papier. Zu erkennen ist, dass die Tiere das Papier schichtenweise abgetragen, die Tinte aber verschmäht haben.

@@ -4,6 +4,8 @@ type: text
 outputs:
   - html
   - qrcode
+aliases:
+  - /k/6/1t/
 ---
 
 Wie Bräuner sagte: „Von diesem Mosaik der Erinnerungen abgesehen, steckt mein Leben in meinen Bildern, in den fotografierten wie in den gemalten.“

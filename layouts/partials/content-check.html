@@ -5,28 +5,37 @@
     {{- end -}}
     {{- if not .Params.type -}}
       {{- errorf "%s hasn't have 'type' set" .File.Path -}}
-    {{- else -}}
-      {{- if eq .Params.type "audio" -}}
-        {{- $audio := .Resources.Match "audio" -}}
-        {{- if eq $audio nil -}}
-          {{- warnf "Audio for %s not found" .File.Path -}}
-        {{- end -}}
-      {{- else if eq .Params.type "text" -}}
-        {{- if not .Content -}}
-          {{- errorf "%s is empty!" .File.Path -}}
-        {{- end -}}
-      {{- else if eq .Params.type "wall" -}}
-        {{- $preview := .Resources.Match "preview" -}}
-        {{- if eq $preview nil -}}
-          {{- errorf "Preview image for %s not found" .File.Path -}}
-        {{- end -}}
-      {{- else if eq .Params.type "frame" -}}
-        {{- $preview := .Resources.Match "preview" -}}
-        {{- if eq $preview nil -}}
-          {{- warnf "Preview image for %s not found" .File.Path -}}
-        {{- end -}}
+    {{- end -}}
+
+    {{- if eq .Params.type "audio" -}}
+      {{- $audio := .Resources.Match "audio" -}}
+      {{- if eq $audio nil -}}
+        {{- warnf "Audio for %s not found" .File.Path -}}
+      {{- else if not .Aliases -}}
+        {{- errorf "No alias for audio type, file %s" .File.Path -}}
+      {{- end -}}
+    {{- else if eq .Params.type "text" -}}
+      {{- if not .Content -}}
+        {{- errorf "%s is empty!" .File.Path -}}
+      {{- end -}}
+      {{- if not .Aliases -}}
+        {{- errorf "%s has no alias!" .File.Path -}}
+      {{- end -}}
+    {{- else if eq .Params.type "wall" -}}
+      {{- $preview := .Resources.Match "preview" -}}
+      {{- if eq $preview nil -}}
+        {{- errorf "Preview image for %s not found" .File.Path -}}
+      {{- end -}}
+      {{- if not .Aliases -}}
+        {{- errorf "%s has no alias!" .File.Path -}}
+      {{- end -}}
+    {{- else if eq .Params.type "frame" -}}
+      {{- $preview := .Resources.Match "preview" -}}
+      {{- if eq $preview nil -}}
+        {{- warnf "Preview image for %s not found" .File.Path -}}
       {{- end -}}
     {{- end -}}
+
     {{- if not .Title -}}
       {{- warnf "%s has no title" .File.Path -}}
     {{- end -}}
@@ -34,12 +43,15 @@
       {{- if not .Aliases -}}
         {{- warnf "%s has no alias" .File.Path -}}
       {{- else -}}
-        {{- range .Aliases -}}
-          {{- if not (hasPrefix . "/") -}}
-            {{- warnf "%s in %s is missing a leading slash" . .File.Path -}}
-          {{- end -}}
-          {{- if not (strings.HasSuffix . "/") -}}
-            {{- warnf "%s in %s is missing a trailing slash" . .File.Path -}}
+        {{- if ne .File nil -}}
+          {{- $contextFile :=  .File.Path -}}
+          {{- range .Aliases -}}
+            {{- if not (hasPrefix . "/") -}}
+              {{- errorf "%s in %s is missing a leading slash" . $contextFile -}}
+            {{- end -}}
+            {{- if not (strings.HasSuffix . "/") -}}
+              {{- errorf "%s in %s is missing a trailing slash" . $contextFile -}}
+            {{- end -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

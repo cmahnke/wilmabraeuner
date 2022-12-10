@@ -9,4 +9,5 @@ outputs:
 resources:
 - name: preview
   src: "26_Stellwand-Humor.jpg"
+weight: 3
 ---

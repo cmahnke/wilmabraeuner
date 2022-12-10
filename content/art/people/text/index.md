@@ -1,6 +1,8 @@
 ---
 title:
 type: text
+aliases:
+  - /k/4/1a/
 outputs:
   - html
   - qrcode
