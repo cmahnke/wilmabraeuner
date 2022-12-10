@@ -1,5 +1,5 @@
 ---
-title: Häuser / Orte
+title: Witthüs (Häuser / Orte)
 type: text
 outputs:
   - html

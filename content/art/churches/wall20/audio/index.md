@@ -1,9 +1,9 @@
 ---
-title:
+title: Kirchen Hörfassung
 type: audio
 resources:
 - name: audio
-  src: ""
+  src: "20-Kirche-2.mp3"
 outputs:
   - html
   - qrcode

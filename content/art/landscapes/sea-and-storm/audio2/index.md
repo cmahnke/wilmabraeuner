@@ -1,12 +1,12 @@
 ---
-title: Die gräfliche Spucke
+title:
 type: audio
 outputs:
   - html
   - qrcode
 aliases:
-  - /k/14/10a/
+  - /k/7/11a/
 resources:
 - name: audio
-  src: "14_Kalender.mp3"
+  src: "7_Wanderduene.mp3"
 ---

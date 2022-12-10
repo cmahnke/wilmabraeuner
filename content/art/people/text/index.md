@@ -2,7 +2,7 @@
 title: Alte Köpfe
 type: text
 aliases:
-  - /k/4/1a/
+  - /k/4/1t/
 outputs:
   - html
   - qrcode

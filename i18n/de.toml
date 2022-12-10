@@ -6,3 +6,6 @@ other = "Hörfassung"
 
 [singleView]
 other = "Einzelobjektansicht"
+
+[overview]
+other = "Zur Übersicht"
