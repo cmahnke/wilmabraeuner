@@ -27,17 +27,19 @@
             </div>
           {{- else if eq .Params.type "audio" -}}
             <div class="audio">
-              {{- $audio := .Resources.Match "audio" -}}
-              {{- $src := $audio.RelPermalink -}}
-              {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
+              {{- $audio := .Resources.GetMatch "audio" -}}
+              {{- with $audio -}}
+                {{- $src := .RelPermalink -}}
+                {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
+              {{- end -}}
             </div>
           {{- else -}}
             {{- if .Resources -}}
-              {{- $preview := .Resources.Match "preview" -}}
+              {{- $preview := .Resources.GetMatch "preview" -}}
               {{ with $preview }}
-                {{ $image := $preview.Resize "600x" }}
+                {{ $image := .Resize "600x" }}
                 <div class="preview">
-                  <img src="{{ .RelPermalink }}" alt="{{ .Title }}">
+                  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}">
                 </div>
               {{ end }}
               {{- if in $singleTypes .Params.type  -}}

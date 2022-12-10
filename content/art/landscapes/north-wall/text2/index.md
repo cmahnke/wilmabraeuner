@@ -6,7 +6,7 @@ outputs:
   - html
   - qrcode
 aliases:
-  - /k/n/2/
+  - /k/n/2t/
 ---
 
 Zu den zahlreichen Herausforderungen bei der Bewahrung von historischem Erbe zählt der Wandel von Kultur- und Medientechniken: So wie sich die Handschriften ändern, sind auch die Erzeugung und Aufbewahrung von Bildern einem konstanten Wandel unterworfen. Ein prominentes Beispiel aus der jüngeren Vergangenheit ist ein Diaprojektor.
