@@ -28,7 +28,7 @@
               {{ with $preview }}
                 {{ $image := .Resize "600x" }}
                 <div class="preview">
-                  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}">
+                  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
                 </div>
               {{- end -}}
             {{- end -}}

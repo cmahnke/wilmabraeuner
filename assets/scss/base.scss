@@ -214,7 +214,7 @@ html {
 
     .content-container {
         max-width: $max-width;
-        width: $max-width;
+        width: 100%;
         margin: auto;
     }
 
@@ -239,6 +239,15 @@ html {
 
         }
 
+        .object-title {
+            display: inline-block;
+            margin-left: .4rem;
+            font-family: $font-face-header;
+        }
+        .object-number {
+            display: none;
+        }
+
         .post-title {
             font-size: 2em;
             margin: auto;
@@ -255,11 +264,19 @@ html {
           font-family: $font-face-body;
         }
 
+
+
     }
 
     .content-body {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-self: flex-end;
+
+        .preview-image {
+            border-radius: .6rem;
+            align-self: flex-end;
+        }
 
         h1 {
           margin-bottom: .6em;
@@ -364,8 +381,6 @@ html {
               }
 
           }
-
-
 
           a {
               text-decoration: none;
@@ -495,10 +510,8 @@ footer,
 
     .sub-section {
         display: block;
-        font-size: 2em;
         font-family: $font-face-header;
         margin: auto;
-        width: 80%;
         flex-direction: column;
         margin: 1rem;
 
@@ -508,7 +521,22 @@ footer,
             &:before {
                 content: $link-marker;
                 vertical-align: middle;
+                font-size: 2em;
             }
+        }
+
+        &>.object-title {
+          margin-left: 2.4rem;
+        }
+
+        .object-title {
+            font-size: 2em;
+
+        }
+
+        .text {
+            font-size: larger;
+            margin-inline-start: 2em;
         }
     }
 }
@@ -653,16 +681,6 @@ footer {
     }
 }
 
-.content {
-    .object-title {
-        display: inline-block;
-        margin-left: .4rem;
-    }
-    .object-number {
-        display: none;
-    }
-}
-
 /* Headroom */
 
 .headroom {
@@ -695,8 +713,15 @@ footer {
 
         .header-top {
             max-height: 2.2em;
-            /*order: 2;*/
         }
+
+        /*
+        @media (max-width : 64em) {
+            .header-top {
+                display: none;
+            }
+        }
+        */
 
         .header-title {
             display: none;
