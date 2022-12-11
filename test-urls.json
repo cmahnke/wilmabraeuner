@@ -1,5 +1,5 @@
 [
   {"url": "index.html"},
-  {"url": "https://wilmabräuner.projektemacher.org/about/"},
-  {"url": "https://wilmabräuner.projektemacher.org/location/"}
+  {"url": "/about/"},
+  {"url": "/location/"}
 ]

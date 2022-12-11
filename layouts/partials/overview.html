@@ -2,7 +2,7 @@
 {{- $singleTypes := slice "picture painting print object" -}}
 {{- if ne (len .Pages) 0 -}}
   {{- $type := .Params.type -}}
-  {{- $class := printf "%s-contents" $type -}}
+  {{- $class := printf "%s-content" $type -}}
   <div class="section-content {{ $class | safeCSS }}">
     {{ .Content }}
   </div>
@@ -35,24 +35,11 @@
           {{- if .Aliases -}}
             {{- partial "object-number.html" . -}}
           {{- end -}}
-          {{- if and (eq .Params.type "text") (eq $.Params.type "wall") -}}
-            <div class="text">
+          {{- if or (eq .Params.type "text") (eq .Params.type "audio") -}}
+            <div class="{{ $class | safeCSS }}">
               {{- if .Summary -}}
                {{ .Summary -}}...
               {{- end -}}
-            </div>
-          {{- else if eq .Params.type "audio" -}}
-            <div class="audio">
-              {{- if .Summary -}}
-               {{ .Summary -}}...
-              {{- end -}}
-              {{/*
-              {{- $audio := .Resources.GetMatch "audio" -}}
-              {{- with $audio -}}
-                {{- $src := .RelPermalink -}}
-                {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
-              {{- end -}}
-              */}}
             </div>
           {{- else -}}
             {{- if .Resources -}}
