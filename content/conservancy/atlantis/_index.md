@@ -1,5 +1,5 @@
 ---
-title: Das Projekt Atlantis
+title: "Stellwand: Das Projekt Atlantis"
 description: ""
 outputs:
   - html

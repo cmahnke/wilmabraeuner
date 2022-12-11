@@ -1,5 +1,5 @@
 ---
-title: Bürgerinitiative
+title: "Stellwand: Bürgerinitiative"
 description: ""
 outputs:
   - html

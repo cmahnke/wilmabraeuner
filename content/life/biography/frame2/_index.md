@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Kunstgewerbehaus Frisia"
 type: frame
 outputs:
   - html

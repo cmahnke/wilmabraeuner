@@ -1,5 +1,5 @@
 ---
-title: Rahmen 1
+title: "Rahmen: Humor"
 aliases:
   - /a/26/2/
 outputs:

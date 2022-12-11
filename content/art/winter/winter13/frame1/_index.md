@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Künstlerische Winterdarstellungen"
 outputs:
   - html
   - qrcode

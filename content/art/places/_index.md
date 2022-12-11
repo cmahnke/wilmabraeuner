@@ -1,5 +1,5 @@
 ---
-title: Thema Orte und Gebäude
+title: "Thema: Orte und Gebäude"
 outputs:
   - html
   - qrcode

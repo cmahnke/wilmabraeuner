@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Wassertiere"
 type: frame
 outputs:
   - html

@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Rechnungen"
 type: frame
 outputs:
   - html

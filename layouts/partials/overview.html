@@ -4,8 +4,6 @@
   {{- $type := .Params.type -}}
   {{- $class := printf "%s-content" $type -}}
 
-
-
   <div class="content-body {{ $class | safeCSS }}">
     {{ .Content }}
     {{- if .Resources -}}
@@ -31,7 +29,7 @@
           {{- if or .Content .Resources -}}
             <a href="{{- .RelPermalink -}}" title="{{- .Title -}}">
           {{- end -}}
-          <div class="object-title">
+          <div class="object-title listing-title">
             {{ .Title }}
           </div>
           {{- if .Aliases -}}

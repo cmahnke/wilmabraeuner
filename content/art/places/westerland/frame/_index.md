@@ -1,5 +1,5 @@
 ---
-title: Rahmen Westerland
+title: "Rahmen: Westerland"
 type: frame
 outputs:
   - html

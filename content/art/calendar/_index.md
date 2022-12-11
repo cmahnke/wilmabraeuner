@@ -1,5 +1,5 @@
 ---
-title: Kalender
+title: "Stellwand: Kalender"
 outputs:
   - html
   - qrcode

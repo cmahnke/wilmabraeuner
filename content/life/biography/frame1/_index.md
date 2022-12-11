@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Brief"
 type: frame
 outputs:
   - html

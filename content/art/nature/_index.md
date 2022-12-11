@@ -1,5 +1,5 @@
 ---
-title: Natur
+title: "Thema: Natur"
 outputs:
   - html
   - qrcode

@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Akte"
 outputs:
   - html
   - qrcode

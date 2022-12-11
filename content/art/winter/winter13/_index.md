@@ -1,5 +1,5 @@
 ---
-title: Winter 2 (künstlerische Darstellungen)
+title: "Stellwand: Winter 2 (künstlerische Darstellungen)"
 outputs:
   - html
   - qrcode

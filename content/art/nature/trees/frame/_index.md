@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Bäume"
 type: frame
 outputs:
   - html

@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Vogelkoje"
 type: frame
 outputs:
   - html

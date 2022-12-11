@@ -1,5 +1,5 @@
 ---
-title: Kirchen und Religiosität
+title: "Thema: Kirchen und Religiosität"
 type: topic
 outputs:
   - html

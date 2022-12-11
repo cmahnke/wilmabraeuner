@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Winteraufnahmen"
 outputs:
   - html
   - qrcode

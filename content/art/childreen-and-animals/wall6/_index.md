@@ -1,5 +1,5 @@
 ---
-title: Tiere
+title: "Stellwand: Tiere"
 outputs:
   - html
   - qrcode

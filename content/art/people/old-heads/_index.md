@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Alte Köpfe"
 outputs:
   - html
   - qrcode

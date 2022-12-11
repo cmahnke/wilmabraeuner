@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Radierungen"
 type: frame
 outputs:
   - html

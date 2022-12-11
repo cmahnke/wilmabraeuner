@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Hamburg"
 type: frame
 aliases:
   - /l/2/4/

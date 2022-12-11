@@ -1,5 +1,5 @@
 ---
-title: Kunstgewerbeladen auf Sylt und Privatleben
+title: "Stellwand: Kunstgewerbeladen auf Sylt und Privatleben"
 aliases:
   - /l/26/
 type: wall

@@ -1,5 +1,5 @@
 ---
-title: Menschen, Kinder und Tiere
+title: "Thema: Menschen, Kinder und Tiere"
 type: topic
 outputs:
   - html

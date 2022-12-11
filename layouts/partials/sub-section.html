@@ -25,7 +25,9 @@
               {{- if or (eq .Kind "section") .Content -}}
                 <li class="sub-section">
                   <a href="{{ .RelPermalink }}">
-                    {{ .Title }}
+                    <div class="listing-title">
+                      {{ .Title }}
+                    </div>
                   </a>
                 </li>
               {{- end -}}

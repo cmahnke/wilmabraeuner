@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Swami Sambuddhananda"
 type: frame
 outputs:
   - html

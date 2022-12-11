@@ -1,5 +1,5 @@
 ---
-title: Humor
+title: "Stellwand: Wilma Bräuners Humor"
 aliases:
   - /l/26/
 type: wall
