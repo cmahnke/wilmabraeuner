@@ -1,12 +1,12 @@
 ---
-title: Tiere und Bildbarbeitung - Hörfassung
+title: Menschen und Tiere - Hörfassung
 type: audio
 outputs:
   - html
   - qrcode
 aliases:
-  - /k/6/1a/
+  - /k/5/1a/
 resources:
 - name: audio
-  src: "6_Text.mp3"
+  src: "5_Text.mp3"
 ---
