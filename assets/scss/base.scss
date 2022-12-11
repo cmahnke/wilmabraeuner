@@ -225,6 +225,7 @@ html {
         /*box-shadow: 2px 2px 5px 0px #000;*/
         border-radius: 0.6rem;
         padding-bottom: 4em;
+        display: flex;
 
     }
 
@@ -235,6 +236,10 @@ html {
         h1 {
           margin-bottom: .6em;
         }
+    }
+
+    .section-preview img {
+        max-width: 24em;
     }
 
     p {
@@ -453,8 +458,7 @@ footer,
     flex-direction: column;
     padding-inline-start: 0px;
     max-width: 1080px;
-    width: 70%;
-    align-items: center;
+    /*align-items: center; */
 
     .sub-section {
         display: block;
