@@ -218,6 +218,11 @@ html {
         margin: auto;
     }
 
+    a, a:link, a:visited, a:hover {
+        color: #666;
+        text-decoration: none;
+    }
+
     .content {
         margin-top: calc($gradient-margin + calc($gradient-margin * .3));
         margin-bottom: calc($gradient-margin + calc($gradient-margin * .3));
@@ -226,6 +231,17 @@ html {
         border-radius: 0.6rem;
         padding-bottom: 4em;
         display: flex;
+        flex-direction: column;
+
+        .post-title {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .up {
+          margin: auto;
+          text-decoration: none;
+        }
 
     }
 
@@ -380,6 +396,11 @@ footer,
     a, a:hover {
         text-decoration: none;
     }
+}
+
+.audioplayer {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .section-listing {
