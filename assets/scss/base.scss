@@ -224,6 +224,7 @@ html {
     }
 
     .content {
+        padding: 2em;
         margin-top: calc($gradient-margin + calc($gradient-margin * .3));
         margin-bottom: calc($gradient-margin + calc($gradient-margin * .3));
         background-color: #fff;
@@ -233,14 +234,25 @@ html {
         display: flex;
         flex-direction: column;
 
+        &.audio {
+
+
+        }
+
         .post-title {
             font-size: 2em;
+            margin: auto;
             margin-bottom: 1em;
         }
 
         .up {
           margin: auto;
           text-decoration: none;
+          font-family: $font-face-body;
+        }
+
+        .text {
+          font-family: $font-face-body;
         }
 
     }
