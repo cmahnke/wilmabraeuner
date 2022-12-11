@@ -1,5 +1,5 @@
 ---
-title:
+title: Bräuners Lebensende - Hörfassung
 outputs:
   - html
   - qrcode
@@ -8,5 +8,5 @@ aliases:
   - /n/25/1a/
 resources:
 - name: audio
-  src: ""
+  src: "25_Ex-Libris-Text.mp3"
 ---

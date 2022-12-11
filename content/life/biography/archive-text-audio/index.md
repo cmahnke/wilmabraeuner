@@ -7,4 +7,7 @@ outputs:
   - qrcode
 type: audio
 subtype: archive
+resources:
+- name: audio
+  src: "4_Archiv.mp3"
 ---

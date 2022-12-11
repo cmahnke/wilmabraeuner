@@ -1,12 +1,12 @@
 ---
-title: "Seit über 80 Jahren auf Sylt"
+title: "Humor / Bräuner-Weg - Hörfassung"
 aliases:
-  - /a/26/10a/
+  - /a/26/1a/
 outputs:
   - html
   - qrcode
 type: audio
 resources:
 - name: audio
-  src: "26_Seit-ueber-80-jahren-3.mp3"
+  src: "26_Humor.mp3"
 ---

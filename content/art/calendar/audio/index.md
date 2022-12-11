@@ -1,12 +1,12 @@
 ---
-title: Die gräfliche Spucke
+title: Kalender Hörfassung
 type: audio
 outputs:
   - html
   - qrcode
 aliases:
-  - /k/14/10a/
+  - /k/14/1a/
 resources:
 - name: audio
-  src: "14_Kalender.mp3"
+  src: "14_Kalender-text.mp3"
 ---

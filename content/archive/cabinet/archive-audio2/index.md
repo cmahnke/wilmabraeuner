@@ -8,5 +8,5 @@ aliases:
   - /a/v/2a/
 resources:
 - name: audio
-  src: ".mp3"
+  src: "Vitrine_Archiv-Fressen-2.mp3"
 ---

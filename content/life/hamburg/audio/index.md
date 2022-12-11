@@ -1,12 +1,12 @@
 ---
-title: Im Hamburger Gängeviertel, 1. Absatz
+title: "Biografie / Hamburg - Hörfassung"
 aliases:
-  - /a/2/10a/
+  - /a/2/1a/
 outputs:
   - html
   - qrcode
 type: audio
 resources:
 - name: audio
-  src: "2_Gaengevirtel-Hamburg-2.mp3"
+  src: "2_Text.mp3"
 ---

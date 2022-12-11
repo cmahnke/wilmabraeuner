@@ -8,5 +8,6 @@ outputs:
   - qrcode
 resources:
 - name: preview
-  src: "N_Nordwand.jpg"  
+  src: "N_Nordwand.jpg"
+weight: 2
 ---

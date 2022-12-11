@@ -1,12 +1,12 @@
 ---
-title: Vogelkoje Hörfassung
+title: Die gräfliche Spucke
 type: audio
 outputs:
   - html
   - qrcode
 aliases:
-  - /k/22/1a/
+  - /k/14/10a/
 resources:
 - name: audio
-  src: "22_Vogelkoje.mp3"
+  src: "14_Kalender.mp3"
 ---
