@@ -55,14 +55,18 @@ jobs:
       - name: Build Hugo site
         run: hugo --printI18nWarnings --printUnusedTemplates
 
+      - name: Run post build script
+        run: |
+          ./scripts/post-build/qr-codes.sh
+
       - name: Validate JSON
         env:
           OSTYPE: linux
         run: |
           yarn run validate
 
-#      - name: Puppeteer
-#        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
+      - name: Puppeteer
+        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
 
       - name: Cleanup disk
         run: |
