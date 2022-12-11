@@ -9,4 +9,6 @@ type: audio
 resources:
 - name: audio
   src: "3_Text.mp3"
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---

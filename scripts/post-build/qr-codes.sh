@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-./scripts/generate-qr-codes.py
+python themes/projektemacher-base/scripts/generate-qr-codes.py -i "./Source Files/icons/" -b circle

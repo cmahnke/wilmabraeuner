@@ -9,4 +9,6 @@ aliases:
 resources:
 - name: audio
   src: "Vitrine_Archiv-Materialen.mp3"
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---

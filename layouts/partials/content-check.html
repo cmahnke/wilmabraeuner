@@ -25,6 +25,9 @@
       {{- if not .Title -}}
         {{- errorf "%s has no title" .File.Path -}}
       {{- end -}}
+      {{- if not (isset .Params "qr-icon") -}}
+        {{- errorf "%s has no icon!" .File.Path -}}
+      {{- end -}}
     {{- else if eq .Params.type "text" -}}
       {{- if not .Content -}}
         {{- errorf "%s is empty!" .File.Path -}}

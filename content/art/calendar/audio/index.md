@@ -9,4 +9,6 @@ aliases:
 resources:
 - name: audio
   src: "14_Kalender-text.mp3"
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---

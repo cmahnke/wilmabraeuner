@@ -23,7 +23,8 @@
       {{- if .Params.subtype -}}
         {{- $class = .Params.subtype -}}
       {{- end -}}
-      <li class="sub-section">
+      {{- $class := .Params.type -}}
+      <li class="sub-section {{ $class | safeCSS }}">
         {{- if .Title -}}
           {{- if or .Content .Resources -}}
             <a href="{{- .RelPermalink -}}" title="{{- .Title -}}">
@@ -36,15 +37,22 @@
           {{- end -}}
           {{- if and (eq .Params.type "text") (eq $.Params.type "wall") -}}
             <div class="text">
-              {{ .Content }}
+              {{- if .Summary -}}
+               {{ .Summary -}}...
+              {{- end -}}
             </div>
           {{- else if eq .Params.type "audio" -}}
             <div class="audio">
+              {{- if .Summary -}}
+               {{ .Summary -}}...
+              {{- end -}}
+              {{/*
               {{- $audio := .Resources.GetMatch "audio" -}}
               {{- with $audio -}}
                 {{- $src := .RelPermalink -}}
                 {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
               {{- end -}}
+              */}}
             </div>
           {{- else -}}
             {{- if .Resources -}}
