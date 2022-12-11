@@ -11,4 +11,6 @@ resources:
   src: "1_Einleitung-Archiv-3.mp3"
 qr-icon: comment.svg
 qr-icon-color: '#808080'
+tags:
+  - audio:archive
 ---
