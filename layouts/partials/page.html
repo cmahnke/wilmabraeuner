@@ -1,12 +1,13 @@
 {{- $page := .Page -}}
 {{- $context := path.Dir .File.Path -}}
 {{- $pageURL := .Permalink -}}
+{{- $singleTypes := slice "picture painting print object" -}}
 {{- partial "content-check.html" . -}}
 
 <div class="content-container {{ .Params.type }}">
     <div class="content-area">
 
-        <div class="content">
+        <div class="content {{ .Params.type }}">
             {{- if not .Params.metaPage -}}
                 <h1 class="post-title">{{ .Title }}</h1>
             {{- end -}}
