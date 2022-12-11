@@ -9,4 +9,6 @@ aliases:
 resources:
 - name: audio
   src: "9_Malerei-mila-kesch-2.mp3"
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---

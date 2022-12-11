@@ -10,4 +10,6 @@ subtype: archive
 resources:
 - name: audio
   src: "2_Archiv.mp3"
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---

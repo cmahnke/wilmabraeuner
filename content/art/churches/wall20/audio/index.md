@@ -9,4 +9,6 @@ outputs:
   - qrcode
 aliases:
   - /k/20/1a/
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---

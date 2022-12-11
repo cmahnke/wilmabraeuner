@@ -10,4 +10,6 @@ resources:
 - name: audio
   src: ""
 draft: true
+qr-icon: comment.svg
+qr-icon-color: '#808080'
 ---
