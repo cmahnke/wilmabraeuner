@@ -3,6 +3,19 @@
 {{- if ne (len .Pages) 0 -}}
   {{- $type := .Params.type -}}
   {{- $class := printf "%s-contents" $type -}}
+  <div class="section-content {{ $class | safeCSS }}">
+    {{ .Content }}
+  </div>
+  {{- if .Resources -}}
+    {{- $preview := .Resources.GetMatch "preview" -}}
+    {{- with $preview -}}
+      {{- $image := .Resize "600x" -}}
+      <div class="section-preview {{ $class | safeCSS }}">
+        <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}">
+      </div>
+    {{- end -}}
+  {{- end -}}
+
   <ol class="subsection-listing {{ $class | safeCSS }}">
     {{- range .Pages -}}
       {{ $class := "" }}
