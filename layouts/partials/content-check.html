@@ -77,6 +77,9 @@
       {{- if eq $preview nil -}}
         {{- errorf "Preview image for %s not found" .File.Path -}}
       {{- end -}}
+      {{- if not .Title -}}
+        {{- errorf "%s has no title" .File.Path -}}
+      {{- end -}}
       {{- if not .Aliases -}}
         {{- errorf "%s has no alias!" .File.Path -}}
       {{- end -}}

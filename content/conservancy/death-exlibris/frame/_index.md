@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Klara Enns und Ex Libris"
 type: frame
 outputs:
   - html

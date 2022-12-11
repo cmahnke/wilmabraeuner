@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Buhnen"
 type: frame
 outputs:
   - html

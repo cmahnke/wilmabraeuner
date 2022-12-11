@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Sturm"
 type: frame
 outputs:
   - html

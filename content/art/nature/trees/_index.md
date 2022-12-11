@@ -1,5 +1,5 @@
 ---
-title: Bäume
+title: "Stellwand: Bäume"
 outputs:
   - html
   - qrcode

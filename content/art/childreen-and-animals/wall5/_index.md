@@ -1,5 +1,5 @@
 ---
-title: Kinder und Tiere
+title: "Stellwand: Kinder und Tiere"
 outputs:
   - html
   - qrcode

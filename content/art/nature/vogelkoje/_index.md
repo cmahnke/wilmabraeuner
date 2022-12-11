@@ -1,5 +1,5 @@
 ---
-title: Vogelkoje
+title: "Stellwand: Vogelkoje"
 outputs:
   - html
   - qrcode

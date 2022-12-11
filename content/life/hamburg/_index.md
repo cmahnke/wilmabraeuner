@@ -1,5 +1,5 @@
 ---
-title: Hamburg
+title: "Stellwand: Hamburg"
 outputs:
   - html
   - qrcode

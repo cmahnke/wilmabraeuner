@@ -8,6 +8,7 @@ canonifyurls = true
 disableKinds = ["term", "taxonomy"]
 languagecode = "de"
 defaultcontentlanguage = "de"
+summaryLength = 40
 
 [params]
     author = "Sylter Archiv"

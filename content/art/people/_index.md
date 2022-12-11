@@ -1,5 +1,5 @@
 ---
-title: Menschen
+title: "Stellwand: Menschen"
 outputs:
   - html
   - qrcode

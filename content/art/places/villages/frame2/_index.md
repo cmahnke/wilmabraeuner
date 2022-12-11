@@ -1,5 +1,5 @@
 ---
-title: Rahmen Witthüs
+title: "Rahmen: Witthüs"
 type: frame
 outputs:
   - html

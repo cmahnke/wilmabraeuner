@@ -1,5 +1,5 @@
 ---
-title: Gebäude 1
+title: "Stellwand: Gebäude 1"
 outputs:
   - html
   - qrcode

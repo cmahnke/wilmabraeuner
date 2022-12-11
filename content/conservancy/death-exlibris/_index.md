@@ -1,5 +1,5 @@
 ---
-title: Tod und Ex Libris
+title: "Stellwand: Tod und Ex Libris"
 description: ""
 outputs:
   - html

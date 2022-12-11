@@ -1,5 +1,5 @@
 ---
-title:
+title: "Kollage: Kalender"
 type: frame
 outputs:
   - html

@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Kirchen"
 type: frame
 outputs:
   - html

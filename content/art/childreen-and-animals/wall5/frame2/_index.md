@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Windhunde"
 type: frame
 outputs:
   - html

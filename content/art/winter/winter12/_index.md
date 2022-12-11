@@ -1,5 +1,5 @@
 ---
-title: Winter 1
+title: "Stellwand: Winter 1"
 outputs:
   - html
   - qrcode

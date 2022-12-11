@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Dünen und Berge"
 type: frame
 outputs:
   - html

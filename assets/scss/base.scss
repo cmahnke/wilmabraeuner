@@ -240,9 +240,7 @@ html {
         }
 
         .object-title {
-            display: inline-block;
-            margin-left: .4rem;
-            font-family: $font-face-header;
+
         }
         .object-number {
             display: none;
@@ -525,13 +523,15 @@ footer,
             }
         }
 
-        &>.object-title {
+        &>.listing-title {
           margin-left: 2.4rem;
         }
 
-        .object-title {
+        .listing-title {
             font-size: 2em;
-
+            display: inline-block;
+            margin-left: .4rem;
+            font-family: $font-face-header;
         }
 
         .text {

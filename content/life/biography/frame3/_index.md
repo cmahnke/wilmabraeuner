@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Fünkchen"
 type: frame
 outputs:
   - html

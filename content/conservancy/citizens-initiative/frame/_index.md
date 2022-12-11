@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Bürgerinitiative"
 type: frame
 outputs:
   - html

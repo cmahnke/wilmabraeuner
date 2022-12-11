@@ -1,5 +1,5 @@
 ---
-title:
+title: "Rahmen: Tiere"
 type: frame
 outputs:
   - html

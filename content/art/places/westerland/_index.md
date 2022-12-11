@@ -1,5 +1,5 @@
 ---
-title: Westerland
+title: "Stellwand: Westerland"
 type: wall
 outputs:
   - html

@@ -1,5 +1,5 @@
 ---
-title: Dörfer
+title: "Stellwand: Dörfer"
 outputs:
   - html
   - qrcode

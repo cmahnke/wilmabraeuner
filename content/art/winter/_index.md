@@ -1,5 +1,5 @@
 ---
-title: Thema Winter
+title: "Thema: Winter"
 type: topic
 outputs:
   - html
