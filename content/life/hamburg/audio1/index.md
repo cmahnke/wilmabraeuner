@@ -11,4 +11,6 @@ resources:
   src: "2_Gaengevirtel-Hamburg-2.mp3"
 qr-icon: comment.svg
 qr-icon-color: '#808080'
+tags:
+  - audio:bonus
 ---

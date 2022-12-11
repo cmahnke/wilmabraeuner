@@ -28,6 +28,15 @@
                     <div class="listing-title">
                       {{ .Title }}
                     </div>
+                    {{- if .Resources -}}
+                      {{- $preview := .Resources.GetMatch "preview" -}}
+                      {{ with $preview }}
+                        {{ $image := .Resize "300x" }}
+                        <div class="preview">
+                          <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
+                        </div>
+                      {{ end }}
+                    {{ end }}
                   </a>
                 </li>
               {{- end -}}

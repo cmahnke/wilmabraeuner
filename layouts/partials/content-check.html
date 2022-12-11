@@ -28,6 +28,9 @@
       {{- if not (isset .Params "qr-icon") -}}
         {{- errorf "%s has no icon!" .File.Path -}}
       {{- end -}}
+      {{- if not (isset .Params "tags") -}}
+        {{- errorf "%s has no tags!" .File.Path -}}
+      {{- end -}}
     {{- else if eq .Params.type "text" -}}
       {{- if not .Content -}}
         {{- errorf "%s is empty!" .File.Path -}}

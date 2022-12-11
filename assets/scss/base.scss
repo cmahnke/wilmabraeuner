@@ -83,6 +83,9 @@ html {
         .header-top {
             display: flex;
             justify-content: space-between;
+            @media (max-width : 64em) {
+                display: none;
+            }
 
             .header-title {
                 font-size: 2em;
@@ -94,18 +97,11 @@ html {
                 white-space: nowrap;
                 transform: translateY(0%);
                 opacity: 1;
-            }
-
-        @media (max-width : 64em) {
-            .header-top {
-                display: none;
-
-                .header-title {
-                    font-size: .8em;
-                    margin-left: .4em;
+                @media (max-width : 64em) {
+                    font-size: 1em;
                 }
             }
-        }
+
 
         }
 
@@ -115,6 +111,10 @@ html {
             align-items: center;
             justify-content: flex-end;
             justify-items: flex-end;
+
+            @media (max-width : 64em) {
+                display: none;
+            }
 
             .nav-item {
                 padding-left: 1rem;
@@ -131,32 +131,30 @@ html {
             }
         }
 
-        @media (max-width : 64em) {
-            .header-subtitle {
-                .prefix {
-                    font-size: 1.2em !important;
-                    margin-left: .4em;
-                }
-
-                .header-img {
-                    max-width: 10em;
-                }
-            }
-        }
-
         .header-subtitle {
             margin-top: .6em;
             display: flex;
             align-items: center;
             justify-items: flex-end;
             justify-content: flex-end;
+            transition: all 200ms ease-in;
+
+            @media (max-width : 64em) {
+                flex-direction: column;
+            }
 
 
             .prefix {
                 font-size: 2.2em;
                 opacity: 1;
-                taransform: scaleX(100%);
+                transform: scaleX(100%);
                 transition: all 300ms ease-in;
+
+                @media (max-width : 64em) {
+                    font-size: 1.2em !important;
+                    margin-left: .4em;
+                }
+
             }
 
             .header-img {
@@ -164,13 +162,20 @@ html {
                 vertical-align: bottom;
                 margin-left: 0.6rem;
                 margin-right: 0.6rem;
-                transition: all 300ms ease-in;
+                transition: all 200ms ease-in;
+
+                @media (max-width : 64em) {
+                    max-width: 10em;
+                }
             }
 
             .year {
                 font-size: 1.6em;
                 transform: scale(100%);
                 transition: all 300ms ease-in;
+                @media (max-width : 64em) {
+                    display: none;
+                }
             }
 
         }
@@ -182,6 +187,12 @@ html {
     /* TODO: Fix this for mobile / resposive view */
     .menu {
         display: none;
+        @media (max-width : 64em) {
+            display: block;
+            position: absolute;
+            top: 25%;
+            right: 0%;
+        }
     }
 
     h1 {
@@ -234,6 +245,10 @@ html {
         display: flex;
         flex-direction: column;
 
+        @media (max-width : 64em) {
+            padding: .2em;
+        }
+
         &.audio {
 
 
@@ -262,19 +277,18 @@ html {
           font-family: $font-face-body;
         }
 
+    }
 
-
+    .preview-image {
+        border-radius: .6rem;
+        align-self: flex-end;
+        border: 1px solid black;
     }
 
     .content-body {
         display: flex;
         flex-direction: row;
         align-self: flex-end;
-
-        .preview-image {
-            border-radius: .6rem;
-            align-self: flex-end;
-        }
 
         h1 {
           margin-bottom: .6em;
@@ -340,6 +354,12 @@ html {
         margin-top: 2em;
         margin-right: -5%;
 
+        @media (max-width : 64em) {
+            max-width: 95%;
+            margin-left: 5%;
+            margin-right: unset;
+        }
+
         .content-header-nav {
           font-family: $font-face-archive;
           font-weight: 200;
@@ -357,6 +377,12 @@ html {
           overflow-x: hidden;
           display: flex;
           box-shadow: 2px 2px 4px 0px #000;
+
+          @media (max-width : 64em) {
+              display: flex;
+              flex-direction: column;
+              max-height: unset;
+          }
 
 
           .content-header-nav-item {
@@ -507,7 +533,7 @@ footer,
     /*align-items: center; */
 
     .sub-section {
-        display: block;
+        display: flex;
         font-family: $font-face-header;
         margin: auto;
         flex-direction: column;
@@ -516,6 +542,7 @@ footer,
         a {
             color: $header-text-color;
             text-decoration: none;
+            display: block;
             &:before {
                 content: $link-marker;
                 vertical-align: middle;
@@ -646,8 +673,30 @@ footer {
 
 /* Page specific rules */
 
-.about.meta .content-body {
+.meta {
+
+    .content-area {
+        h1 {
+            margin-bottom: 1.6em;
+            font-size: 4em;
+
+            @media (max-width : 64em) {
+                font-size: 3em;
+
+            }
+        }
+    }
+
+}
+
+
+.about.meta .post-body {
     display: unset;
+    font-family: $font-face-archive;
+
+    h1 {
+        margin-bottom: 1.6em;
+    }
 
     p {
         color: #666;
@@ -657,6 +706,15 @@ footer {
     a, a:link, a:visited, a:hover {
         color: #666;
         text-decoration: none;
+    }
+
+    table {
+        font-size: 1.2em;
+
+        td {
+            margin: .2rem;
+        }
+
     }
 
     .imprint-archive {
@@ -693,6 +751,13 @@ footer {
     top: 0;
     left: 0;
     right: 0;
+}
+
+.headroom--top {
+    .menu {
+        top: 50%;
+        transition: all 200ms lease-in;
+    }
 }
 
 .headroom--unpinned {
@@ -735,7 +800,13 @@ footer {
             justify-items: unset;
             justify-content: unset;
             margin-top: unset;
+            transition: all 200ms ease-in;
+/*
+            @media (max-width : 64em) {
 
+                transform: translateY(-100%);
+            }
+*/
             .header-img {
                 height: 2em;
                 margin-left: unset;
@@ -747,6 +818,9 @@ footer {
                 white-space: nowrap;
                 transition: all 300ms lease-in;
                 transform: scale(0%);
+                @media (max-width : 64em) {
+                    display: none;
+                }
             }
 
             .prefix {
@@ -760,6 +834,11 @@ footer {
     .header-nav-list {
       transform: scaleX(0%);
       transition: all 300ms ease-in;
+
+      @media (max-width : 64em) {
+          display: none;
+      }
+
 
         &.small-header {
             transform: scaleX(100%) !important;

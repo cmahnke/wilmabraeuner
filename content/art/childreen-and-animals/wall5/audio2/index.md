@@ -11,4 +11,6 @@ resources:
   src: "5_Hundeliebe.mp3"
 qr-icon: comment.svg
 qr-icon-color: '#808080'
+tags:
+  - audio:bonus
 ---
