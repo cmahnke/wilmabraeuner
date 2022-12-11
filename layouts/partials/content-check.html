@@ -1,3 +1,8 @@
+{{- define "partials/itemnumber.html" -}}
+  {{- $objectNumber := substr .alias 3 -2 -}}
+  {{- $objectNumber = index (last 1 (split $objectNumber "/")) 0 -}}
+  {{- return $objectNumber -}}
+{{- end -}}
 {{- if not .Params.check -}}
   {{- if ne .Params.check false -}}
     {{- if eq (.OutputFormats.Get "qrcode") nil -}}
@@ -32,6 +37,23 @@
       {{- end -}}
       {{- if not .Title -}}
         {{- errorf "%s has no title" .File.Path -}}
+      {{- end -}}
+      {{- if ne .Parent.Kind "section" -}}
+        {{- errorf "Text entry %s has wrong parent type" .File.Path -}}
+      {{- end -}}
+      {{- $objectNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+
+      {{- $foundAudio := false -}}
+      {{- range .Parent.Pages -}}
+        {{- if eq .Params.type "audio" -}}
+          {{- $audioNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+          {{- if eq $objectNumber $audioNumber -}}
+            {{- $foundAudio = true -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if eq $foundAudio false -}}
+        {{- errorf "Text entry %s has no matching audio!" .File.Path -}}
       {{- end -}}
     {{- else if eq .Params.type "wall" -}}
       {{- $preview := .Resources.Match "preview" -}}
