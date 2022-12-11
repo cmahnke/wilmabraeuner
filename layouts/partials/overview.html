@@ -3,19 +3,21 @@
 {{- if ne (len .Pages) 0 -}}
   {{- $type := .Params.type -}}
   {{- $class := printf "%s-content" $type -}}
-  <div class="section-content {{ $class | safeCSS }}">
-    {{ .Content }}
-  </div>
-  {{- if .Resources -}}
-    {{- $preview := .Resources.GetMatch "preview" -}}
-    {{- with $preview -}}
-      {{- $image := .Resize "600x" -}}
-      <div class="section-preview {{ $class | safeCSS }}">
-        <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}">
-      </div>
-    {{- end -}}
-  {{- end -}}
 
+
+
+  <div class="content-body {{ $class | safeCSS }}">
+    {{ .Content }}
+    {{- if .Resources -}}
+      {{- $preview := .Resources.GetMatch "preview" -}}
+      {{- with $preview -}}
+        {{- $image := .Resize "600x" -}}
+        <div class="section-preview {{ $class | safeCSS }}">
+          <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
+        </div>
+      {{- end -}}
+    {{- end -}}
+  </div>
   <ol class="subsection-listing {{ $class | safeCSS }}">
     {{- range .Pages -}}
       {{ $class := "" }}
@@ -45,9 +47,9 @@
             {{- if .Resources -}}
               {{- $preview := .Resources.GetMatch "preview" -}}
               {{ with $preview }}
-                {{ $image := .Resize "600x" }}
+                {{ $image := .Resize "300x" }}
                 <div class="preview">
-                  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}">
+                  <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
                 </div>
               {{ end }}
               {{- if in $singleTypes .Params.type  -}}

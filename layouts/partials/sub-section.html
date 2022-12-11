@@ -11,12 +11,14 @@
       {{ partial "breadcrumb-nav.html" . }}
     </div>
     <div class="content">
-      <div class="content-body">
-          {{ .Content }}
-      </div>
       {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
         {{- partial "overview.html" . -}}
       {{- else -}}
+        {{- $type := .Params.type -}}
+        {{- $class := printf "%s-content" $type -}}
+        <div class="content-body {{ $class | safeCSS }}">
+            {{ .Content }}
+        </div>
         <ol class="subsection-listing">
           {{- range .Pages -}}
             {{- if .Title -}}
