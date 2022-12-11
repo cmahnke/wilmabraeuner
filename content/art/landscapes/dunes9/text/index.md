@@ -1,5 +1,5 @@
 ---
-title: Landschaft (Sturm und Meer)
+title: Landschaft (Dünen und Berge)
 type: text
 outputs:
   - html
@@ -8,5 +8,5 @@ aliases:
   - /k/9/1t/
 ---
 
-Bräuners Schwerpunkt von den Alten hin zu naturalistischen Landschaftsdarstellungen verlagerte sich mit ihrem Umzug nach Sylt.
-Bestimmende und wiederkehrende Motive in ihrem Sylter Werk sind neben der Tierwelt die Natur im Ganzen - besonders der Himmel, das Meer sowie Dünen-, Kliff- und Berglandschaften.
+Obwohl ihre künstlerisch-handwerkliche Ausbildung in die frühe Zeit der Abstrakten Kunst fiel, hielt sie nichts von dem Sujet. Ihre malerischen Arbeiten stehen dem Impressionismus nahe und illustrieren ihre Wahrnehmung der Welt wie auch ihren Humor.
+Wilma Bräuner suchte sich ihre Motive in ihrem unmittelbaren Lebensumfeld – egal ob an ihrem Wohnort oder auf Reisen.

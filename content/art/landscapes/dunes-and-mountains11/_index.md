@@ -9,5 +9,5 @@ aliases:
 resources:
 - name: preview
   src: "11_Stellwand-Duenen-4.jpg"  
-weight: 5
+weight: 6
 ---
