@@ -757,6 +757,16 @@ footer {
     */
 }
 
+.qrcode-link {
+    font-size: 4pt;
+    display: inline-block;
+    float: right;
+    a {
+        color: $header-text-color;
+        text-decoration: none;
+    }
+}
+
 /*
 .headroom--not-top::after {
     position: absolute;
