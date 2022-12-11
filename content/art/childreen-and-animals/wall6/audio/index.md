@@ -1,12 +1,12 @@
 ---
-title: Einleitung „Von diesem Mosaik… abgesehen… arbeitsloser Engel“
+title: 
 type: audio
 outputs:
   - html
   - qrcode
 aliases:
-  - /k/6/10a/
+  - /k/6/1a/
 resources:
 - name: audio
-  src: "6_Mosaik.mp3"
+  src: "6_Text.mp3"
 ---
