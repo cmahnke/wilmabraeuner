@@ -9,3 +9,14 @@ other = "Einzelobjektansicht"
 
 [overview]
 other = "Zur Übersicht"
+
+#Tags
+
+["audio:text"]
+other = "Hörfassung Text"
+
+["audio:archive"]
+other = "Hörfassung Archivtext"
+
+["audio:bonus"]
+other = "Hörfassung Bonusmaterial"

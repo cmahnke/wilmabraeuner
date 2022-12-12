@@ -4,7 +4,7 @@
 {{ define "content" }}
   <ul>
     {{- range .Pages -}}
-      <div class="tag">{{ .Title }}</div>
+      <div class="tag">{{ i18n .Title }}</div>
       <ul>
         {{- range .Pages -}}
           <li>
