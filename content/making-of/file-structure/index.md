@@ -4,59 +4,38 @@ check: false
 draft: true
 ---
 
-# Themenbereiche
-
-* ***A***: Archivthemen und -texte, Begleittexte zur Ausstellung
-* ***L*** Leben: Hamburg, Biographie, Familie, soziale Beziehungen (Fünkchen, Swami, Dr. Neumann, Schäferhund, Klara Enss), Umsiedlung nach Sylt), Privatwohnung, Kunstgewerbe auf Sylt (Ladengeschäft), Humor, Dokumente, Ex Libris, Traueranzeige
-* ***W*** = Werk: Grafik, Malerei und Fotografie: Frühe Studien, Skizzenblöcke, Kamera, Lupe etc., Fotos alte Köpfe etc., Retusche und Publikationen (Kalender, Bücher, Postkarten), Ölgemälde, Grafiken und Zeichnungen, Durchlichtmedien etc., Ausstellungsbesprechung Hamburg
-* ***N***: Naturschutz und Verein Bürgerinitiative (Dokumente, Zeitungsausschnitte, Bilder Atlantis etc.)
-
-# Stellwandnummern
-
-Zusätzlich zu den Nummern der Stellwände gibt es Buchstabe um die Vitrine und Wände zu identifizieren:
-* ***V***: Vitrine
-* ***N***: Nordwand
-* ***S***: Südwand
-
-# Objektnummern
-
-Die Objektnummern werden aus dem themenbereich als Präfix, der Stellwandnummer und dann dem Rahmen / Bild gebildet.
-Für Rahmen werden danach die Ggerahmenten Fotos oder Dokumente durchgezählt.
-
-Objekte, die derivate von anderen sind, ändern nur ihr Suffix, nicht ihre Nummer, dies betrifft haupsächlich Texte und ihre Audiovarianaten.
-Objekte, die nur online verfügbar sid, haben ausschließlich zweistellige Objektnummern.
-
-Zum Abschluss (also nur für das letzte Element) wird ein Suffix nach Typ angehängt:
-
-* ***a***: Audio
-* ***d***: Dokument
-* ***f***: Foto
-* ***k***: Kunstwerk (Gemälde, Druck, Aquarell usw.)
-* ***o***: Objekt
-* ***t***: Text
-* ***w***: Webseite
+Zu Abbildung durch einen statischen Seitengenerator muss die Ausstellung in eine Dateistrfuktur "übersetzt" werden und jede Einheit mit entsprechenden Metadaten ausgestettet werden.
 
 # Inhaltsklassifikation
 
 ## Inhaltstypen
 
-* 'wall'
-* 'frame'
-* 'document'
-* 'painting'
-* 'picture'
-* 'print'
-* 'object'
-* 'text'
-* 'audio'
-* 'topic'
+* **'wall'**: Stellwand
+* **'frame'**: Rahmen
+* **'document'**: Dokuemnt, Drucksache
+* **'reproduction'**: Reproduktion, z.B. Zeitungsausschnitt
+* **'painting'**: Gemälde
+* **'picture'**: Fotogarphie
+* **'print'**: Druckgrafik
+* **'object'**: Objekt
+* **'text'**: Texttafel
+* **'audio'**: Audioinhalt
+* **'topic'**: Themeneinheit
+
+Zusätzlich wird die [Nummerierung](/making-of/object-numbers/) der Objekte benutzt um eine zweite Hierachie zur Addressierung der Objkte zu erlauben, da diese besomders kurz sind eigenen sie sich aucj für die generierung der QR Codes.
 
 # Erzwungene Metadaten
 
-* Für Texte und Audio werden folgende Metadaten / Inhalte erzwungen
-  * Text
-  * Audiodateien
+Für Texte, Themen, Stellwände und Rahmen werden erzwungen:
+  * Titel
   * Alias und damit Objektnummern
+  * QR Codes
 
-* Für Stellwände werden folgende Metadaten erzwungen
+* Für Texte und Audio werden folgende zusätzliche Metadaten / Inhalte erzwungen
+  * Audioeinheiten
+
+* Für Audio werden folgende zusätzliche Metadaten / Inhalte erzwungen
+  * Audiodateien
+
+* Für Stellwände, Rahmen, Fotographien, Drukgrafik und Reproduktionen werden folgende zusätzliche Metadaten erzwungen
   * Vorschaubilder

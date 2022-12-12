@@ -1,0 +1,1 @@
+{{- partial "iiif/single.iiif.json" . -}}

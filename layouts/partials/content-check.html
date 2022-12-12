@@ -3,6 +3,7 @@
   {{- $objectNumber = index (last 1 (split $objectNumber "/")) 0 -}}
   {{- return $objectNumber -}}
 {{- end -}}
+{{- $types := slice "a" "d" "f" "k" "o" "t" "w" -}}
 {{- if not .Params.check -}}
   {{- if ne .Params.check false -}}
     {{- if eq (.OutputFormats.Get "qrcode") nil -}}
@@ -61,7 +62,7 @@
       {{- if eq $foundAudio false -}}
         {{- errorf "Text entry %s has no matching audio!" .File.Path -}}
       {{- end -}}
-    {{- else if eq .Params.type "wall" -}}
+    {{- else if in (slice "frame" "wall") .Params.type -}}
       {{- $preview := .Resources.Match "preview" -}}
       {{- if eq $preview nil -}}
         {{- errorf "Preview image for %s not found" .File.Path -}}
@@ -70,25 +71,48 @@
         {{- errorf "%s has no alias!" .File.Path -}}
       {{- end -}}
       {{- if ne .Kind "section" -}}
-        {{- errorf "%s is type 'wall' but not a section" .File.Path -}}
+        {{- errorf "%s is type '%s' but not a section" .File.Path .Params.type -}}
       {{- end -}}
       {{- if not .Title -}}
         {{- errorf "%s has no title" .File.Path -}}
       {{- end -}}
-    {{- else if eq .Params.type "frame" -}}
+    {{- else if in (slice "picture" "print" "reproduction") .Params.type -}}
+      {{/*
       {{- $preview := .Resources.Match "preview" -}}
       {{- if eq $preview nil -}}
         {{- errorf "Preview image for %s not found" .File.Path -}}
       {{- end -}}
-      {{- if not .Title -}}
-        {{- errorf "%s has no title" .File.Path -}}
+      {{- $preview := partial "iiif/preview.html" . -}}
+      */}}
+
+      {{- $objectNumber := partial "object-number.html" . -}}
+      {{- $objectNumber = (trim (plainify $objectNumber) " ") -}}
+      {{- $type := lower (substr $objectNumber -1 1) -}}
+      {{- if not (in $types $type) -}}
+        {{- errorf "Object number for %s is wrong!" .File.Path -}}
       {{- end -}}
       {{- if not .Aliases -}}
         {{- errorf "%s has no alias!" .File.Path -}}
       {{- end -}}
-      {{- if ne .Kind "section" -}}
-        {{- errorf "%s is type 'frame' but not a section" .File.Path -}}
+      {{- if eq (.OutputFormats.Get "qrcode") nil -}}
+        {{- errorf "%s hasn't got QR Code output" .File.Path -}}
       {{- end -}}
+      {{- if eq (.OutputFormats.Get "iiif") nil -}}
+        {{- errorf "%s hasn't got IIIF output" .File.Path -}}
+      {{- end -}}
+      {{/*
+      {{- if not (isset .Params "qr-icon") -}}
+        {{- errorf "%s has no icon!" .File.Path -}}
+      {{- end -}}
+      */}}
+      {{- if not (isset .Params "iiifcontext") -}}
+        {{- errorf "%s has no iiifContext!" .File.Path -}}
+      {{- end -}}
+      {{- if eq .Kind "section" -}}
+        {{- errorf "%s is a section should be leaf" .File.Path -}}
+      {{- end -}}
+    {{- else -}}
+      {{- warnf "%s has unchecked post type '%s'" .File.Path .Params.type -}}
     {{- end -}}
 
     {{- if not .Title -}}
