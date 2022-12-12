@@ -2,17 +2,27 @@
   {{- .Title }} · {{ .Site.Title -}}
 {{ end }}
 {{ define "content" }}
-  <ul>
-    {{- range .Pages -}}
-      <div class="tag">{{ i18n .Title }}</div>
-      <ul>
-        {{- range .Pages -}}
-          <li>
-            <a href="{{.RelPermalink}}">{{ .Title }}</a>
-            <a href="{{.RelPermalink}}qrcode.pdf">QR-Code</a>
-          </li>
-        {{- end -}}
-      </ul>
-    {{- end -}}
-  </ul>
+  <div class="content-container tags {{ .Params.type }}">
+    <div class="content-area">
+      <div class="content">
+        <ul>
+          {{- range .Pages -}}
+            <div class="tag">{{ i18n .Title }}</div>
+            <ul>
+              {{- range .Pages -}}
+                <li>
+                  {{- if .Aliases -}}
+                    {{- partial "object-number.html" . -}}
+                  {{- end -}}
+                  <a href="{{.RelPermalink}}">{{ .Title }}</a>
+
+                  <a href="{{.RelPermalink}}qrcode.pdf">QR-Code</a>
+                </li>
+              {{- end -}}
+            </ul>
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
+  </div>
 {{ end }}
