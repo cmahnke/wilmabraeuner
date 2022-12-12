@@ -27,7 +27,7 @@
       <li class="sub-section {{ $class | safeCSS }}">
         {{- if .Title -}}
           {{- if or .Content .Resources -}}
-            <a href="{{- .RelPermalink -}}" title="{{- .Title -}}">
+            <a href="{{- .RelPermalink -}}" title="{{- .Title -}}" class="section-item-link">
           {{- end -}}
           <div class="object-title listing-title">
             {{ .Title }}

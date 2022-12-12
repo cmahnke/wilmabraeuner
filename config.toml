@@ -32,19 +32,54 @@ summaryLength = 40
         target = "static"
 
 [menu]
-    [[menu.main]]
-        name = "Veranstaltungsort"
-        URL = "/location"
+
+    [[menu.content]]
+        name = "Hintergrund"
+        URL = "/archive/"
         weight = 1
-        type = "meta"
+        type = "content"
+
+    [[menu.content]]
+        name = "Lebensstationen"
+        URL = "/life/"
+        weight = 2
+        type = "content"
+
+    [[menu.content]]
+        name = "Künstlerisches Schaffen"
+        URL = "/art/"
+        weight = 3
+        type = "content"
+
+    [[menu.content]]
+        name = "Naturschutz"
+        URL = "/conservancy/"
+        weight = 4
+        type = "content"
 
     [[menu.main]]
         name = "Kontakt & Impressum"
-        URL = "/about"
-        weight = 2
+        URL = "/about/"
+        weight = 1
         type = "meta"
 
+#    [[menu.main]]
+#        name = "Rundgang / Bilder"
+#        URL = "/tour/"
+#        weight = 3
+#        type = "meta"
 
+#    [[menu.main]]
+#        name = "Umsetzung"
+#        URL = "/making-of/"
+#        weight = 3
+#        type = "meta"
+
+    [[menu.main]]
+        name = "Veranstaltungsort"
+        URL = "/location/"
+        weight = 4
+        type = "meta"
 #[languages]
 #    [languages.de]
 #        languagename = "Deutsch"
