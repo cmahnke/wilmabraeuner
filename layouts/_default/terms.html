@@ -11,12 +11,15 @@
             <ul>
               {{- range .Pages -}}
                 <li>
+                  {{- $filename := "qrcode.pdf" -}}
                   {{- if .Aliases -}}
-                    {{- partial "object-number.html" . -}}
+                    {{- $objectNumber := partial "object-number.html" . -}}
+                    {{- $filename = printf "%s.pdf" (trim (plainify $objectNumber) " ") -}}
+                    {{- $objectNumber -}}
                   {{- end -}}
                   <a href="{{.RelPermalink}}">{{ .Title }}</a>
 
-                  <a href="{{.RelPermalink}}qrcode.pdf">QR-Code</a>
+                  <a href="{{.RelPermalink}}qrcode.pdf" download="{{ $filename }}">QR-Code</a>
                 </li>
               {{- end -}}
             </ul>
