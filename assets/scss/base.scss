@@ -279,6 +279,11 @@ html {
             font-size: 2em;
             margin: auto;
             margin-bottom: 1em;
+            padding: .4rem;
+
+            @media (max-width : 48em) {
+                text-align: center;
+            }
         }
 
         .up {
