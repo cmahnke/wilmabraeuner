@@ -1,5 +1,5 @@
 ---
-title: Tiere und Bildbarbeitung - Hörfassung
+title: Tiere und Bildbearbeitung - Hörfassung
 type: audio
 outputs:
   - html
