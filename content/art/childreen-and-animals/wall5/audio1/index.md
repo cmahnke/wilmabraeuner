@@ -1,5 +1,5 @@
 ---
-title: Swami Sambuddhananda
+title: Swami Sambuddhananda - Lebenserinnerung
 type: audio
 outputs:
   - html

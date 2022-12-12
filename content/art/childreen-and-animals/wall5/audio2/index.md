@@ -1,5 +1,5 @@
 ---
-title: Hundeliebe
+title: Hundeliebe - Lebenserinnerung
 type: audio
 outputs:
   - html

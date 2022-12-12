@@ -1,5 +1,5 @@
 ---
-title: Im Hamburger Gängeviertel, 1. Absatz
+title: Im Hamburger Gängeviertel, 1. Absatz - Lebenserinnerung
 aliases:
   - /a/2/10a/
 outputs:

@@ -1,5 +1,5 @@
 ---
-title: Kalender Hörfassung
+title: Kalender - Hörfassung
 type: audio
 outputs:
   - html

@@ -65,6 +65,10 @@ html {
     justify-content: center;
     overflow : hidden;
     background-color: #f9edde;
+    @media (max-width : 64em) {
+        height: unset;
+    }
+
 
     .header-container {
         max-width: $max-width;
@@ -86,6 +90,9 @@ html {
         justify-content: center;
         color: $header-text-color;
         padding-top: 0.6em;
+        @media (max-width : 64em) {
+            padding-top: unset;
+        }
 
         .header-top {
             display: flex;
@@ -148,6 +155,8 @@ html {
 
             @media (max-width : 64em) {
                 flex-direction: column;
+                margin-top: .4em;
+                margin-bottom: .4em;
             }
 
             .prefix {
@@ -849,12 +858,12 @@ body.archive {
             justify-content: unset;
             margin-top: unset;
             transition: all 200ms ease-in;
-/*
-            @media (max-width : 64em) {
 
-                transform: translateY(-100%);
+            @media (max-width : 64em) {
+                margin-bottom: unset;
+                /* transform: translateY(-100%); */
             }
-*/
+
             .header-img {
                 height: 2em;
                 margin-left: 0.4em;

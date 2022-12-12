@@ -1,5 +1,5 @@
 ---
-title: Vogelkoje Hörfassung
+title: Vogelkoje - Hörfassung
 type: audio
 outputs:
   - html

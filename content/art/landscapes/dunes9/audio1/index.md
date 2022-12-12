@@ -1,5 +1,5 @@
 ---
-title: Malerei von der Pike auf gelernt
+title: Malerei von der Pike auf gelernt - Lebenserinnerung
 type: audio
 outputs:
   - html

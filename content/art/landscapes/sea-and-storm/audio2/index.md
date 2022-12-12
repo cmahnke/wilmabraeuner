@@ -1,5 +1,5 @@
 ---
-title: Ein Tag in der Dünenwelt, 1. Absatz
+title: Ein Tag in der Dünenwelt, 1. Absatz - Lebenserinnerung
 type: audio
 outputs:
   - html

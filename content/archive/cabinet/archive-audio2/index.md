@@ -1,5 +1,5 @@
 ---
-title: „Das große Fressen“ und andere Gefahren
+title: „Das große Fressen“ und andere Gefahren  - Hörfassung
 type: audio
 outputs:
   - html

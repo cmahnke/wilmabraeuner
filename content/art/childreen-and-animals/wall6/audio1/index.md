@@ -1,5 +1,5 @@
 ---
-title: Einleitung „Von diesem Mosaik… abgesehen… arbeitsloser Engel“
+title: Einleitung „Von diesem Mosaik… abgesehen… arbeitsloser Engel“ - Lebenserinnerung
 type: audio
 outputs:
   - html

@@ -1,5 +1,5 @@
 ---
-title: Seit über 80 Jahren auf Sylt, 1. Absatz
+title: Seit über 80 Jahren auf Sylt, 1. Absatz - Lebenserinnerung
 aliases:
   - /l/3/11a/
 outputs:
