@@ -1,12 +1,12 @@
 ---
-title: "Prolog Bild"
-aliases:
-  - /a/1/1f/
+title:
+type: picture
 outputs:
   - html
   - qrcode
   - iiif
-type: picture
+aliases:
+  - /k/6/2/4f/
 iiifContext: http://iiif.io/api/image/2/context.json
 resources:
 - src: "front.jxl"

@@ -1,12 +1,12 @@
 ---
-title: "Prolog Bild"
+title: Radierung
 aliases:
-  - /a/1/1f/
+  - /a/26/3k/
 outputs:
   - html
   - qrcode
   - iiif
-type: picture
+type: print
 iiifContext: http://iiif.io/api/image/2/context.json
 resources:
 - src: "front.jxl"

@@ -1,0 +1,169 @@
+{{- $fullResImgSuffix := "/full/full/0/default.jpg" -}}
+{{/* This is a hack to get the default content language - this is a missing Hugo feature */}}
+{{- $defaultContentLanguage := partialCached "functions/i18n/default-lang" . -}}
+{{- $defaultContentPage := partial "functions/i18n/page-for-lang" (dict "context" . "lang" $defaultContentLanguage) -}}
+
+{{- $imageIdSuffix := "" -}}
+{{- if hasPrefix .Params.iiifContext "http://iiif.io/api/presentation/" -}}
+{
+    {{- $contextPath := path.Dir .File.Path -}}
+    {{- $urlBase := "" -}}
+    {{- if or .Site.IsServer (not (isset .Site.Params "productioniiifurlprefix")) -}}
+        {{- $pl := .Permalink -}}
+        {{- if ne $.Site.Language.Lang $defaultContentLanguage -}}
+            {{- $pl = $defaultContentPage.Permalink -}}
+        {{- end -}}
+        {{- $urlBase = printf "%s/" (substr $pl 0 (sub (len $pl) 1)) -}}
+    {{- else -}}
+        {{- $localPath := (substr .RelPermalink 1 (sub (len .RelPermalink) 1)) -}}
+        {{- $urlBase = printf "%s%s" .Site.Params.productionIIIFURLPrefix $localPath -}}
+    {{- end -}}
+    "@context":"http://iiif.io/api/presentation/2.1/context.json",
+    "@type":"sc:Manifest",
+    "@id":"{{ .Permalink }}",
+    "viewingDirection":"left-to-right",
+    "viewingHint":"paged",
+
+    "label":{{ .Title | jsonify }},
+    {{- if isset .Params "iiifMetadata" -}}
+        {{- jsonify .Params.iiifmetadata -}}
+    {{- end -}}
+    {{- if isset .Params "iiif.metadata" -}}
+        {{- jsonify .Params.iiif.metadata -}}
+    {{- end -}}
+    {{- if .Description -}}
+        "description": {{ .Description | jsonify }},
+    {{- end -}}
+
+    {{- $firstCanvasId := "" -}}
+    {{- $firstResource := index .Params.resources 0 -}}
+    {{ if $firstResource.name -}}
+        {{- $firstCanvasId = $firstResource.name -}}
+    {{- else -}}
+        {{- $firstCanvasId = path.Dir $firstResource.params.iiif -}}
+    {{- end -}}
+    "sequences":[
+      {
+         "@id":"{{ .Permalink }}sequence/normal",
+         "@type":"sc:Sequence",
+         "label":"Current Page Order",
+         "viewingDirection":"left-to-right",
+         "viewingHint":"paged",
+         "startCanvas":"{{ .Permalink }}canvas/{{ printf "%s" $firstCanvasId }}",
+         "canvases":[
+             {{- range $i, $res := .Params.resources -}}
+
+                 {{- $image := newScratch -}}
+                 {{- $manifestDir := path.Dir .params.iiif -}}
+
+                 {{- if .name -}}
+                    {{- $image.Set "previewImg" ($.Resources.GetMatch .name) -}}
+                 {{ else }}
+                    {{- $image.Set "previewImg" ($.Resources.GetMatch .src) -}}
+                 {{- end -}}
+                 {{- if strings.HasSuffix ($image.Get "previewImg").Name "jxl" -}}
+                    {{- $image.Set "previewImg" ($defaultContentPage.Resources.GetMatch (printf "%s%s" $manifestDir $fullResImgSuffix)) -}}
+                 {{- end -}}
+                 {{- if eq ($image.Get "previewImg") nil -}}
+                    {{- warnf "Can't find image %s" ($image.Get "previewLoc") -}}
+                 {{- end -}}
+
+                 {{- $canvas := "" -}}
+                 {{- if .name -}}
+                     {{- $canvas = .name -}}
+                 {{- else -}}
+                     {{- $canvas = path.Dir .params.iiif -}}
+                 {{- end -}}
+                 {{- $canvasId := printf "%scanvas/%s" $.Permalink $canvas -}}
+
+                 {
+                   "@id":"{{ $canvasId }}",
+                   "@type":"sc:Canvas",
+                   {{- if .params.hint -}}
+                        "viewingHint":"{{ .params.hint }}",
+                   {{- end -}}
+                   {{- if .params.label -}}
+                        "label":"{{ .params.label }}",
+                   {{- else -}}
+                        "label":"uncounted",
+                   {{- end -}}
+
+                   {{- $canvasHeight := 400 -}}
+                   {{- $canvasWidth := 300 -}}
+                   {{- if .params.canvasheight -}}
+                        {{- $canvasHeight = .params.canvasheight -}}
+                   {{- else if $.Site.Params.iiifcanvasheight -}}
+                         {{- $canvasHeight = $.Site.Params.iiifcanvasheight -}}
+                   {{- end -}}
+                   {{- if .params.canvaswidth -}}
+                        {{- $canvasWidth = .params.canvaswidth -}}
+                   {{- else if $.Site.Params.iiifcanvaswidth -}}
+                         {{- $canvasWidth = $.Site.Params.iiifcanvaswidth -}}
+                   {{- end -}}
+
+                   "height": {{ $canvasHeight }},
+                   "width": {{ $canvasWidth }},
+
+                   {{- $thumbnail := ($image.Get "previewImg").Resize "120x80" -}}
+                   "thumbnail": {
+                       "@id": "{{ $thumbnail.Permalink }}",
+                       "format": "image/jpeg",
+                       "@type":"dctypes:Image",
+                       "height": {{ $thumbnail.Height }},
+                       "width": {{ $thumbnail.Width }}
+
+                    },
+                    "images":[
+                    {{- $imageId := printf "%s%s%s" $urlBase $manifestDir $imageIdSuffix -}}
+                    {{- $annnotationId := printf "%sannotation/%s" $urlBase $manifestDir -}}
+                    {
+                         "@context":"http://iiif.io/api/presentation/2/context.json",
+                         "@id":"{{ $annnotationId }}",
+                         "@type":"oa:Annotation",
+                         "motivation":"sc:painting",
+                         "resource":{
+                            "@id":"{{ $imageId }}",
+                            "@type":"dctypes:Image",
+                            "format":"image/jpeg",
+                            "service":{
+                               "@context":"http://iiif.io/api/image/2/context.json",
+                               "@id":"{{ $imageId }}",
+                               "profile":"http://iiif.io/api/image/2/level0.json"
+                            },
+                            "height": {{ ($image.Get "previewImg").Height }},
+                            "width": {{ ($image.Get "previewImg").Width }}
+                         },
+                         "on":"{{ $canvasId }}"
+                    }]
+               }
+               {{- if ne $i (sub (len $.Params.resources) 1) -}}
+                ,
+               {{- end -}}
+             {{- end -}}
+
+         ]
+     }
+  ]
+
+  {{- if isset .Params "iiifStructure" -}}
+      , {{- jsonify .Params.iiifStructure -}}
+  {{- end -}}
+
+  {{- if isset .Params "iiifAttribution" -}}
+    ,"attribution":"{{ .Params.iiifAttribution }}",
+  {{- end -}}
+
+  {{- if isset .Params "iiifLogo" -}}
+    ,"logo":{
+          "@id":"{{ .Params.iiifLogo.img }}",
+          "service":{
+             "@context":"http://iiif.io/api/image/2/context.json",
+             "@id":"{{ .Params.iiifLogo.url }}",
+             "profile":"http://iiif.io/api/image/2/level0.json"
+          }
+     }
+  {{- end -}}
+
+
+}
+{{- end -}}
