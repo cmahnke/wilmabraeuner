@@ -1,5 +1,5 @@
 ---
-title: Biografie, letzter Absatz
+title: Biografie, letzter Absatz - Lebenserinnerung
 outputs:
   - html
   - qrcode

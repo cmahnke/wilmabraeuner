@@ -1,5 +1,5 @@
 ---
-title: Kampf gegen Atlantis, 1. Absatz
+title: Kampf gegen Atlantis, 1. Absatz - Lebenserinnerung
 outputs:
   - html
   - qrcode

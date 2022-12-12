@@ -1,5 +1,5 @@
 ---
-title: Die gräfliche Spucke
+title: Die gräfliche Spucke - Lebenserinnerung
 type: audio
 outputs:
   - html

@@ -1,5 +1,5 @@
 ---
-title: "Seit über 80 Jahren auf Sylt"
+title: "Seit über 80 Jahren auf Sylt - Lebenserinnerung"
 aliases:
   - /a/26/10a/
 outputs:

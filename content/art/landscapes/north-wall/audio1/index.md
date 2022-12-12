@@ -1,5 +1,5 @@
 ---
-title: Ist das Kunst oder kann das weg?
+title: Ist das Kunst oder kann das weg? - Hörfassung
 type: audio
 subtype: archive
 outputs:

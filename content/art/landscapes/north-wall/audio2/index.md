@@ -1,5 +1,5 @@
 ---
-title: Oma, was ist das für ein komischer Beamer?
+title: Oma, was ist das für ein komischer Beamer? - Hörfassung
 type: audio
 subtype: archive
 outputs:

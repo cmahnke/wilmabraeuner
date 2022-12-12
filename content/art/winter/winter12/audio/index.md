@@ -1,5 +1,5 @@
 ---
-title: Ausbildung zur Fotografin
+title: Ausbildung zur Fotografin - Hörfassung
 type: audio
 resources:
 - name: audio

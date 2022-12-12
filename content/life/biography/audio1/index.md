@@ -1,5 +1,5 @@
 ---
-title: Als Siebenjähirge zum ersten Mal auf Sylt
+title: Als Siebenjähirge zum ersten Mal auf Sylt - Lebenserinnerung
 aliases:
   - /l/3/10a/
 outputs:

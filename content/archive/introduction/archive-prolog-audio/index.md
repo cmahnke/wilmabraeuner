@@ -1,5 +1,5 @@
 ---
-title: "Prolog Archiv Hörfassung"
+title: "Prolog Archiv - Hörfassung"
 aliases:
   - /a/1/3a/
 outputs:

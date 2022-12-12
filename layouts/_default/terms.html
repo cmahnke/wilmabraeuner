@@ -4,10 +4,15 @@
 {{ define "content" }}
   <ul>
     {{- range .Pages -}}
-      <li>
-        <a href="{{.RelPermalink}}">{{ .Title }}</a>
-        <a href="{{.RelPermalink}}/qrcode.pdf">QR-Code</a>
-      </li>
+      <div class="tag">{{ .Title }}</div>
+      <ul>
+        {{- range .Pages -}}
+          <li>
+            <a href="{{.RelPermalink}}">{{ .Title }}</a>
+            <a href="{{.RelPermalink}}qrcode.pdf">QR-Code</a>
+          </li>
+        {{- end -}}
+      </ul>
     {{- end -}}
   </ul>
 {{ end }}

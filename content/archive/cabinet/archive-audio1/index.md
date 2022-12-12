@@ -1,5 +1,5 @@
 ---
-title: Welche Materialien hat das Archiv?
+title: Welche Materialien hat das Archiv? - Hörfassung
 type: audio
 outputs:
   - html

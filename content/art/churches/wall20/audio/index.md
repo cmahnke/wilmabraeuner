@@ -1,5 +1,5 @@
 ---
-title: Kirchen Hörfassung
+title: Kirchen - Hörfassung
 type: audio
 resources:
 - name: audio
