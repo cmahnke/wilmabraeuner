@@ -6,6 +6,8 @@ check: false
 
 # Impressum
 
+## Ausstellung
+
 |                                      |                                                                       |
 |--------------------------------------|-----------------------------------------------------------------------|
 | Konzeption und Texte                 | Evelyn Kraßmann                                                       |
@@ -18,3 +20,5 @@ check: false
 | Marketing und Presse:                | Frauke Wehrhahn, Birgit Kühne, Christin Zielasko, Nina Wedell         |
 | Plakatdruck und Ausstellungsbedarf: | Voss GmbH & Co. KG. Das Sylter Papierhaus, Westerland, Frederik Lemke |
 | Ausstellungstechnik                  | Stephan Pyka und Roland Wagner-Nastraha, Sinje Lornsen                |
+
+## Webseite
