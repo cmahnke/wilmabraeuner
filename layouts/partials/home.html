@@ -1,50 +1,52 @@
-<div class="post-container post {{ .Params.type }}">
+<div class="content-container post {{ .Params.type }}">
   <div class="content-area">
-    {{- $pages := .Pages -}}
-    {{- if .IsHome -}}
-      {{- if site.Params.homelist -}}
+    <div class="content">
+      {{- $pages := .Pages -}}
+      {{- if .IsHome -}}
+        {{- if site.Params.homelist -}}
 
-        {{- $pages = where $pages "Params.metaPage" "!=" true -}}
-        <ul class="section-listing">
-          {{- range .Pages -}}
-            {{- $image := "" -}}
-            {{- $color := "" -}}
-            {{- $style := "" -}}
-            {{- $desc := "" -}}
-            {{- $section := path.BaseName (path.Dir .File.Path) -}}
-            {{- if (isset .Params "image") -}}
-                {{- $image = .Params.Get "image" -}}
-            {{- else -}}
-                {{- continue -}}
-            {{- end -}}
-            {{- if in $image "{}" -}}
-                {{- $image = replace $image "{}" $section -}}
-            {{- end -}}
-            {{- $image = path.Join .RelPermalink $image -}}
-            {{- if (isset .Params "color") -}}
-                {{- $color = .Params.Get "color" -}}
-            {{- end -}}
-            {{- if (isset .Params "style") -}}
-                {{- $style = .Params.Get "style" -}}
-            {{- end -}}
-            {{- if (isset .Params "description") -}}
-                {{- $desc = .Params.Get "description" -}}
-            {{- end -}}
-            <li class="section">
-              <a href="{{ .RelPermalink }}" title="{{ $desc }}">
-                <div class="section-tile">
-                  <img class="section-tile-image" src="{{ $image }}" alt="{{ $desc }}">
-                  <div class="tile-caption" {{if ne $style ""}} style="{{ $style | safeCSS }}" {{- end }}>{{ .Title }}</div>
-                </div>
-              </a>
-            </li>
-            {{- end -}}
-          </ul>
+          {{- $pages = where $pages "Params.metaPage" "!=" true -}}
+          <ul class="section-listing">
+            {{- range .Pages -}}
+              {{- $image := "" -}}
+              {{- $color := "" -}}
+              {{- $style := "" -}}
+              {{- $desc := "" -}}
+              {{- $section := path.BaseName (path.Dir .File.Path) -}}
+              {{- if (isset .Params "image") -}}
+                  {{- $image = .Params.Get "image" -}}
+              {{- else -}}
+                  {{- continue -}}
+              {{- end -}}
+              {{- if in $image "{}" -}}
+                  {{- $image = replace $image "{}" $section -}}
+              {{- end -}}
+              {{- $image = path.Join .RelPermalink $image -}}
+              {{- if (isset .Params "color") -}}
+                  {{- $color = .Params.Get "color" -}}
+              {{- end -}}
+              {{- if (isset .Params "style") -}}
+                  {{- $style = .Params.Get "style" -}}
+              {{- end -}}
+              {{- if (isset .Params "description") -}}
+                  {{- $desc = .Params.Get "description" -}}
+              {{- end -}}
+              <li class="section">
+                <a href="{{ .RelPermalink }}" title="{{ $desc }}">
+                  <div class="section-tile">
+                    <img class="section-tile-image" src="{{ $image }}" alt="{{ $desc }}">
+                    <div class="tile-caption" {{if ne $style ""}} style="{{ $style | safeCSS }}" {{- end }}>{{ .Title }}</div>
+                  </div>
+                </a>
+              </li>
+              {{- end -}}
+            </ul>
+        {{- else -}}
+          {{- partial "page.html" (.Site.GetPage "/home/index.md") -}}
+        {{- end -}}
       {{- else -}}
-        {{- partial "page.html" (.Site.GetPage "/home/index.md") -}}
+        {{/* TODO: Other list will be rendered here, currently disabled, since we haven't got any tags yet */}}
       {{- end -}}
-    {{- else -}}
-      {{/* TODO: Other list will be rendered here, currently disabled, since we haven't got any tags yet */}}
-    {{- end -}}
+    </div>
   </div>
 </div>

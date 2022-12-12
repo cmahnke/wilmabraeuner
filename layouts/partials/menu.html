@@ -1,0 +1,32 @@
+{{- $menu := union .Site.Menus.content .Site.Menus.main -}}
+
+{{ if or .Site.Menus.main .Site.IsMultiLingual }}
+    {{- $basePath := trim (.File.Dir) "/" -}}
+    {{- $basePath = replaceRE "^(.*)/.*$" "$1" $basePath -}}
+    <nav class="top top-menu">
+        <input type="checkbox" id="menu-toggle" />
+        <label class="menu-button float-right" for="menu-toggle"><i class="menu-icon"></i></label>
+        <ul class="navigation-list">
+            {{- with $menu -}}
+                {{ range . }}
+                    {{- $class := trim (path.Base .URL) "/" -}}
+                    {{- $class = replaceRE "^/$" "root" $class -}}
+                    {{- $class = printf "navto-%s" $class -}}
+                    {{- if eq (trim (path.Base .URL) "/") $basePath -}}
+                        {{- $class = printf "current %s" $class -}}
+                    {{- end -}}
+                    <li class="navigation-item {{ $class }}"><a class="navigation-link" href="{{ .URL | absLangURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
+                {{ end }}
+            {{ end }}
+            {{ if .Site.IsMultiLingual }}
+                {{ range (default .Site.Home.AllTranslations .Translations) }}
+                    {{ if ne $.Site.Language .Language }}
+                        <li class="navigation-item lang">
+                            <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
+                        </li>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </ul>
+    </nav>
+{{ end }}
