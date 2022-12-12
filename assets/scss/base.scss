@@ -996,6 +996,16 @@ body.archive {
     */
 }
 
+.tags .content {
+    .tag {
+        font-size: larger;
+        padding: .4em;
+    }
+    .object-number {
+        display: inline-block;
+    }
+}
+
 .qrcode-link {
     font-size: 4pt;
     display: inline-block;
