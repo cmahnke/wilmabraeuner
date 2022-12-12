@@ -1,0 +1,19 @@
+{{- $defaultFrontName := "front" -}}
+{{- $fullResImgSuffix := "/full/full/0/default.jpg" -}}
+{{/* TODO: Make it possible to call this with params */}}
+{{- $frontName := $defaultFrontName -}}
+{{- $resources := .Params.resources -}}
+{{- if eq $resources nil -}}
+  {{- errorf "Resource section for %s either empty or non existing" .File.Path -}}
+{{- end -}}
+{{- $frontResource := where $resources "name" $frontName -}}
+{{- $src := (index $frontResource 0).src -}}
+{{- $fileName := index (last 1 (split $src "/")) 0 -}}
+{{/* TODO: Certainly won't work on file names with multiple dots */}}
+{{- $path := index (first 1 (split $fileName ".")) 0 -}}
+{{- $previewLoc := path.Join $path $fullResImgSuffix -}}
+{{- if not (fileExists (path.Join .File.Dir $previewLoc)) -}}
+  {{- errorf "%s referenced in %s doesn't exists!" $previewLoc .File.Path -}}
+{{- end -}}
+{{- $img := resources.Get $previewLoc -}}
+{{- return $img -}}

@@ -21,6 +21,9 @@ static/images/footer3.svg
 static/images/favicon.svg
 static/images/signature.svg
 content/home/Plakat/
+content/**/front/**
+content/**/cover/**
+content/**/back/**
 
 content/archive/archive.svg
 content/life/life.svg
