@@ -77,14 +77,12 @@
         {{- errorf "%s has no title" .File.Path -}}
       {{- end -}}
     {{- else if in (slice "picture" "print" "reproduction") .Params.type -}}
+      {{- $preview := partial "iiif/preview.html" . -}}
       {{/*
-      {{- $preview := .Resources.Match "preview" -}}
       {{- if eq $preview nil -}}
         {{- errorf "Preview image for %s not found" .File.Path -}}
       {{- end -}}
-      {{- $preview := partial "iiif/preview.html" . -}}
       */}}
-
       {{- $objectNumber := partial "object-number.html" . -}}
       {{- $objectNumber = (trim (plainify $objectNumber) " ") -}}
       {{- $type := lower (substr $objectNumber -1 1) -}}
@@ -100,7 +98,7 @@
       {{- if eq (.OutputFormats.Get "iiif") nil -}}
         {{- errorf "%s hasn't got IIIF output" .File.Path -}}
       {{- end -}}
-      {{/*
+      {{/* TODO: Enable this
       {{- if not (isset .Params "qr-icon") -}}
         {{- errorf "%s has no icon!" .File.Path -}}
       {{- end -}}
