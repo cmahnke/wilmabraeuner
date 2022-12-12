@@ -223,6 +223,11 @@ html {
         font-size: 2.4em;
     }
 
+    a, a:link, a:visited, a:hover {
+        color: $header-text-color;
+        text-decoration: none;
+    }
+
     h1, h2, a {
         color: $header-text-color;
     }
@@ -798,6 +803,11 @@ body.archive {
           }
 
         }
+
+        a, a:link, a:visited, a:hover {
+            color: #666;
+            text-decoration: none;
+        }
     }
 
     table {
@@ -822,10 +832,7 @@ body.archive {
         }
     }
 
-    a, a:link, a:visited, a:hover {
-        color: #666;
-        text-decoration: none;
-    }
+
 
 }
 
