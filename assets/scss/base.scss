@@ -98,9 +98,12 @@ html {
         .header-top {
             display: flex;
             justify-content: space-between;
+
+            /*
             @media (max-width : 48em) {
-                display: none;
+                margin-left: 0.4em
             }
+            */
 
             .header-title {
                 font-size: 2em;
@@ -117,6 +120,7 @@ html {
                 }
                 @media (max-width : 48em) {
                     font-size: 1em;
+                    margin-left: .6rem;
                 }
             }
 
@@ -159,8 +163,8 @@ html {
 
             @media (max-width : 48em) {
                 flex-direction: column;
-                margin-top: .4em;
-                margin-bottom: .4em;
+                margin-top: 0;
+                margin-bottom: .4rem;
             }
 
             .prefix {
@@ -229,8 +233,8 @@ html {
     min-height: calc(100vh - $header-height - $footer-height);
     box-sizing: border-box;
     margin-block-start: $header-height;
-    background: linear-gradient(0deg, #f9edde 50%, #FFFFFF 50%);
-    padding-bottom: 6em;
+    /*background: linear-gradient(0deg, #f9edde 50%, #FFFFFF 50%);*/
+    /* padding-bottom: 6em; */
     /*
     background: linear-gradient(0deg, #5D8094 0%, #FFFFFF $gradient-margin, #FFFFFF calc(100% - $gradient-margin), #BDE3F2 100%);
     */
@@ -600,26 +604,24 @@ footer {
         background: #f7dba7;
     */
     justify-content: flex-end;
-
     box-sizing: border-box;
     font-family: Lato, Helvetica, Arial, sans-serif;
-                /*width: 1080px;*/
-
     max-height: $footer-height;
-    height: $footer-height;
     overflow : hidden;
+    background: url(/images/beach-footer.svg), linear-gradient(0deg, rgba(189,227,242,1) 40%, rgba(255,255,255,1) 85%);
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position-x: 40%;
+    background-position-y: -2em;
 
     a, a:hover {
       text-decoration: none;
     }
 
     .footer-content {
-        background: url(/images/footer3.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        padding-top: 23em;
-        padding-bottom: 3.125em;
+
+        padding-top: 6em;
+        padding-bottom: 5.125em;
         margin: auto;
         box-sizing: border-box;
         display: flex;
@@ -629,9 +631,11 @@ footer {
           width: 48.5%;
           margin-right: 3%;
           box-sizing: border-box;
+          display: flex;
 
           .footer-logo {
-              height: 180px;
+              height: 7em;
+              margin-left: 1em;
           }
 
           p {
@@ -639,6 +643,8 @@ footer {
               color: #ffffff;
               font-weight: bold;
               font-family: 'Oswald', Helvetica, Arial, sans-serif;
+              margin-block-start: .4em;
+              margin-block-end: .4em;
           }
         }
 
@@ -654,7 +660,7 @@ footer {
                     padding-bottom: 1em;
 
                     a {
-                        color: #ffffff;
+                        color: #666666;
                     }
                 }
             }
@@ -897,6 +903,11 @@ body.archive {
 
         .header-top {
             max-height: 2.2em;
+            @media (max-width : 48em) {
+                /*transform: translateX(-100%);*/
+                display: none !important;
+            }
+
         }
 
         .header-title {
@@ -904,6 +915,9 @@ body.archive {
             opacity: 0;
             transform: translateY(-100%);
             transition: all 100ms ease-in;
+            @media (max-width : 48em) {
+                transform: translateX(-100%);
+            }
         }
 
         .header-subtitle {
