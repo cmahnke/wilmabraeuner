@@ -1,8 +1,6 @@
 <header class="header header-main headroom" id="head">
   <div class="header-container">
-    <div class="menu">
-      {{ partial "menu.html" . }}
-    </div>
+
     <div class="title-container">
       <div class="header-top">
         {{- $hometitle := .Site.Params.hometitle | default "" -}}
@@ -22,6 +20,9 @@
       <ul class="header-nav-list small-header">
         {{ partialCached "menu-nav.html" . }}
       </ul>
+    </div>
+    <div class="menu">
+      {{ partial "menu.html" . }}
     </div>
   </div>
   <div class="header-shadow"></div>

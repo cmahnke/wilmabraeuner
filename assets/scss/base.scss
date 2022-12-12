@@ -54,7 +54,7 @@ html {
 }
 
 .header {
-    z-index: 999;
+    z-index: 9;
     height: $header-height;
     max-height: $header-height;
     display: flex;
@@ -70,6 +70,9 @@ html {
         justify-content:space-between;
         box-sizing: border-box;
         flex-direction: column;
+        @media (max-width : 64em) {
+            flex-direction: row;
+        }
     }
 
     .title-container {
@@ -186,12 +189,10 @@ html {
 
     /* TODO: Fix this for mobile / resposive view */
     .menu {
-        display: none;
+        visibility: hidden;
         @media (max-width : 64em) {
-            display: block;
-            position: absolute;
-            top: 25%;
-            right: 0%;
+            visibility: visible;
+            align-self: center;
         }
     }
 
@@ -671,6 +672,26 @@ footer {
       }
 }
 
+/* Menu */
+.menu {
+
+
+    .top-menu {
+        position: unset;
+
+        .navigation-list {
+            top: 9em;
+            z-index: 100;
+
+            .navigation-link {
+                font-family: $font-face-archive;
+                font-size: 1em;
+                font-weight: 300 !important;
+            }
+        }
+    }
+}
+
 /* Page specific rules */
 
 .meta {
@@ -809,7 +830,7 @@ footer {
 */
             .header-img {
                 height: 2em;
-                margin-left: unset;
+                margin-left: 0.4em;
                 /*transform: scale(.7);*/
             }
 
@@ -844,6 +865,18 @@ footer {
             transform: scaleX(100%) !important;
             transition: all 300ms ease-in;
 
+        }
+    }
+
+    .menu {
+
+
+        .top-menu {
+            position: unset;
+
+            .navigation-list {
+                top: 7em;
+            }
         }
     }
 

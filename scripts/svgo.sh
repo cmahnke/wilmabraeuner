@@ -23,6 +23,8 @@ yarn run svgo --config ./config/svgo.config.js -i "./Source Files/favicon.svg" -
 #Icons
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/icons/Archiv quadratisch.svg" -o "./static/images/archive-home.svg" --multipass
 
+cp ./static/images/archive-home.svg "./Source Files/icons"
+
 # Content graphics
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/tiles/Archiv.svg" -o "./content/archive/archive.svg" --multipass
 
