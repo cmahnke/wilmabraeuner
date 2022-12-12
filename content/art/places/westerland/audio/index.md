@@ -5,7 +5,7 @@ outputs:
   - qrcode
 type: audio
 aliases:
-  - /k/14/1a/
+  - /k/18/1a/
 resources:
 - name: audio
   src: "18-Witthues.mp3"
