@@ -10,6 +10,17 @@ other = "Einzelobjektansicht"
 [overview]
 other = "Zur Übersicht"
 
+# IIIF Namen
+
+[front]
+other = "Vorderseite"
+
+[back]
+other = "Rückseite"
+
+[cover]
+other = "Abdeckung"
+
 #Tags
 
 ["audio:text"]

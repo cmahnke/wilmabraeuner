@@ -36,11 +36,12 @@
           {{- end -}}
 
           {{- range .Params.resources -}}
-              {{- if .params.iiif -}}
-                  <div class="iiif">
-                      {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
-                  </div>
-              {{- end -}}
+            {{- if .params.iiif -}}
+              <div class="iiif">
+                <div class="description">Ansicht der {{ i18n .name }}</div>
+                {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+              </div>
+            {{- end -}}
           {{- end -}}
 
           {{/*

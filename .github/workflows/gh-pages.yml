@@ -44,7 +44,7 @@ jobs:
           extended: true
 
       - name: Create IIIF derivates
-        run: docker run -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest-jxl-uploader sh -c "cd ${PWD} && ./scripts/iiif.sh"
+        run: docker run -e CHOWN_UID=${UID} -v ${PWD}:${PWD} ghcr.io/cmahnke/iiif-action:latest-jxl-uploader sh -c "cd ${PWD} && ./scripts/iiif.sh"
 
       - name: Generate Files
         env:
@@ -68,13 +68,13 @@ jobs:
       - name: Puppeteer
         run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
 
-      - name: Cleanup disk
-        run: |
-          df -h
-          docker rmi -f ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
-          rm -rf node_modules
-          rm -rf content
-          df -h
+#      - name: Cleanup disk
+#        run: |
+#          df -h
+#          docker rmi -f ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
+#          rm -rf node_modules
+#          rm -rf content
+#          df -h
 
       - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3.9.0
