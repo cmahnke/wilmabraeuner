@@ -22,10 +22,24 @@
     {{ errorf "Can't find image %s" $imgLocation }}
 {{- end -}}
 {{/* Check for JXL */}}
-{{- if eq $previewImg.ResourceType "image/jxl" -}}
+
+{{ warnf "1:%s contains %s" $page.File.Path $previewImg.MediaType }}
+{{ warnf "1+:%s contains '%#v' %s" $page.File.Path $previewImg.MediaType $previewImg.MediaType }}
+{{ warnf "--> 1++ %#v<-" $previewImg.MediaType }}
+{{- if ne (string $previewImg.MediaType) "image/jxl" -}}
+
+{{ warnf "1++ %#v<-" $previewImg.MediaType }}
+
+{{ else }}
+
+{{ warnf "1++e %#v<-" $previewImg.MediaType }}
+{{ end }}
+
+{{- if eq $previewImg.MediaType (string "image/jxl") -}}
 {{ warnf "%s contains JXL" $page.File.Path }}
   {{- $previewImg = partial "iiif/preview.html" $page -}}
 {{- else -}}
+{{ warnf "2: %s contains %s" $page.File.Path $previewImg.MediaType }}
   {{- if lt $previewImg.Width $previewImg.Height -}}
       {{- $orientation = "portrait" -}}
   {{- else -}}

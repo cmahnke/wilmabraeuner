@@ -41,6 +41,19 @@
                {{ .Summary -}}...
               {{- end -}}
             </div>
+          {{- else if in (slice "picture" "print" "reproduction") .Params.type -}}
+            {{- $preview := partial "iiif/preview.html" . -}}
+            {{ with $preview }}
+              {{ $image := .Resize "300x" }}
+              <div class="preview">
+                <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
+              </div>
+            {{ end }}
+            <div class="{{ $class | safeCSS }}">
+              {{- if .Summary -}}
+               {{ .Summary -}}...
+              {{- end -}}
+            </div>
           {{- else -}}
             {{- if .Resources -}}
               {{- $preview := .Resources.GetMatch "preview" -}}

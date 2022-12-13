@@ -13,5 +13,5 @@
 {{- if not (fileExists (path.Join .File.Dir $previewLoc)) -}}
   {{- errorf "%s referenced in %s doesn't exists!" $previewLoc .File.Path -}}
 {{- end -}}
-{{- $img := resources.Get $previewLoc -}}
+{{- $img := .Resources.GetMatch $previewLoc -}}
 {{- return $img -}}
