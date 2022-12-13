@@ -1,6 +1,6 @@
 ---
 title:
-type: print
+type: document
 outputs:
   - html
   - qrcode

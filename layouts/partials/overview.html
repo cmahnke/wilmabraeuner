@@ -24,13 +24,15 @@
         {{- $class = .Params.subtype -}}
       {{- end -}}
       {{- $class := .Params.type -}}
-      <li class="sub-section {{ $class | safeCSS }}">
-        {{- if .Title -}}
-          {{- if or .Content .Resources -}}
-            <a href="{{- .RelPermalink -}}" title="{{- .Title -}}" class="section-item-link">
+      {{- if or .Content .Resources -}}
+        <li class="sub-section {{ $class | safeCSS }}">
+          {{- $title := .Title  -}}
+          {{- if not .Title -}}
+            {{- $title = i18n .Params.type -}}
           {{- end -}}
+          <a href="{{- .RelPermalink -}}" title="{{- $title -}}" class="section-item-link">
           <div class="object-title listing-title">
-            {{ .Title }}
+            {{- $title -}}
           </div>
           {{- if .Aliases -}}
             {{- partial "object-number.html" . -}}
@@ -75,8 +77,8 @@
           {{- if or .Content .Resources -}}
             </a>
           {{- end -}}
-        {{- end -}}
-      </li>
+        </li>
+      {{- end -}}
     {{- end -}}
   </ol>
 {{- end -}}
