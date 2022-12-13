@@ -7,10 +7,8 @@
   {{- errorf "Resource section for %s either empty or non existing" .File.Path -}}
 {{- end -}}
 {{- $frontResource := where $resources "name" $frontName -}}
-{{- $src := (index $frontResource 0).src -}}
-{{- $fileName := index (last 1 (split $src "/")) 0 -}}
-{{/* TODO: Certainly won't work on file names with multiple dots */}}
-{{- $path := index (first 1 (split $fileName ".")) 0 -}}
+{{- $infoJson := (index $frontResource 0).params.iiif -}}
+{{- $path := path.Dir $infoJson -}}
 {{- $previewLoc := path.Join $path $fullResImgSuffix -}}
 {{- if not (fileExists (path.Join .File.Dir $previewLoc)) -}}
   {{- errorf "%s referenced in %s doesn't exists!" $previewLoc .File.Path -}}
