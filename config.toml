@@ -103,6 +103,9 @@ summaryLength = 40
     suffixes = ["json"]
   [mediaTypes."application/x-qrcode-template"]
     suffixes = ["json"]
+# See https://www.loc.gov/preservation/digital/formats/fdd/fdd000538.shtml
+  [mediaTypes."	image/jxl"]
+    suffixes = ["jxl"]
 
 [outputFormats]
   [outputFormats.geojson]

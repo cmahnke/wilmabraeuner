@@ -1,0 +1,76 @@
+{{- $contextPath := .contextPath -}}
+{{- $pageURL := .pageURL -}}
+{{- $page := .pageContext }}
+{{- $site := .site }}
+{{- if eq $site nil -}}
+    {{- $site = .Site -}}
+{{- end -}}
+{{- $imgLocation := path.Join $contextPath .context.src -}}
+{{- $class := "" -}}
+{{- $orientation := "" -}}
+{{- if .context.params.class -}}
+    {{- $class = .context.params.class -}}
+{{- end -}}
+
+{{- $previewImg := "" -}}
+{{- if .context.name -}}
+    {{- $previewImg = ($page.Resources.GetMatch .context.name) -}}
+{{- else -}}
+    {{- $previewImg = ($page.Resources.GetMatch .context.src) -}}
+{{- end -}}
+{{- if eq $previewImg nil -}}
+    {{ errorf "Can't find image %s" $imgLocation }}
+{{- end -}}
+{{/* Check for JXL */}}
+{{- if eq $previewImg.ResourceType "image/jxl" -}}
+{{ warnf "%s contains JXL" $page.File.Path }}
+  {{- $previewImg = partial "iiif/preview.html" $page -}}
+{{- else -}}
+  {{- if lt $previewImg.Width $previewImg.Height -}}
+      {{- $orientation = "portrait" -}}
+  {{- else -}}
+      {{- $orientation = "landscape" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $mapName := replace (replace (replace .context.params.iiif "/" "_") "." "") "-" "_" -}}
+{{/*
+{{- $infoJson := printf "/%s" (path.Join $contextPath .context.params.iiif) -}}
+{{- $baseURL := printf "/%s/%s/" $contextPath (path.Dir .context.params.iiif) -}}
+*/}}
+{{- $infoJson := "" -}}
+{{- $baseURL := "" -}}
+
+{{- if or $site.IsServer (not (isset $site.Params "productioniiifurlprefix")) -}}
+    {{- $infoJson = printf "/%s" (path.Join $contextPath .context.params.iiif) -}}
+    {{- $baseURL = printf "/%s/%s/" $contextPath (path.Dir .context.params.iiif) -}}
+    {{- warnf "Setting IIIF URL locally to %s" $infoJson -}}
+{{- else -}}
+    {{- $infoJson = printf "%s%s" $site.Params.productionIIIFURLPrefix (path.Join $contextPath .context.params.iiif) -}}
+    {{- $baseURL = "" -}}
+{{- end -}}
+
+<div class="iiif-image {{ $class | safeHTML }} {{ $orientation | safeHTML }}">
+    <a name="{{ $mapName }}"></a>
+    {{/*
+    {{- if .heading -}}
+        <span class="image-heading">{{ .heading }}</span>
+    {{- end -}}
+    */}}
+    <div id="{{ $mapName }}" class="viewer {{ $class }} {{ $orientation | safeHTML }}"></div>
+
+    {{ $rotation := 0 }}
+    {{ if .context.params.rotate }}
+        {{ $rotation = .context.params.rotate }}
+    {{ end }}
+    <script type="text/javascript">
+        {{ $mapName | safeJS }}_Div = document.getElementById("{{ $mapName }}");
+        {{ $mapName | safeJS }} = addMap({{ $mapName | safeJS }}_Div, "{{ $infoJson }}", {{ $rotation }}, {{ $baseURL }});
+    </script>
+    <div class="share">
+        {{ $downloadURL := printf "%s" .context.src }}
+        <a href="{{ $downloadURL }}" class="image-download">{{ i18n "fullResolution" }}</a> |
+        <a href="{{ $infoJson }}" class="iiif-link"><span class="iiif-iiif">{{ i18n "iiif" }}</span> <span class="iiif-manifest">{{ i18n "manifest" }}</span></a> |
+        <a href="{{ $pageURL }}#{{ $mapName }}" class="image-link">{{ i18n "imageLink" }}</a>
+    </div>
+  </div>
