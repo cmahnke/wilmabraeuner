@@ -1040,8 +1040,10 @@ body.archive {
     margin-bottom: 4em;
 
     .description {
-        font-size: larger;
+        font-size: 2em;
+        font-weight: 200;
         padding-bottom: 1.6em;
+        font-family: $font-face-archive;
     }
 
     .viewer {

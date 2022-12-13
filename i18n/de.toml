@@ -10,7 +10,33 @@ other = "Einzelobjektansicht"
 [overview]
 other = "Zur Übersicht"
 
-# IIIF Namen
+# Content types
+
+[topic]
+other = "Thema"
+
+[wall]
+other = "Stellwand"
+
+[frame]
+other = "Rahmen"
+
+[picture]
+other = "Foto"
+
+[painting]
+other = "Gemälde"
+
+[print]
+other = "Druckgrafik"
+
+[object]
+other = "Objekt"
+
+[document]
+other = "Dokument"
+
+# IIIF Names
 
 [front]
 other = "Vorderseite"
