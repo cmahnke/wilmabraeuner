@@ -2,7 +2,7 @@
   "dependencies": {
     "compare_view": "^1.3.4",
     "headroom.js": "^0.12.0",
-    "juxtaposejs": "^1.1.6"
+    "juxtaposejs": "^1.1.6",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3"
   },
