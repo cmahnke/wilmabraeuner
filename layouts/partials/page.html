@@ -10,66 +10,66 @@
         {{ partial "breadcrumb-nav.html" . }}
       </div>
       <div class="content {{ .Params.type }}">
-          {{- if not .Params.metaPage -}}
-              <h1 class="post-title">{{ .Title }}</h1>
-          {{- end -}}
-          <div class="post-body">
-              {{ .Content }}
-          </div>
+        {{- if not .Params.metaPage -}}
+          <h1 class="post-title">{{ .Title }}</h1>
+        {{- end -}}
+        <div class="post-body">
+          {{ .Content }}
+        </div>
 
-          {{- if eq .Params.type "audio" -}}
-            {{- $audio := .Resources.GetMatch "audio" -}}
-            {{- with $audio -}}
-              {{- $src := .RelPermalink -}}
-              {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
-            {{- end -}}
+        {{- if eq .Params.type "audio" -}}
+          {{- $audio := .Resources.GetMatch "audio" -}}
+          {{- with $audio -}}
+            {{- $src := .RelPermalink -}}
+            {{- partial "media/audioplayer.html" (dict "context" . "src" $src "autoplay" false) -}}
           {{- end -}}
+        {{- end -}}
 
-          {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
-            {{- $preview := .Resources.GetMatch "preview" -}}
-            {{ with $preview }}
-              {{ $image := .Resize "600x" }}
-              <div class="preview">
-                <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
-              </div>
-            {{- end -}}
+        {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
+          {{- $preview := .Resources.GetMatch "preview" -}}
+          {{ with $preview }}
+            {{ $image := .Resize "600x" }}
+            <div class="preview">
+              <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
+            </div>
           {{- end -}}
+        {{- end -}}
 
-          {{- range .Params.resources -}}
-            {{- if .params.iiif -}}
-              <div class="iiif">
-                <div class="description">Ansicht der {{ i18n .name }}</div>
-                {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
-              </div>
-            {{- end -}}
+        {{- range .Params.resources -}}
+          {{- if .params.iiif -}}
+            <div class="iiif">
+              <div class="description">Ansicht der {{ i18n .name }}</div>
+              {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+            </div>
           {{- end -}}
+        {{- end -}}
 
-          {{/*
-          {{- if or .Page.Params.iiifcontext .Page.Params.iiif.context -}}
-            {{- if (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/image/") -}}
-              <div class="iiif">
-                {{- range .Params.resources -}}
-                  {{- if or (or (eq .name "front") (eq .name "title")) (eq .name "cover") -}}
-                    {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "heading" (i18n .name) "pageContext" $page "site" $.Site) }}
-                  {{- end -}}
+        {{/*
+        {{- if or .Page.Params.iiifcontext .Page.Params.iiif.context -}}
+          {{- if (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/image/") -}}
+            <div class="iiif">
+              {{- range .Params.resources -}}
+                {{- if or (or (eq .name "front") (eq .name "title")) (eq .name "cover") -}}
+                  {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "heading" (i18n .name) "pageContext" $page "site" $.Site) }}
                 {{- end -}}
-              </div>
-            {{- else if and (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/presentation/") (or .Page.Params.iiifmanifest .Page.Params.iiif.manifest) -}}
-              <div class="iiif">
-                {{- partial "iiif/iiif-presentation.html" . -}}
-              </div>
-            {{- end -}}
+              {{- end -}}
+            </div>
+          {{- else if and (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/presentation/") (or .Page.Params.iiifmanifest .Page.Params.iiif.manifest) -}}
+            <div class="iiif">
+              {{- partial "iiif/iiif-presentation.html" . -}}
+            </div>
           {{- end -}}
-          */}}
+        {{- end -}}
+        */}}
 
-          {{- if and .Params.type (or .Params.description .Params.bookTitle) -}}
-              {{- partial (printf "media/%s.html" .Params.type ) . -}}
-          {{- end -}}
+        {{- if and .Params.type (or .Params.description .Params.bookTitle) -}}
+            {{- partial (printf "media/%s.html" .Params.type ) . -}}
+        {{- end -}}
 
-          {{- if eq .Params.type "audio" -}}
-            <a class="up" href="{{ .Parent.RelPermalink}}">{{ i18n "overview" }}</a>
-          {{- end -}}
-       </div>
+        {{- if eq .Params.type "audio" -}}
+          <a class="up" href="{{ .Parent.RelPermalink}}">{{ i18n "overview" }}</a>
+        {{- end -}}
+     </div>
    </div>
    <div class="qrcode-link">
      <a href="qrcode.pdf">•</a>

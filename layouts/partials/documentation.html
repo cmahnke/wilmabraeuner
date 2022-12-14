@@ -1,0 +1,33 @@
+{{- $page := .Page -}}
+{{- $context := path.Dir .File.Path -}}
+{{- $pageURL := .Permalink -}}
+{{- $singleTypes := slice "picture painting print object" -}}
+
+<div class="content-container {{ .Params.type }}">
+    <div class="content-area">
+      <div class="content-header">
+        {{ partial "breadcrumb-nav.html" . }}
+      </div>
+      <div class="content documentation {{ .Params.type }}">
+        <h1 class="post-title">{{ .Title }}</h1>
+        {{- if eq .Kind "section" -}}
+          <h2 class="toc-header">{{- i18n "toc" -}}</h2>
+          <ol class="toc-entries">
+            {{- range .Pages -}}
+              <li class="toc-entry">
+                <a href="{{ .RelPermalink }}">
+                  {{- .Title -}}
+                </a>
+              </li>
+            {{- end -}}
+          </ol>
+        {{- end -}}
+        <div class="post-body">
+          {{ .Content }}
+        </div>
+      </div>
+  </div>
+  <div class="qrcode-link">
+    <a href="qrcode.pdf">•</a>
+  </div>
+</div>

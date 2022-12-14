@@ -1,7 +1,6 @@
 ---
-title:
-check: false
-draft: true
+title: Inhaltstypen
+layout: documentation
 ---
 
 Zu Abbildung durch einen statischen Seitengenerator muss die Ausstellung in eine Dateistrfuktur "übersetzt" werden und jede Einheit mit entsprechenden Metadaten ausgestettet werden.
