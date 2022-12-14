@@ -10,6 +10,9 @@ other = "Einzelobjektansicht"
 [overview]
 other = "Zur Übersicht"
 
+[toc]
+other = "Inhaltsübersicht"
+
 # Content types
 
 [topic]

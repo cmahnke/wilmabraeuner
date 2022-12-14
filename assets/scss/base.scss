@@ -1081,6 +1081,56 @@ body.archive {
     }
 }
 
+.making-of .documentation {
+    font-family: $font-face-archive;
+
+    .post-title {
+        font-family: inherit;
+        margin: unset;
+        font-size: 2.6em;
+        margin-bottom: .4em;
+    }
+
+    .toc-header {
+        font-family: $font-face-archive;
+        font-size: 1.6em;
+    }
+
+    .toc-entries {
+        margin-left: 2em;
+    }
+
+    .post-body {
+        font-family: inherit;
+
+        p {
+            font-family: $font-face-archive;
+            margin: unset;
+            width: unset;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: $font-face-archive;
+            margin-bottom: .2em;
+        }
+
+        h1 {
+            font-size: 2.2em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        ul {
+            margin-left: 2em;
+        }
+    }
+}
 
 /*
   TODO:

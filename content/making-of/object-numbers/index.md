@@ -1,6 +1,6 @@
 ---
 title: Objektnummern
-check: false
+layout: documentation
 ---
 # Themenbereiche
 
