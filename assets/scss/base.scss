@@ -1074,6 +1074,10 @@ body.archive {
         position: absolute;
         bottom: -5em;
         right: 0;
+        a, a:link, a:visited, a:hover {
+            color: $header-text-color;
+            text-decoration: none;
+        }
     }
 }
 
