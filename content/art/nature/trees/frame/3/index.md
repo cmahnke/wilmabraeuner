@@ -1,13 +1,13 @@
 ---
 title: Fotografie
-type: print
+type: picture
 outputs:
   - html
   - qrcode
   - iiif
 description: Genfer See
 aliases:
-  - /k/21/2/3p
+  - /k/21/2/3f/
 iiifContext: http://iiif.io/api/image/2/context.json
 weight: 3
 resources:

@@ -6,7 +6,7 @@ outputs:
   - qrcode
   - iiif
 aliases:
-  - /k/21/2/1k
+  - /k/21/2/1k/
 iiifContext: http://iiif.io/api/image/2/context.json
 weight: 1
 resources:
