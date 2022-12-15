@@ -4,10 +4,14 @@ layout: documentation
 ---
 # Themenbereiche
 
-* ***A***: Archivthemen und -texte, Begleittexte zur Ausstellung
-* ***L*** Leben: Hamburg, Biographie, Familie, soziale Beziehungen (Fünkchen), Umsiedlung nach Sylt), Privatwohnung, Kunstgewerbe auf Sylt (Ladengeschäft), Humor, Dokumente  
-* ***W*** = Werk: Grafik, Malerei und Fotografie: Frühe Studien, Skizzenblöcke, Kamera, Lupe etc., Fotos alte Köpfe etc., Retusche und Publikationen (Kalender, Bücher, Postkarten), Ölgemälde, Grafiken und Zeichnungen, Durchlichtmedien etc., Ausstellungsbesprechung Hamburg
-* ***N***: Naturschutz und Verein Bürgerinitiative (Dokumente, Zeitungsausschnitte, Bilder Atlantis etc.)
+* ***A*** - Archiv:  
+Archivthemen und -texte, Begleittexte zur Ausstellung
+* ***L*** - Leben:  
+Hamburg, Biographie, Familie, soziale Beziehungen (Fünkchen), Umsiedlung nach Sylt), Privatwohnung, Kunstgewerbe auf Sylt (Ladengeschäft), Humor, Dokumente  
+* ***W*** - Werk:  
+Grafik, Malerei und Fotografie: Frühe Studien, Skizzenblöcke, Kamera, Lupe etc., Fotos alte Köpfe etc., Retusche und Publikationen (Kalender, Bücher, Postkarten), Ölgemälde, Grafiken und Zeichnungen, Durchlichtmedien etc., Ausstellungsbesprechung Hamburg
+* ***N*** - Naturschutz:  
+  Naturschutz und Verein Bürgerinitiative (Dokumente, Zeitungsausschnitte, Bilder Atlantis etc.)
 
 # Stellwandnummern
 
