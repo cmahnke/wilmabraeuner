@@ -14,6 +14,7 @@ Zu Abbildung durch einen statischen Seitengenerator muss die Ausstellung in eine
 * **'document'**: Dokuemnt, Drucksache
 * **'reproduction'**: Reproduktion, z.B. Zeitungsausschnitt
 * **'painting'**: Gemälde
+* **'drawing'**: Zeichung
 * **'picture'**: Fotogarphie
 * **'print'**: Druckgrafik
 * **'object'**: Objekt

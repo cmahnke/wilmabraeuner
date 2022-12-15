@@ -1,7 +1,7 @@
 {{- $page := .Page -}}
 {{- $context := path.Dir .File.Path -}}
 {{- $pageURL := .Permalink -}}
-{{- $singleTypes := slice "picture painting print object" -}}
+{{- $singleTypes := slice "picture painting print object document" -}}
 {{- partial "content-check.html" . -}}
 
 <div class="content-container {{ .Params.type }}">
@@ -35,7 +35,7 @@
           {{- end -}}
         {{- end -}}
 
-        {{- if and (.Params.resources) (or (eq .Params.type "picture") (eq .Params.type "document")) -}}
+        {{- if and (.Params.resources) (or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing")) -}}
           {{- if gt (len .Params.resources) 1 -}}
             {{- $tabCount := 0 -}}
             <ul class="nav nav-tabs" role="tablist">
@@ -112,9 +112,11 @@
         {{- end -}}
         */}}
 
+        {{/*
         {{- if and .Params.type (or .Params.description .Params.bookTitle) -}}
             {{- partial (printf "media/%s.html" .Params.type ) . -}}
         {{- end -}}
+        */}}
 
         {{- $objectNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
         {{- if eq .Params.type "audio" -}}
