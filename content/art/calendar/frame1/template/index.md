@@ -1,5 +1,5 @@
 ---
-title: Vorlage: Deckblatt eines Kalenders
+title: "Vorlage: Deckblatt eines Kalenders"
 type: picture
 outputs:
   - html
