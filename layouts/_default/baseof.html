@@ -7,7 +7,7 @@
     {{ partial "html/head/meta.html" . }}
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-    {{- partial "html/head/style.html" (dict "context" . ) -}}
+    {{- partial "html/head/style.html" (dict "context" . "includes" (slice "node_modules/bootstrap/scss" )) -}}
     {{- partial "html/head/script.html" (dict "js" (partial "html/head/iiif-js.html" .)) -}}
 
     <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32.png" | absURL }}" sizes="32x32">

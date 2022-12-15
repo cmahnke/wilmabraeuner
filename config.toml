@@ -17,6 +17,7 @@ summaryLength = 40
     keywords = "blog, book, digitization, history, cultural history"
     Copyright = "false"
     homeList = true
+    maxWidth = "1280"
 
 [module]
     [[module.mounts]]

@@ -35,12 +35,62 @@
           {{- end -}}
         {{- end -}}
 
-        {{- range .Params.resources -}}
-          {{- if .params.iiif -}}
-            <div class="iiif">
-              <div class="description">Ansicht der {{ i18n .name }}</div>
-              {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+        {{- if and (.Params.resources) (or (eq .Params.type "picture") (eq .Params.type "document")) -}}
+          {{- if gt (len .Params.resources) 1 -}}
+            {{- $tabCount := 0 -}}
+            <ul class="nav nav-tabs" role="tablist">
+              {{- range .Params.resources -}}
+                {{- if .params.iiif -}}
+                  {{- $tabname := printf "%s-tab" .name -}}
+                  {{- $panename := printf "%s-pane" .name -}}
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link{{ if eq $tabCount 0 }} active{{ end }}" href="#" role="tab" id="{{ $tabname }}" data-bs-toggle="tab" data-bs-target="#{{ $panename }}">{{ i18n .name }}</button>
+                  </li>
+                  {{- $tabCount = add $tabCount 1 -}}
+                {{- end -}}
+              {{- end -}}
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" href="#" role="tab" id="compare-tab" data-bs-toggle="tab" data-bs-target="#compare-pane">{{ i18n "compareView" }}</button>
+              </li>
+            </ul>
+            {{- $tabCount = 0 -}}
+            <div class="tab-content" id="viewerTabContent">
+              {{- range .Params.resources -}}
+                {{- if .params.iiif -}}
+                  {{- $tabname := printf "%s-tab" .name -}}
+                  {{- $panename := printf "%s-pane" .name -}}
+                  <div class="tab-pane fade{{ if eq $tabCount 0 }} active show{{ end }}" id="{{ $panename }}" role="tabpanel" aria-labelledby="{{ $tabname }}">
+                    <div class="iiif">
+                      <div class="description">Ansicht der {{ i18n .name }}</div>
+                      {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+                    </div>
+                  </div>
+                  {{- $tabCount = add $tabCount 1 -}}
+                {{- end -}}
+              {{- end -}}
+              <div class="tab-pane fade" id="compare-pane" role="tabpanel" aria-labelledby="compare-tab">
+                {{- $page := . -}}
+                {{- $images := slice -}}
+                {{- range .Params.resources -}}
+                  {{- if .params.iiif -}}
+                    {{- $image := partial "iiif/preview.html" (dict "context" $page "name" .name) -}}
+                    {{- $image = $image.Resize (printf "%sx" $.Site.Params.maxWidth) -}}
+                    {{- $images = $images | append (dict .name $image.RelPermalink) -}}
+                  {{- end -}}
+                {{- end -}}
+                {{/*
+                {{- $images := partial "functions/arrays/reverse-slice.html" $images -}}
+                */}}
+                {{- partial "views/compare_view.html" (dict "context" $page "id" "" "images" $images) -}}
+              </div>
             </div>
+          {{- else -}}
+            {{- with (index .Params.resources 0) -}}
+              <div class="iiif">
+                <div class="description">Ansicht der {{ i18n .name }}</div>
+                {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+              </div>
+            {{- end -}}
           {{- end -}}
         {{- end -}}
 
@@ -66,8 +116,36 @@
             {{- partial (printf "media/%s.html" .Params.type ) . -}}
         {{- end -}}
 
+        {{- $objectNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
         {{- if eq .Params.type "audio" -}}
           <a class="up" href="{{ .Parent.RelPermalink}}">{{ i18n "overview" }}</a>
+          {{- $foundText := false -}}
+          {{- range .Parent.Pages -}}
+            {{- if eq .Params.type "text" -}}
+              {{- $textNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+              {{- if eq $objectNumber $textNumber -}}
+                <div class="related-popup related-text">
+                  <input type="checkbox" id="related-toggle">
+                  <label class="related-close float-right" for="related-toggle"><i class="close-icon"></i></label>
+                  <a class="related-link" href="{{ .RelPermalink}}">{{ i18n "relatedText" }}</a>
+                </div>
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- else if eq .Params.type "text" -}}
+          {{- $foundAudio := false -}}
+          {{- range .Parent.Pages -}}
+            {{- if eq .Params.type "audio" -}}
+              {{- $audioNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+              {{- if eq $objectNumber $audioNumber -}}
+                <div class="related-popup related-audio">
+                  <input type="checkbox" id="related-toggle">
+                  <label class="related-close float-right" for="related-toggle"><i class="close-icon"></i></label>
+                  <a class="related-link" href="{{ .RelPermalink}}">{{ i18n "relatedAudio" }}</a>
+                </div>
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
         {{- end -}}
      </div>
    </div>
