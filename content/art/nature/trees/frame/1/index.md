@@ -1,12 +1,12 @@
 ---
-title: "Vorlage: Deckblatt eines Kalenders"
-type: picture
+title: Radierung
+type: print
 outputs:
   - html
   - qrcode
   - iiif
 aliases:
-  - /k/14/2/1f/
+  - /k/21/2/1k
 iiifContext: http://iiif.io/api/image/2/context.json
 weight: 1
 resources:

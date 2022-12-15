@@ -1,14 +1,15 @@
 ---
-title: "Vorlage: Deckblatt eines Kalenders"
-type: picture
+title: Fotografie
+type: print
 outputs:
   - html
   - qrcode
   - iiif
+description: Genfer See
 aliases:
-  - /k/14/2/1f/
+  - /k/21/2/3p
 iiifContext: http://iiif.io/api/image/2/context.json
-weight: 1
+weight: 3
 resources:
 - src: "front.jxl"
   name: front
