@@ -68,6 +68,10 @@ jobs:
       - name: Puppeteer
         run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
 
+#      - name: Remove JXL file before deployment 
+#        run: |
+#          find docs -name '*.jxl' -exec rm "{}" \;
+#
 #      - name: Cleanup disk
 #        run: |
 #          df -h
