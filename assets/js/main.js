@@ -1,12 +1,5 @@
 import "./jquery";
 
-/*
-const compare_view = require("compare_view/public/dist/browser_compare_view.js");
-window.compare_view = compare_view;
-*/
-//import CompareView from "compare_view";
-//window.CompareView = CompareView;
-
 import Headroom from 'headroom.js';
 window.Headroom = Headroom;
 
