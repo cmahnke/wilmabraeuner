@@ -13,6 +13,18 @@ other = "Zur Übersicht"
 [toc]
 other = "Inhaltsübersicht"
 
+# Related items
+
+[relatedText]
+other = "Zugehöriger Text"
+
+[relatedAudio]
+other = "Zugehöriges Audio"
+
+# Views
+[compareView]
+other = "Bildvergleich"
+
 # Content types
 
 [topic]

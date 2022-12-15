@@ -1,0 +1,23 @@
+{{- $context := .context -}}
+{{/* TODO: Also work only on context */}}
+{{- $id := "" -}}
+{{- if and (isset . "id") (ne .id "") -}}
+  {{- $id = .id -}}
+{{- else -}}
+  {{- $seed := printf "%s%#v" $context.File.UniqueID .images -}}
+  {{- $id = printf "compare_view-%s" (substr (md5 $seed) 0 6) -}}
+{{- end -}}
+{{- $images := .images -}}
+
+<canvas id="{{ $id }}" class="compare_view"></canvas>
+<script>
+    var images = [
+      {{- range $images -}}
+        {{- range $name, $src := . -}}
+          '{{ $src | safeJS }}',
+        {{- end -}}
+      {{- end -}}
+    ];
+    var view = addCompareView('{{ $id }}', images, {});
+    document.getElementById("{{ $id }}").data = view;
+</script>
