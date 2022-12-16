@@ -70,7 +70,7 @@ jobs:
 
       - name: Remove JXL file before deployment
         run: |
-          find docs -name '*.jxl' -exec rm "{}" \;
+          find docs -name '*.jxl' -print -exec rm "{}" \;
 
 #      - name: Cleanup disk
 #        run: |
