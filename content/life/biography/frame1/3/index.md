@@ -1,12 +1,12 @@
 ---
 title:
-type: picture
+type: document
 outputs:
   - html
   - qrcode
   - iiif
 aliases:
-  - /l/26/3/3f/
+  - /l/26/3/3d/
 iiifContext: http://iiif.io/api/image/2/context.json
 resources:
 - src: "front.jxl"
