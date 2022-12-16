@@ -5,12 +5,14 @@
   {{- $class := printf "%s-content" $type -}}
 
   <div class="content-body {{ $class | safeCSS }}">
+
     {{ .Content }}
     {{- if .Resources -}}
       {{- $preview := .Resources.GetMatch "preview" -}}
       {{- with $preview -}}
         {{- $image := .Resize "600x" -}}
         <div class="section-preview {{ $class | safeCSS }}">
+          <div class="section-preview-text">{{ i18n "contentOverview" }}</div>
           <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
         </div>
       {{- end -}}
@@ -43,7 +45,7 @@
                {{ .Summary -}}...
               {{- end -}}
             </div>
-          {{- else if in (slice "picture" "print" "reproduction") .Params.type -}}
+          {{- else if in (slice "picture" "print" "reproduction" "drawing" "document") .Params.type -}}
             {{- $preview := partial "iiif/preview.html" . -}}
             {{ with $preview }}
               {{ $image := .Resize "300x" }}
