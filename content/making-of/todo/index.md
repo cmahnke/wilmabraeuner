@@ -1,9 +1,6 @@
 ---
 title: 'Was noch zu tun ist'
 date: 2022-11-04T18:58:07+02:00
-tags:
-- Ausstellung
-- Zukünftige Seite
 outputs:
   - html
   - qrcode
