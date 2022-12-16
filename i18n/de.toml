@@ -13,6 +13,9 @@ other = "Zur Übersicht"
 [toc]
 other = "Inhaltsübersicht"
 
+[contentOverview]
+other = "Gesamtansicht"
+
 # Related items
 
 [relatedText]
@@ -50,6 +53,9 @@ other = "Objekt"
 
 [document]
 other = "Dokument"
+
+[drawing]
+other = "Zeichnung"
 
 # IIIF Names
 

@@ -28,6 +28,7 @@ $font-face-header: 'Cormorant Garamond', times;
 $header-text-color: #282d26;
 $gradient-margin: 4em;
 $dark-rust: #4a1a06;
+$frame-bg: #bec5c8;
 
 /* Sizes */
 $header-height: 9em;
@@ -336,6 +337,17 @@ html {
             font-size: 1.6em;
             font-weight: 200;
             font-family: $font-face-archive;
+        }
+    }
+
+    .section-preview {
+
+        .section-preview-text {
+            margin-bottom: .8em;
+            font-size: 1.6rem;
+            font-weight: 300;
+            font-family: $font-face-archive;
+            text-align: right;
         }
     }
 
@@ -687,6 +699,17 @@ footer,
         }
     }
 
+    &.frame-content {
+        display: grid;
+        column-gap: 1rem;
+        row-gap: 2em;
+        grid-template-columns: 50% 50%;
+        background-color: $frame-bg;
+        border-radius: 1rem;
+        margin-top: 2em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
 
 }
 
