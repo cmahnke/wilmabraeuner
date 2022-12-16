@@ -11,7 +11,11 @@
       </div>
       <div class="content {{ .Params.type }}">
         {{- if not .Params.metaPage -}}
-          <h1 class="post-title">{{ .Title }}</h1>
+          {{- if .Title -}}
+            <h1 class="post-title">{{ .Title }}</h1>
+          {{- else if or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing") -}}
+            <h1 class="post-title">{{ i18n .Params.type }}</h1>
+          {{- end -}}
         {{- end -}}
         <div class="post-body">
           {{ .Content }}
