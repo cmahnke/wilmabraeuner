@@ -28,6 +28,36 @@ layout: documentation
 * AKL online
 * Sylt Lexikon
 
+# Webseite (aktuell)
+
+## Inhalte
+* Alle Rahmen
+* Bilder der Gemälde
+* Bilder der Ausstellung
+* Texte
+
+## Metadaten
+* Datumsangaben
+* Verbundene Inhalte
+* Schlagworte (z.B. Bonusinhalte)
+
+## Funktionalität
+
+* Naviagtion
+  * Stellwände
+  * Objekte (auf einer Stellwand und im Rahmen)
+* Zeitstrahl
+* 3D Modell
+
+## Gestaltung
+* Mobile Ansicht
+  * Bildvergleich
+
+## Zusätzliche Inhalte
+* Umfang klären
+
+## Layout
+
 # Was noch zu tun ist (Alt)
 
 ## Infrastruktur
@@ -35,22 +65,12 @@ layout: documentation
 * Theme erstellen
   * Für Mobilgeräte optimieren
   * Barrierefreiheit sicherstellen
-* Eigene Seite erstellen
-  * Hosting klären
-  * SSL Zertifikat?
-* QR Codes mit Icons als Vektordateien
-
-## Gestaltung
-* Vektorisierte Schriftzüge (Sylt) optimieren
-* Schriften festlegen
 
 ## Inhalte
 * Umfang von digitalisierten Inhalten klären
 * Impressum
 * "Making of" zusammenführen
 
-## Print
-* Plakate
 
 # Sonstige Ideen
 * Überregionale Pressemeldungen zum Thema Atlantis digitalisieren

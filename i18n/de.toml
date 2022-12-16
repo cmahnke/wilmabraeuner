@@ -57,6 +57,53 @@ other = "Dokument"
 [drawing]
 other = "Zeichnung"
 
+# Navigation
+
+[nextObject]
+other = "Nächstes Objekt"
+[prevObject]
+other = "Voriges Objekt"
+
+[nextTopic]
+other = "Nächstes Thema"
+[prevTopic]
+other = "Voriges Thema"
+
+[nextWall]
+other = "Nächste Stellwand"
+[prevWall]
+other = "Vorige Stellwand"
+
+[nextFrame]
+other = "Nächster Rahmen"
+[prevFrame]
+other = "Voriger Rahmen"
+
+[nextPrint]
+other = "Nächste Druckgrafik"
+[prevPrint]
+other = "Vorige Druckgrafik"
+
+[nextDocument]
+other = "Nächstes Dokument"
+[prevDocument]
+other = "Voriges Dokument"
+
+[nextDrawing]
+other = "Nächste Zeichnung"
+[prevDrawing]
+other = "Vorige Zeichnung"
+
+[nextPainting]
+other = "Nächstes Gemälde"
+[prevPainting]
+other = "Voriges Gemälde"
+
+[nextPicture]
+other = "Nächstes Foto"
+[prevPicture]
+other = "Voriges Foto"
+
 # IIIF Names
 
 [front]
