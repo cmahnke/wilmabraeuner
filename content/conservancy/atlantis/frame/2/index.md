@@ -8,6 +8,7 @@ outputs:
 aliases:
   - /n/23/2/1d/
 iiifContext: http://iiif.io/api/image/2/context.json
+weight: 2
 resources:
 - src: "front.jxl"
   name: front
