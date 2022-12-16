@@ -6,7 +6,7 @@ outputs:
   - qrcode
   - iiif
 aliases:
-  - /l/26/5/4f/
+  - /l/26/5/4d/
 iiifContext: http://iiif.io/api/image/2/context.json
 resources:
 - src: "front.jxl"

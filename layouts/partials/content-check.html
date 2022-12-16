@@ -43,7 +43,7 @@
         {{- errorf "%s has no alias!" .File.Path -}}
       {{- end -}}
       {{- if ne (substr (index .Aliases 0) -2 1) "t" -}}
-        {{- errorf "Alias for audio type doesn't ends with 'a', file %s" .File.Path -}}
+        {{- errorf "Alias for text type doesn't ends with 't', file %s" .File.Path -}}
       {{- end -}}
       {{- if not .Title -}}
         {{- errorf "%s has no title" .File.Path -}}
@@ -82,8 +82,8 @@
       {{- if and (eq $type "a") (or (not (isset .Params.subtype)) (ne .Params.subtype "archive")) -}}
         {{- errorf "%s has wrong subtype" .File.Path -}}
       {{- end -}}
-
-    {{- else if in (slice "picture" "print" "reproduction" "document") .Params.type -}}
+    {{/* TODO: Add "painting" */}}
+    {{- else if in (slice "picture" "print" "reproduction" "document" "drawing") .Params.type -}}
       {{- $preview := partial "iiif/preview.html" . -}}
       {{- if eq $preview nil -}}
         {{- errorf "Preview image for %s not found" .File.Path -}}
@@ -112,6 +112,21 @@
       {{- if eq .Kind "section" -}}
         {{- errorf "%s is a section should be leaf" .File.Path -}}
       {{- end -}}
+      {{/* Check for alias suffixes */}}
+      {{- if in (slice "print" "drawing" "painting") .Params.type -}}
+        {{- if ne (substr (index .Aliases 0) -2 1) "k" -}}
+          {{- errorf "Alias for artwork print, drawing, painting) type doesn't ends with 'k', file %s" .File.Path -}}
+        {{- end -}}
+      {{- else if eq .Params.type "picture" -}}
+        {{- if ne (substr (index .Aliases 0) -2 1) "f" -}}
+          {{- errorf "Alias for picture type doesn't ends with 'f', file %s" .File.Path -}}
+        {{- end -}}
+      {{- else if in (slice "document" "reproduction") .Params.type -}}
+        {{- if ne (substr (index .Aliases 0) -2 1) "d" -}}
+          {{- errorf "Alias for document or reproduction type doesn't ends with 'd', file %s" .File.Path -}}
+        {{- end -}}
+      {{- end -}}
+
     {{- else -}}
       {{- warnf "%s has unchecked post type '%s'" .File.Path .Params.type -}}
     {{- end -}}
