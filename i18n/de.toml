@@ -54,6 +54,9 @@ other = "Objekt"
 [document]
 other = "Dokument"
 
+[reproduction]
+other = "Reproduktion"
+
 [drawing]
 other = "Zeichnung"
 
