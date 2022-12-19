@@ -9,6 +9,7 @@
 
     <div class="content-header">
       {{ partial "breadcrumb-nav.html" . }}
+      {{ partial "nav/prev.html" . }}
     </div>
     <div class="content">
       {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
@@ -45,6 +46,7 @@
         </ol>
       {{- end -}}
     </div>
+    {{ partial "nav/next.html" . }}
   </div>
   <div class="qrcode-link">
     <a href="qrcode.pdf">•</a>

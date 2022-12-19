@@ -1,0 +1,16 @@
+{{- .Site.Home.Scratch.Add "alias2Page" dict -}}
+{{- .Site.Home.Scratch.Add "page2Alias" dict -}}
+{{- range $.Site.AllPages -}}
+  {{- $page := .RelPermalink -}}
+  {{- if .Aliases -}}
+    {{- $alias2Page := dict -}}
+    {{- $page2Alias := dict -}}
+    {{- range .Aliases -}}
+      {{- $alias2Page = merge $alias2Page (dict . $page) -}}
+      {{- $page2Alias = merge $page2Alias (dict $page .) -}}
+    {{- end -}}
+    {{- .Site.Home.Scratch.Set "alias2Page" (merge (.Site.Home.Scratch.Get "alias2Page") $alias2Page) -}}
+    {{- .Site.Home.Scratch.Set "page2Alias" (merge (.Site.Home.Scratch.Get "page2Alias") $page2Alias) -}}
+
+  {{- end -}}
+{{- end -}}

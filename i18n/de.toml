@@ -16,6 +16,12 @@ other = "Inhaltsübersicht"
 [contentOverview]
 other = "Gesamtansicht"
 
+[includes]
+other = "Beinhaltet"
+
+[relations]
+other = "Objektbeziehungen"
+
 # Related items
 
 [relatedText]
@@ -128,3 +134,24 @@ other = "Hörfassung Archivtext"
 
 ["audio:bonus"]
 other = "Hörfassung Bonusmaterial"
+
+["image:bonus"]
+other = "Bild Bonusmaterial"
+
+["content:backside"]
+other = "Rückseite"
+
+# Relations
+# See http://terminology-view.lido-schema.org/vocnet/?startNode=lido00409&lang=en&uriVocItem=http://terminology.lido-schema.org/lido00603
+# Note that the case of the kleys get mangled by hugo
+[is]
+other = "ist"
+
+[issourcefor]
+other = "Quelle für"
+
+[isderivedfrom]
+other = "abgeleitet von"
+
+# TODO:
+# * Add "contains", "contained in"

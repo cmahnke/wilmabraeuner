@@ -13,7 +13,7 @@
                 <li>
                   {{- $filename := "qrcode.pdf" -}}
                   {{- if .Aliases -}}
-                    {{- $objectNumber := partial "object-number.html" . -}}
+                    {{- $objectNumber := partial "functions/object-number.html" . -}}
                     {{- $filename = printf "%s.pdf" (trim (plainify $objectNumber) " ") -}}
                     {{- $objectNumber -}}
                   {{- end -}}
