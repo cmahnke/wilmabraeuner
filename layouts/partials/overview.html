@@ -67,12 +67,13 @@
             </div>
           {{- else if in (slice "picture" "print" "reproduction" "drawing" "document") .Params.type -}}
             {{- $preview := partial "iiif/preview.html" . -}}
-            {{ with $preview }}
-              {{ $image := .Resize "300x" }}
+            {{- with $preview -}}
+              {{- $width := div (int $.Site.Params.maxWidth) 2 -}}
+              {{- $image := .Resize (printf "%dx" $width) -}}
               <div class="preview">
                 <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
               </div>
-            {{ end }}
+            {{- end -}}
             {{- if .Summary -}}
               <div class="summary {{ $class | safeCSS }}">
                  {{ .Summary -}}...
