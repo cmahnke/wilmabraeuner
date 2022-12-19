@@ -4,7 +4,8 @@
 {{- end -}}
 {{- $rotate = printf "%s%d.%s" (index (shuffle (slice "-" "")) 0) (index (shuffle (seq 0 1)) 0) $rotate -}}
 {{- $style := printf "transform: rotate(%sdeg);" $rotate -}}
-<ol class="content-header-nav" style="{{ $style | safeCSS }}">
+{{/* style="{{ $style | safeCSS }}" */}}
+<ol class="content-header-nav">
     {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
 </ol>
 {{ define "breadcrumbnav" }}

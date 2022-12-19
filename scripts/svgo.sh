@@ -24,6 +24,8 @@ yarn run svgo --config ./config/svgo.config.js -i "./Source Files/beach-footer.s
 #Icons
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/icons/Archiv quadratisch.svg" -o "./static/images/archive-home.svg" --multipass
 
+yarn run svgo --config ./config/svgo.config.js -i "./Source Files/icons/paper-clip-part.svg" -o "./static/images/paper-clip-part.svg" --multipass
+
 cp ./static/images/archive-home.svg "./Source Files/icons"
 
 # Content graphics
