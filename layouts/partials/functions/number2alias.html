@@ -1,0 +1,11 @@
+{{- $number :=  . -}}
+{{- $number = lower (replace $number "." "/") -}}
+{{- $number = printf "%s/%s" (substr $number 0 1) (substr $number 1) -}}
+
+{{- if not (hasPrefix $number "/") -}}
+  {{- $number = printf "/%s" $number -}}
+{{- end -}}
+{{- if not (strings.HasSuffix $number "/") -}}
+  {{- $number = printf "%s/" $number -}}
+{{- end -}}
+{{- return $number -}}

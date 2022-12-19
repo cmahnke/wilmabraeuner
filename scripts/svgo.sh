@@ -16,7 +16,6 @@
 
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/logo/Gemeinde Sylt Logo.svg" -o "./static/images/gemeinde-logo.svg" --multipass
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/footer2.svg" -o "./static/images/footer2.svg" --multipass
-yarn run svgo --config ./config/svgo.config.js -i "./Source Files/footer3.svg" -o "./static/images/footer3.svg" --multipass
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/signature.svg" -o "./static/images/signature.svg" --multipass
 yarn run svgo --config ./config/svgo.config.js -i "./Source Files/icons/favicon.svg" -o "./static/images/favicon.svg" --multipass
 

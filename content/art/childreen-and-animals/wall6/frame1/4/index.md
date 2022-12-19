@@ -8,6 +8,12 @@ outputs:
 aliases:
   - /k/6/2/4f/
 iiifContext: http://iiif.io/api/image/2/context.json
+weight: 4
+related:
+  isDerivedFrom: K6.2.3F
+tags:
+  - content:bonus
+  - content:backside
 resources:
 - src: "front.jxl"
   name: front

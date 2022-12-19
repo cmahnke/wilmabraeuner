@@ -4,7 +4,7 @@
   {{- return $objectNumber -}}
 {{- end -}}
 {{- $types := slice "a" "d" "f" "k" "o" "t" "w" -}}
-{{- $objectNumber := partial "object-number.html" . -}}
+{{- $objectNumber := partial "functions/object-number.html" . -}}
 {{- $objectNumber = (trim (plainify $objectNumber) " ") -}}
 {{- $type := lower (substr $objectNumber -1 1) -}}
 {{- if or (not .Params.check) .Params.layout  -}}

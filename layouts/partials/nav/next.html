@@ -1,0 +1,21 @@
+{{/* There seems to be a major bug in here, prev and next are swapped
+{{- $next := "" -}}
+{{- if and (and .Kind "section") (.PrevInSection) -}}
+  {{- $next = .PrevInSection -}}
+{{- else if and (and .Kind "page") (.Prev) -}}
+  {{- $next = .Prev -}}
+{{- end -}}
+*/}}
+{{- $next := .PrevInSection -}}
+
+{{- if $next -}}
+  {{- $title := i18n "nextObject" -}}
+  {{- if $next.Params.type -}}
+    {{- $title := i18n (printf "next%s" (title $next.Params.type)) -}}
+  {{- end -}}
+  <div class="post-nav post-nav-next">
+    <a href="{{ $next.RelPermalink }}" class="post-nav-link">
+      {{- $title -}}
+    </a>
+  </div>
+{{- end -}}

@@ -8,8 +8,13 @@
     <div class="content-area">
       <div class="content-header">
         {{ partial "breadcrumb-nav.html" . }}
+        {{ partial "nav/prev.html" . }}
       </div>
-      <div class="content {{ .Params.type }}">
+      {{- $class := .Params.type -}}
+      {{- if .Params.subtype -}}
+        {{- $class = printf "%s %s" $class .Params.subtype -}}
+      {{- end -}}
+      <div class="content {{ $class }}">
         {{- if not .Params.metaPage -}}
           {{- if .Title -}}
             <h1 class="post-title">{{ .Title }}</h1>
@@ -17,9 +22,37 @@
             <h1 class="post-title">{{ i18n .Params.type }}</h1>
           {{- end -}}
         {{- end -}}
-        <div class="post-body">
+
+        <div class="post-body {{ $class }}">
           {{ .Content }}
         </div>
+
+        {{/*
+          TODO: Add a block for metadata like tags and relations on the right
+        {{- if .Params.tags -}}
+          {{- range .Params.tags -}}
+            {{- $class := printf "ribbon-%s" (replace . ":" "-") -}}
+            <div class="ribbon {{ $class }}">
+              {{- i18n . -}}
+            </div>
+          {{- end -}}
+        {{- end -}}
+        */}}
+
+        {{- if .Params.related -}}
+          <div class="post-relations">
+            <h3 class="relations-title">{{ i18n "relations" }}</h3>
+            {{- range $relation, $object := .Params.related -}}
+              {{- $class := printf "related-%s" (replace $relation ":" "-") -}}
+              <div class="relation {{ $class }}">
+                {{- $description := printf "%s %s" (title (i18n "is")) (i18n $relation) -}}
+                {{- $link := partial "functions/number2alias.html" $object -}}
+                {{- $link = index ($.Site.Home.Scratch.Get "alias2Page") $link -}}
+                {{- $description -}}: <a href="{{ $link }}" title="{{ $description }}">{{- $object -}}</a>
+              </div>
+            {{- end -}}
+          </div>
+        {{- end -}}
 
         {{- if eq .Params.type "audio" -}}
           {{- $audio := .Resources.GetMatch "audio" -}}
@@ -154,6 +187,7 @@
           {{- end -}}
         {{- end -}}
      </div>
+     {{ partial "nav/next.html" . }}
    </div>
    <div class="qrcode-link">
      <a href="qrcode.pdf">•</a>

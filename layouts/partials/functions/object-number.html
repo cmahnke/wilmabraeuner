@@ -1,0 +1,9 @@
+{{- $number := index (.Aliases) 0 -}}
+{{- if hasPrefix $number "/" -}}
+  {{- $number = substr $number 1 -}}
+{{- end -}}
+{{- if strings.HasSuffix $number "/" -}}
+  {{- $number = substr $number 0 -1 -}}
+{{- end -}}
+{{- $number = upper (replace $number "/" ".") -}}
+{{- $number -}}

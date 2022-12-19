@@ -32,6 +32,11 @@ summaryLength = 40
         source = "static"
         target = "static"
 
+    [[module.mounts]]
+        source = "content"
+        target = "content"
+#        excludeFiles = ["**/front/*", "**/back/*", "**/cover/*"]
+
 [menu]
 
     [[menu.content]]
