@@ -792,6 +792,8 @@ footer,
 
         .sub-section.picture .section-item-link,
         .sub-section.drawing .section-item-link,
+        .sub-section.reproduction .section-item-link,
+        .sub-section.print .section-item-link,
         .sub-section.document .section-item-link {
             display: flex;
             flex-direction: column;
@@ -824,6 +826,8 @@ footer,
 
         .document .preview,
         .drawing .preview,
+        .reproduction .preview,
+        .print .preview,
         .picture .preview {
             display: flex;
             justify-content: space-around;
