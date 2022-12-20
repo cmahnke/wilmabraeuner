@@ -30,10 +30,10 @@
         <li class="sub-section {{ $class | safeCSS }}">
           {{- if or .Params.tags .Params.related -}}
             <div class="ribbon-container">
-            {{- if or .Params.tags -}}
+            {{- if .Params.tags -}}
               {{- range .Params.tags -}}
                 {{- $class := printf "ribbon-%s" (replace . ":" "-") -}}
-                {{- if (i18n .) -}}
+                {{- if and (i18n .) (not (hasPrefix . "feature")) -}}
                   <div class="ribbon {{ $class }}">
                     {{- i18n . -}}
                   </div>

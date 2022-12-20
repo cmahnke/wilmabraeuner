@@ -19,8 +19,14 @@ other = "Gesamtansicht"
 [includes]
 other = "Beinhaltet"
 
+[objectNumber]
+other = "Objektnummer"
+
 [relations]
 other = "Objektbeziehungen"
+
+[features]
+other = "Besonderheiten"
 
 # Related items
 
@@ -140,6 +146,9 @@ other = "Bild Bonusmaterial"
 
 ["content:backside"]
 other = "Rückseite"
+
+["feature:imageEditing"]
+other = "Bearbeitetes Bild"
 
 # Relations
 # See http://terminology-view.lido-schema.org/vocnet/?startNode=lido00409&lang=en&uriVocItem=http://terminology.lido-schema.org/lido00603

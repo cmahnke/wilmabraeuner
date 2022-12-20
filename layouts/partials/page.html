@@ -16,11 +16,14 @@
       {{- end -}}
       <div class="content {{ $class }}">
         {{- if not .Params.metaPage -}}
-          {{- if .Title -}}
-            <h1 class="post-title">{{ .Title }}</h1>
-          {{- else if or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing") -}}
-            <h1 class="post-title">{{ i18n .Params.type }}</h1>
-          {{- end -}}
+          <div class="content-title">
+            {{- if .Title -}}
+              <h1 class="post-title">{{ .Title }}</h1>
+            {{- else if or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing") -}}
+              <h1 class="post-title">{{ i18n .Params.type }}</h1>
+            {{- end -}}
+            <h2 class="object-number">{{ i18n "objectNumber" }} {{ partial "functions/object-number.html" . -}}</h2>
+          </div>
         {{- end -}}
 
         <div class="post-body {{ $class }}">
@@ -31,13 +34,41 @@
           TODO: Add a block for metadata like tags and relations on the right
         {{- if .Params.tags -}}
           {{- range .Params.tags -}}
-            {{- $class := printf "ribbon-%s" (replace . ":" "-") -}}
-            <div class="ribbon {{ $class }}">
-              {{- i18n . -}}
-            </div>
+            {{- if not (hasPrefix .Params.tags "feature") -}}
+              {{- $class := printf "ribbon-%s" (replace . ":" "-") -}}
+              <div class="ribbon {{ $class }}">
+                {{- i18n . -}}
+              </div>
+            {{- end -}}
           {{- end -}}
         {{- end -}}
         */}}
+
+        {{- $features := false -}}
+        {{- if .Params.tags -}}
+          {{- range .Params.tags -}}
+            {{- if (hasPrefix (string .) "feature") -}}
+              {{- $features = true -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- if $features -}}
+          <div class="post-features">
+            <h3 class="features-title">{{ i18n "features" }}</h3>
+            {{- range .Params.tags -}}
+              {{- if (hasPrefix (string .) "feature") -}}
+                {{- $class := printf "feature-%s" (strings.TrimLeft . ":") -}}
+                {{- $title := i18n . -}}
+                {{- if $title -}}
+                  <div class="post-feature {{ $class }}">
+                    {{ $title }}
+                  </div>
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          </div>
+        {{- end -}}
 
         {{- if .Params.related -}}
           <div class="post-relations">
