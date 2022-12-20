@@ -9,6 +9,9 @@ aliases:
   - /k/7/2/1f/
 iiifContext: http://iiif.io/api/image/2/context.json
 weight: 1
+tags:
+  - content:bonus
+  - content:backside
 resources:
 - src: "front.jxl"
   name: front
