@@ -18,9 +18,9 @@ resources:
   params:
     iiif: front/info.json
     hint: non-paged#
-- src: "front.jxl"
-  name: front
+- src: "back.jxl"
+  name: back
   params:
-    iiif: front/info.json
+    iiif: back/info.json
     hint: non-paged
 ---
