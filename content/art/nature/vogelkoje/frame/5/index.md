@@ -8,6 +8,8 @@ outputs:
 aliases:
   - /k/22/2/5f/
 iiifContext: http://iiif.io/api/image/2/context.json
+tags:
+  - feature:imageEditing
 resources:
 - src: "front.jxl"
   name: front
