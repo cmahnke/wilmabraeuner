@@ -7,11 +7,7 @@
     "juxtaposejs": "^1.1.6"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
-    "autoprefixer": "^10.4.13",
     "node-sass": "^8.0.0",
-    "postcss": "^8.4.20",
-    "postcss-cli": "^10.1.0",
     "sassdash": "^0.9.0"
   }
 }
