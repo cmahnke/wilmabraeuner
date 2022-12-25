@@ -5,9 +5,5 @@
     "compare_view": "Octoframes/compare_view",
     "headroom.js": "^0.12.0",
     "juxtaposejs": "^1.1.6"
-  },
-  "devDependencies": {
-    "node-sass": "^8.0.0",
-    "sassdash": "^0.9.0"
   }
 }
