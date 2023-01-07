@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2023-01-07T06:37:23.148349Z" version="8.14.1">
+  <properties>
+    <property>
+      <name>width</name>
+      <value type="gint">2964</value>
+    </property>
+    <property>
+      <name>height</name>
+      <value type="gint">2516</value>
+    </property>
+    <property>
+      <name>bands</name>
+      <value type="gint">3</value>
+    </property>
+    <property>
+      <name>xoffset</name>
+      <value type="gint">0</value>
+    </property>
+    <property>
+      <name>yoffset</name>
+      <value type="gint">0</value>
+    </property>
+    <property>
+      <name>xres</name>
+      <value type="gdouble">1</value>
+    </property>
+    <property>
+      <name>yres</name>
+      <value type="gdouble">1</value>
+    </property>
+    <property>
+      <name>vips-loader</name>
+      <value type="VipsRefString">jxlload</value>
+    </property>
+    <property>
+      <name>icc-profile-data</name>
+      <value type="VipsBlob">AAAC3Gp4bCAEMAAAbW50clJHQiBYWVogB+MADAABAAAAAAAAYWNzcEFQUEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAPbWAAEAAAAA0y1qeGwg6hhRKeiDrRCHXNeLTWgvPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKZGVzYwAAAPwAAABEY3BydAAAAUAAAAEAd3RwdAAAAkAAAAAUY2hhZAAAAlQAAAAsclhZWgAAAoAAAAAUZ1hZWgAAApQAAAAUYlhZWgAAAqgAAAAUclRSQwAAArwAAAAgZ1RSQwAAArwAAAAgYlRSQwAAArwAAAAgbWx1YwAAAAAAAAABAAAADGVuVVMAAAAmAAAAHABSAEcAQgBfAEQANgA1AF8AUwBSAEcAXwBSAGUAbABfAFMAUgBHAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAOQAAAAcAEMAbwBwAHkAcgBpAGcAaAB0ACAAMgAwADEAOQAgAEcAbwBvAGcAbABlACAATABMAEMALAAgAEMAQwAtAEIAWQAtAFMAQQAgADMALgAwACAAVQBuAHAAbwByAHQAZQBkACAAbABpAGMAZQBuAHMAZQAoAGgAdAB0AHAAcwA6AC8ALwBjAHIAZQBhAHQAaQB2AGUAYwBvAG0AbQBvAG4AcwAuAG8AcgBnAC8AbABpAGMAZQBuAHMAZQBzAC8AYgB5AC0AcwBhAC8AMwAuADAALwBsAGUAZwBhAGwAYwBvAGQAZQApWFlaIAAAAAAAAPbWAAEAAAAA0y1zZjMyAAAAAAABDEAAAAXd///zKgAAB5IAAP2Q///7o////aMAAAPbAADAgVhZWiAAAAAAAABvnwAAOPUAAAOQWFlaIAAAAAAAAGKWAAC3hwAAGNtYWVogAAAAAAAAJKIAAA+FAAC21nBhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApb</value>
+    </property>
+    <property>
+      <name>orientation</name>
+      <value type="gint">1</value>
+    </property>
+    <property>
+      <name>vips-sequential</name>
+      <value type="gint">1</value>
+    </property>
+  </properties>
+</image>

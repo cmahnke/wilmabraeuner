@@ -1,0 +1,31 @@
+{
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "./front",
+  "profile": [
+    "http://iiif.io/api/image/2/level0.json",
+    {
+      "formats": [
+        "jpg"
+      ],
+      "qualities": [
+        "default"
+      ]
+    }
+  ],
+  "protocol": "http://iiif.io/api/image",
+  "tiles": [
+    {
+      "scaleFactors": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "width": 512
+    }
+  ],
+  "width": 17232,
+  "height": 9574
+}

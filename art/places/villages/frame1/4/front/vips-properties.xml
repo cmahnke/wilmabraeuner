@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<image xmlns="http://www.vips.ecs.soton.ac.uk//dzsave" date="2023-01-07T06:42:28.873861Z" version="8.14.1">
+  <properties>
+    <property>
+      <name>width</name>
+      <value type="gint">5712</value>
+    </property>
+    <property>
+      <name>height</name>
+      <value type="gint">4250</value>
+    </property>
+    <property>
+      <name>bands</name>
+      <value type="gint">1</value>
+    </property>
+    <property>
+      <name>xoffset</name>
+      <value type="gint">0</value>
+    </property>
+    <property>
+      <name>yoffset</name>
+      <value type="gint">0</value>
+    </property>
+    <property>
+      <name>xres</name>
+      <value type="gdouble">1</value>
+    </property>
+    <property>
+      <name>yres</name>
+      <value type="gdouble">1</value>
+    </property>
+    <property>
+      <name>vips-loader</name>
+      <value type="VipsRefString">jxlload</value>
+    </property>
+    <property>
+      <name>icc-profile-data</name>
+      <value type="VipsBlob">AAACJGp4bCAEMAAAbW50ckdSQVlYWVogB+MADAABAAAAAAAAYWNzcEFQUEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAPbWAAEAAAAA0y1qeGwg+ktObq4mARfqziWADUjhIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEZGVzYwAAALQAAAA8Y3BydAAAAPAAAAEAd3RwdAAAAfAAAAAUa1RSQwAAAgQAAAAgbWx1YwAAAAAAAAABAAAADGVuVVMAAAAeAAAAHABHAHIAYQBfAEQANgA1AF8AUgBlAGwAXwBTAFIARwAAbWx1YwAAAAAAAAABAAAADGVuVVMAAADkAAAAHABDAG8AcAB5AHIAaQBnAGgAdAAgADIAMAAxADkAIABHAG8AbwBnAGwAZQAgAEwATABDACwAIABDAEMALQBCAFkALQBTAEEAIAAzAC4AMAAgAFUAbgBwAG8AcgB0AGUAZAAgAGwAaQBjAGUAbgBzAGUAKABoAHQAdABwAHMAOgAvAC8AYwByAGUAYQB0AGkAdgBlAGMAbwBtAG0AbwBuAHMALgBvAHIAZwAvAGwAaQBjAGUAbgBzAGUAcwAvAGIAeQAtAHMAYQAvADMALgAwAC8AbABlAGcAYQBsAGMAbwBkAGUAKVhZWiAAAAAAAADzUQABAAAAARbMcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACls=</value>
+    </property>
+    <property>
+      <name>orientation</name>
+      <value type="gint">1</value>
+    </property>
+    <property>
+      <name>vips-sequential</name>
+      <value type="gint">1</value>
+    </property>
+  </properties>
+</image>
