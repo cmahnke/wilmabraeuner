@@ -10,15 +10,6 @@ languagecode = "de"
 defaultcontentlanguage = "de"
 summaryLength = 40
 
-[params]
-    author = "Sylter Archiv"
-    homeTitle = "Spurensuche im Sylter Archiv..."
-    subTitle = "<span class='prefix'>Zum Leben und Werk von </span><a href='/'><img class='header-img' src='/images/signature.svg' alt='Unterschrift von Wilma Bräuner'></a> <a href='/'><span class='year'>(1891-1985)<span></a>"
-    keywords = "blog, book, digitization, history, cultural history"
-    Copyright = "false"
-    homeList = true
-    maxWidth = "1280"
-
 [module]
     [[module.mounts]]
         source = "assets/scss"
