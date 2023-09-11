@@ -14,7 +14,7 @@
               {{- $desc := "" -}}
               {{- $section := path.BaseName (path.Dir .File.Path) -}}
               {{- if (isset .Params "image") -}}
-                  {{- $image = .Params.Get "image" -}}
+                  {{- $image = index .Params "image" -}}
               {{- else -}}
                   {{- continue -}}
               {{- end -}}
@@ -23,13 +23,13 @@
               {{- end -}}
               {{- $image = path.Join .RelPermalink $image -}}
               {{- if (isset .Params "color") -}}
-                  {{- $color = .Params.Get "color" -}}
+                  {{- $color = index .Params "color" -}}
               {{- end -}}
               {{- if (isset .Params "style") -}}
-                  {{- $style = .Params.Get "style" -}}
+                  {{- $style = index .Params "style" -}}
               {{- end -}}
               {{- if (isset .Params "description") -}}
-                  {{- $desc = .Params.Get "description" -}}
+                  {{- $desc = index .Params "description" -}}
               {{- end -}}
               <li class="section">
                 <a href="{{ .RelPermalink }}" title="{{ $desc }}">
