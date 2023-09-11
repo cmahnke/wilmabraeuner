@@ -3,14 +3,19 @@ import "./jquery";
 import Headroom from 'headroom.js';
 window.Headroom = Headroom;
 
+/* See https://github.com/rgalus/sticky-js */
+window.Sticky = require('sticky-js');
+
 import { addConsent } from './iframe-consent';
 import { audioplayer } from './audioplayer';
 import { compare_view } from './compare_view';
 
 import 'bootstrap/js/dist/tab';
 
-$( document ).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
   'use strict';
+
+  var sticky = new Sticky('#head');
 
   var options = {} /*{offset: {down: '3em'}}*/;
   var header = new Headroom(document.querySelector("header"), options);

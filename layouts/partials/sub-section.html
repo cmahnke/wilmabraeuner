@@ -4,7 +4,7 @@
     {{- $rootSection := .FirstSection -}}
     {{- $color := "" -}}
     {{- if (isset $rootSection.Params "color") -}}
-        {{- $color = $rootSection.Params.Get "color" -}}
+        {{- $color = index $rootSection.Params "color" -}}
     {{- end -}}
 
     <div class="content-header">

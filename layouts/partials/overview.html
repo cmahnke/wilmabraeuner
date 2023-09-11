@@ -35,7 +35,9 @@
                 {{- $class := printf "ribbon-%s" (replace . ":" "-") -}}
                 {{- if and (i18n .) (not (hasPrefix . "feature")) -}}
                   <div class="ribbon {{ $class }}">
-                    {{- i18n . -}}
+                    <div class="ribbon-content">
+                      {{- i18n . -}}
+                    </div>
                   </div>
                 {{- end -}}
               {{- end -}}

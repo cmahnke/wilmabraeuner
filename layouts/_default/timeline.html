@@ -1,0 +1,45 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "main" }}
+    <!-- page-title -->
+    <section class="section bg-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              {{- $context := path.Dir .File.Path -}}
+              {{- $images := newScratch -}}
+               {{- $entry := . -}}
+
+              {{- range .Params.resources -}}
+                  {{- if eq ($images.Get "preview") nil -}}
+                      {{- if or (eq .name "front") (eq .name "cover") -}}
+                          {{- $images.Set "previewLoc" (path.Join $context .src) -}}
+                          {{- $images.Set "preview" (($entry.Resources.ByType "image").GetMatch .name) -}}
+                      {{- end -}}
+                  {{- end -}}
+              {{- end -}}
+
+              {{- $imgLocation := $images.Get "previewLoc" -}}
+              {{- $previewImg := $images.Get "preview" -}}
+              {{- if eq $previewImg nil -}}
+                  {{- warnf "Can't find image %s for post %s" $imgLocation $context -}}
+              {{- else -}}
+                  {{- $previewImg = $previewImg.Resize "370x"  -}}
+                  <img src="{{ $previewImg.RelPermalink }}" alt="post-thumb" class="img-fluid rounded float-left mr-5 mb-1 header">
+              {{- end -}}
+              {{- $title := "" -}}
+              {{ if isset .Params "subtitle" -}}
+                {{- $title = printf "%s: %s" .Title .Params.subTitle -}}
+              {{- else -}}
+                {{- $title = .Title -}}
+              {{- end -}}
+              <h4 class="post-title mt-5">{{ $title }}</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /page-title -->
+
+    {{- partial "timeline/content.html" . -}}
+{{ end }}
