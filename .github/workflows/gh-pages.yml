@@ -7,6 +7,10 @@ on:
   schedule:
     - cron:  '30 23 1 * *'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-22.04
