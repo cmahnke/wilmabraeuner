@@ -7,4 +7,5 @@
     homeList = true
     maxWidth = "1280"
     disableScale = true
-    description = "Spurensuche im Sylter Archiv: Zum Leben und Werk von Wilma Bräuner (1891-1985)" 
+    description = "Spurensuche im Sylter Archiv: Zum Leben und Werk von Wilma Bräuner (1891-1985)"
+    debug = false
