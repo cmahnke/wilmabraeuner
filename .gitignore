@@ -33,7 +33,7 @@ content/art/art.svg
 static/images/archive-home.svg
 static/images/beach-footer.svg
 **/icons/archive-home.svg
-
+**/vips-properties.xml
 .stylelintrc.json
 browserslist
 purgecss.config.js

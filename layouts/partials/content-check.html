@@ -128,15 +128,15 @@
       {{- end -}}
 
     {{- else -}}
-      {{- warnf "%s has unchecked post type '%s'" .File.Path .Params.type -}}
+      {{- warnf "[partials/content-check.html] %s has unchecked post type '%s'" .File.Path .Params.type -}}
     {{- end -}}
 
     {{- if not .Title -}}
-      {{- warnf "%s has no title" .File.Path -}}
+      {{- warnf "[partials/content-check.html] %s has no title" .File.Path -}}
     {{- end -}}
     {{- if ne .Params.type "topic" -}}
       {{- if not .Aliases -}}
-        {{- warnf "%s has no alias" .File.Path -}}
+        {{- warnf "[partials/content-check.html] %s has no alias" .File.Path -}}
       {{- else -}}
         {{- if ne .File nil -}}
           {{- $contextFile :=  .File.Path -}}
@@ -151,12 +151,12 @@
         {{- end -}}
       {{- end -}}
     {{- else -}}
-      {{- warnf "Ignoring aliases for %s" .File.Path -}}
+      {{- warnf "[partials/content-check.html] Ignoring aliases for %s" .File.Path -}}
     {{- end -}}
     {{- if .Params.draft -}}
-      {{- warnf "%s is a draft!" .File.Path -}}
+      {{- warnf "[partials/content-check.html] %s is a draft!" .File.Path -}}
     {{- end -}}
   {{- end -}}
 {{- else -}}
-  {{- warnf "Check for %s is disabled!" .File.Path -}}
+  {{- warnf "[partials/content-check.html] Check for %s is disabled!" .File.Path -}}
 {{- end -}}

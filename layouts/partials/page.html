@@ -1,5 +1,8 @@
 {{- $page := .Page -}}
-{{- $context := path.Dir .File.Path -}}
+{{- $contextPath := "" -}}
+{{- if and (ne .File nil) (ne .File.Path nil) -}}
+  {{- $contextPath = path.Dir .File.Path -}}
+{{- end -}}
 {{- $pageURL := .Permalink -}}
 {{- $singleTypes := slice "picture painting print object document" -}}
 {{- partial "content-check.html" . -}}
@@ -130,7 +133,7 @@
                   <div class="tab-pane fade{{ if eq $tabCount 0 }} active show{{ end }}" id="{{ $panename }}" role="tabpanel" aria-labelledby="{{ $tabname }}">
                     <div class="iiif">
                       <div class="description">Ansicht der {{ i18n .name }}</div>
-                      {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+                      {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $contextPath "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
                     </div>
                   </div>
                   {{- $tabCount = add $tabCount 1 -}}
@@ -156,7 +159,7 @@
             {{- with (index .Params.resources 0) -}}
               <div class="iiif">
                 <div class="description">Ansicht der {{ i18n .name }}</div>
-                {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
+                {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $contextPath "pageURL" .Permalink "pageContext" $page "site" $.Site) }}
               </div>
             {{- end -}}
           {{- end -}}
@@ -168,7 +171,7 @@
             <div class="iiif">
               {{- range .Params.resources -}}
                 {{- if or (or (eq .name "front") (eq .name "title")) (eq .name "cover") -}}
-                  {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $context "pageURL" .Permalink "heading" (i18n .name) "pageContext" $page "site" $.Site) }}
+                  {{ partial "iiif/iiif-image.html" (dict "context" . "contextPath" $contextPath "pageURL" .Permalink "heading" (i18n .name) "pageContext" $page "site" $.Site) }}
                 {{- end -}}
               {{- end -}}
             </div>
