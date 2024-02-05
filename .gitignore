@@ -37,3 +37,5 @@ static/images/beach-footer.svg
 .stylelintrc.json
 browserslist
 purgecss.config.js
+assets/css/fonts
+static/fonts
