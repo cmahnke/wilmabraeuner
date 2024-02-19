@@ -35,10 +35,14 @@
           {{- $class = "about" -}}
       {{- end -}}
     {{- end -}}
-     {{- $class = printf "%s %s" $class (path.Dir .FirstSection.File.Path) -}}
-     {{- if .Params.metaPage -}}
-         {{- $class = printf "%s %s" $class "meta" -}}
-     {{- end -}}
+    {{- $firstSection := "" -}}
+    {{- if and (ne .FirstSection.File nil) (ne .FirstSection.File.Path nil) -}}
+      {{- $firstSection = .FirstSection.File.Path -}}
+    {{- end -}}
+    {{- $class = printf "%s %s" $class (path.Dir $firstSection) -}}
+    {{- if .Params.metaPage -}}
+      {{- $class = printf "%s %s" $class "meta" -}}
+    {{- end -}}
      <body class="{{ $class }} {{ if .IsHome }}home{{ end }}">
        <div class="page-wrapper">
          {{ partial "header.html" . }}
