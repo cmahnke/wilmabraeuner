@@ -45,7 +45,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.6.0
         with:
-          hugo-version: '0.123.6'
+          hugo-version: '0.123.7'
           extended: true
 
       - name: Create IIIF derivates
@@ -76,14 +76,6 @@ jobs:
       - name: Remove JXL file before deployment
         run: |
           find docs -name '*.jxl' -print -exec rm "{}" \;
-
-#      - name: Cleanup disk
-#        run: |
-#          df -h
-#          docker rmi -f ghcr.io/cmahnke/iiif-action:latest-jxl-uploader
-#          rm -rf node_modules
-#          rm -rf content
-#          df -h
 
       - name: Deploy site
         uses: peaceiris/actions-gh-pages@v3.9.3
