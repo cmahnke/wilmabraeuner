@@ -5,10 +5,18 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      github-actions:
+        patterns:
+        - '*'
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      npm:
+        patterns:
+        - '*'
   - package-ecosystem: "gitsubmodule"
     directory: "/"
     schedule:
