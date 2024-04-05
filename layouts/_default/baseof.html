@@ -46,6 +46,7 @@
      <body class="{{ $class }} {{ if .IsHome }}home{{ end }}">
        <div class="page-wrapper">
          {{ partial "header.html" . }}
+         {{- partial "status.html" . -}}
          <main class="main">
              {{ block "content" . }}{{ end }}
          </main>

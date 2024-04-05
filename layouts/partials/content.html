@@ -3,6 +3,7 @@
 {{- $pageURL := .Permalink -}}
 
 {{ .Content }}
+{{/*
 {{- if or .Page.Params.iiifcontext .Page.Params.iiif.context -}}
         {{- if (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/image/") -}}
             <div class="iiif">
@@ -21,3 +22,4 @@
 {{- if and (isset .Page.Params "type") (eq .Page.Params.type "3d") -}}
     {{ partial "3d.html" . }}
 {{- end -}}
+*/}}

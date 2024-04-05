@@ -1,0 +1,17 @@
+.status {
+  display: flex;
+  top: 7em;
+  position: absolute;
+  font-size: 1.4em;
+  justify-content: center;
+  font-family: var(--bs-body-font-family);
+
+  .message {
+    width: 70%;
+    padding: 1em;
+    background-color: #FF3131;
+    border-radius: .4em;
+    z-index: 10;
+
+  }
+}

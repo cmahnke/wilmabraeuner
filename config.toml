@@ -104,7 +104,14 @@ summaryLength = 40
   [mediaTypes."image/jxl"]
     suffixes = ["jxl"]
 
+[outputs]
+  home = ['html', 'rss']
+  page = ['html']
+  rss = ['rss']
+  section = ['html', 'rss']
+
 [outputFormats]
+
   [outputFormats.geojson]
     mediaType = "application/geo+json"
     isPlainText = true
