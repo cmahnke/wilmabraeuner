@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: "actions/checkout@v4"
       - name: "TODO to Issue"
-        uses: "alstr/todo-to-issue-action@v4.12.3"
+        uses: "alstr/todo-to-issue-action@v4.13"
         with:
           AUTO_ASSIGN: true
           LANGUAGES: "https://raw.githubusercontent.com/cmahnke/projektemacher-base/main/.syntax.json"
