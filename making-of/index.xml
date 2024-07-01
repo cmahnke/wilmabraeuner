@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Making of on Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (1891-1985)</title>
+    <link>https://xn--wilmabruner-r8a.de/making-of/</link>
+    <description>Recent content in Making of on Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (1891-1985)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Fri, 04 Nov 2022 18:58:07 +0200</lastBuildDate>
+    <atom:link href="https://xn--wilmabruner-r8a.de/making-of/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Was noch zu tun ist</title>
+      <link>https://xn--wilmabruner-r8a.de/making-of/todo/</link>
+      <pubDate>Fri, 04 Nov 2022 18:58:07 +0200</pubDate>
+      <guid>https://xn--wilmabruner-r8a.de/making-of/todo/</guid>
+      <description>Bisher unzugeordnet Skechup Model converter: https://fabconvert.com/convert/skp Bauen auf Sylt https://www.abendblatt.de/region/schleswig-holstein/sylt/article236774271/sylt-wolkenkratzer-westerland-die-verruecktesten-visionen-fuer-die-nordsee-insel.html Wikipedia Ergänzen: Fotografisches Werk Einsatz für den Naturschutz Genauere Lebendaten Literatur überprüfen Lit.: U. Schulte-Wülwer &amp;lsquo;Künstlerinsel Sylt&amp;rsquo;. AKL online Sylt Lexikon Webseite (aktuell) Inhalte Alle Rahmen Bilder der Gemälde Bilder der Ausstellung Texte Metadaten Datumsangaben Verbundene Inhalte Schlagworte (z.</description>
+    </item>
+    <item>
+      <title>Inhaltstypen</title>
+      <link>https://xn--wilmabruner-r8a.de/making-of/file-structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.de/making-of/file-structure/</guid>
+      <description>Zu Abbildung durch einen statischen Seitengenerator muss die Ausstellung in eine Dateistrfuktur &amp;ldquo;übersetzt&amp;rdquo; werden und jede Einheit mit entsprechenden Metadaten ausgestettet werden.&#xA;Inhaltsklassifikation Inhaltstypen &amp;lsquo;wall&amp;rsquo;: Stellwand &amp;lsquo;frame&amp;rsquo;: Rahmen &amp;lsquo;document&amp;rsquo;: Dokuemnt, Drucksache &amp;lsquo;reproduction&amp;rsquo;: Reproduktion, z.B. Zeitungsausschnitt &amp;lsquo;painting&amp;rsquo;: Gemälde &amp;lsquo;drawing&amp;rsquo;: Zeichung &amp;lsquo;picture&amp;rsquo;: Fotogarphie &amp;lsquo;print&amp;rsquo;: Druckgrafik &amp;lsquo;object&amp;rsquo;: Objekt &amp;rsquo;text&amp;rsquo;: Texttafel &amp;lsquo;audio&amp;rsquo;: Audioinhalt &amp;rsquo;topic&amp;rsquo;: Themeneinheit Zusätzlich wird die Nummerierung der Objekte benutzt um eine zweite Hierachie zur Addressierung der Objkte zu erlauben, da diese besomders kurz sind eigenen sie sich aucj für die generierung der QR Codes.</description>
+    </item>
+    <item>
+      <title>Objektnummern</title>
+      <link>https://xn--wilmabruner-r8a.de/making-of/object-numbers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.de/making-of/object-numbers/</guid>
+      <description>Themenbereiche A - Archiv:&#xA;Archivthemen und -texte, Begleittexte zur Ausstellung L - Leben:&#xA;Hamburg, Biographie, Familie, soziale Beziehungen (Fünkchen), Umsiedlung nach Sylt), Privatwohnung, Kunstgewerbe auf Sylt (Ladengeschäft), Humor, Dokumente W - Werk:&#xA;Grafik, Malerei und Fotografie: Frühe Studien, Skizzenblöcke, Kamera, Lupe etc.</description>
+    </item>
+  </channel>
+</rss>
