@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  HUGO_VERSION: 0.139.2
+  HUGO_VERSION: 0.139.3
   DEPENDENCY_MANAGER: yarn
 
 jobs:
