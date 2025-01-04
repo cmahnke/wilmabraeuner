@@ -295,6 +295,10 @@ footer,
     background: linear-gradient(0deg, #5D8094 0%, #FFFFFF $gradient-margin, #FFFFFF calc(100% - $gradient-margin), #BDE3F2 100%);
     */
 
+    @media (max-width: 64em) {
+        margin: 0 .6rem;
+    }
+
     .content-container {
         max-width: $max-width;
         width: 100%;
@@ -1295,6 +1299,20 @@ body.archive {
             justify-content: unset;
             margin-top: unset;
             transition: all 200ms ease-in;
+
+            @media (max-width: 64em) {
+                .prefix {
+                  font-size: 1.8em;
+                }
+
+                .header-img {
+
+                }
+
+                .year {
+                    font-size: 1em;
+                }
+            }
 
             @media (max-width: 48em) {
                 margin-bottom: unset;
