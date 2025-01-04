@@ -8,6 +8,10 @@
 */}}
 {{- $next := .PrevInSection -}}
 
+{{- if .Params.metaPage -}}
+  {{- $next = "" -}}
+{{- end -}}
+
 {{- if $next -}}
   {{- $title := i18n "nextObject" -}}
   {{- if $next.Params.type -}}

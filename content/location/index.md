@@ -20,3 +20,7 @@ Die Vernissage findet am Montag, den 5. Dezember 2022 um 18 Uhr in der Stadtgale
 ## Führungen:
 * Montag bis Freitag 16 Uhr
 * Samstag 11 Uhr
+
+# Impressionen
+
+Bilder und Berichterstattung finden sie auf der [nächsten Seite](/impressions/)

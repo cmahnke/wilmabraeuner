@@ -1142,6 +1142,16 @@ body.archive {
     display: unset;
     font-family: $font-face-archive;
 
+    .post-body {
+        ul {
+            padding-inline-start: 40px;
+        }
+
+        p {
+          margin: unset
+        }
+    }
+
     .content-area {
         h1 {
             margin-bottom: 0.8em;
