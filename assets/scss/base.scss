@@ -1114,6 +1114,10 @@ footer {
                 font-family: $font-face-archive;
                 font-size: 1.4em;
                 font-weight: 300 !important;
+
+                i.link-icon {
+                    display: none;
+                }
             }
 
             .navigation-item {
