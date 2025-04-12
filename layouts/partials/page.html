@@ -196,13 +196,13 @@
         {{- end -}}
         */}}
 
-        {{- $objectNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+        {{- $objectNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
         {{- if eq .Params.type "audio" -}}
           <a class="up" href="{{ .Parent.RelPermalink}}">{{ i18n "overview" }}</a>
           {{- $foundText := false -}}
           {{- range .Parent.Pages -}}
             {{- if eq .Params.type "text" -}}
-              {{- $textNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+              {{- $textNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
               {{- if eq $objectNumber $textNumber -}}
                 <div class="related-popup related-text">
                   <input type="checkbox" id="related-toggle">
@@ -216,7 +216,7 @@
           {{- $foundAudio := false -}}
           {{- range .Parent.Pages -}}
             {{- if eq .Params.type "audio" -}}
-              {{- $audioNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+              {{- $audioNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
               {{- if eq $objectNumber $audioNumber -}}
                 <div class="related-popup related-audio">
                   <input type="checkbox" id="related-toggle">
