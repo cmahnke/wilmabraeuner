@@ -1,6 +1,6 @@
 {{- $fullResImgSuffix := "/full/full/0/default.jpg" -}}
 {{/* This is a hack to get the default content language - this is a missing Hugo feature */}}
-{{- $defaultContentLanguage := partialCached "functions/i18n/default-lang" . -}}
+{{- $defaultContentLanguage := (index $.Sites.Default.Languages 0).Lang -}}
 {{- $defaultContentPage := partial "functions/i18n/page-for-lang" (dict "context" . "lang" $defaultContentLanguage) -}}
 
 {{- $imageIdSuffix := "" -}}
