@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (1891-1985)</title>
+    <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/</link>
+    <description>Recent content in Tags on Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (1891-1985)</description>
+    <generator>Hugo</generator>
+    <language>de-de</language>
+    <atom:link href="https://xn--wilmabruner-r8a.projektemacher.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Audio:archive</title>
+      <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/audioarchive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.projektemacher.org/tags/audioarchive/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Audio:bonus</title>
+      <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/audiobonus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.projektemacher.org/tags/audiobonus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Audio:text</title>
+      <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/audiotext/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.projektemacher.org/tags/audiotext/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Content:backside</title>
+      <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/contentbackside/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.projektemacher.org/tags/contentbackside/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Content:bonus</title>
+      <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/contentbonus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.projektemacher.org/tags/contentbonus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Feature:imageEditing</title>
+      <link>https://xn--wilmabruner-r8a.projektemacher.org/tags/featureimageediting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xn--wilmabruner-r8a.projektemacher.org/tags/featureimageediting/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
