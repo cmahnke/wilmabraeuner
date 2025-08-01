@@ -15,7 +15,7 @@ concurrency:
 env:
   HUGO_VERSION: 0.148.2
   DEPENDENCY_MANAGER: yarn
-  PYTHON_VERSION: '3.13'
+  PYTHON_VERSION: '3.12'
 
 jobs:
   deploy:
