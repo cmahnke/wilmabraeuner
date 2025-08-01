@@ -15,6 +15,7 @@ concurrency:
 env:
   HUGO_VERSION: 0.148.2
   DEPENDENCY_MANAGER: yarn
+  PYTHON_VERSION: '3.13'
 
 jobs:
   deploy:
@@ -35,7 +36,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install required dependencies
         run: |
