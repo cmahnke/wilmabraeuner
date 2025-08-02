@@ -1,11 +1,12 @@
 [params]
-    author = "Sylter Archiv"
-    homeTitle = "Spurensuche im Sylter Archiv..."
-    subTitle = "<span class='prefix'>Zum Leben und Werk von </span><a href='/'><img class='header-img' src='/images/signature.svg' alt='Unterschrift von Wilma Bräuner'></a> <a href='/'><span class='year'>(1891-1985)<span></a>"
-    keywords = "blog, book, digitization, history, cultural history"
-    Copyright = "false"
-    homeList = true
-    maxWidth = "1280"
-    disableScale = true
-    description = "Spurensuche im Sylter Archiv: Zum Leben und Werk von Wilma Bräuner (1891-1985)"
-    debug = false
+  author = "Sylter Archiv"
+  homeTitle = "Spurensuche im Sylter Archiv..."
+  subTitle = "<span class='prefix'>Zum Leben und Werk von </span><a href='/'><img class='header-img' src='/images/signature.svg' alt='Unterschrift von Wilma Bräuner'></a> <a href='/'><span class='year'>(1891-1985)<span></a>"
+  keywords = "blog, book, digitization, history, cultural history"
+  Copyright = "false"
+  homeList = true
+  maxWidth = "1280"
+  disableScale = true
+  description = "Spurensuche im Sylter Archiv: Zum Leben und Werk von Wilma Bräuner (1891-1985)"
+  wikidata = false
+  debug = false
