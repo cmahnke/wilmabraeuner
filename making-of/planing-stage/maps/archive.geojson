@@ -1,0 +1,15 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "shape": "Marker",
+            "name": "Flutdalbe",
+            "category": "default"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [8.319141, 54.898115]
+        }
+    }]
+}
