@@ -10,3 +10,8 @@
   description = "Spurensuche im Sylter Archiv: Zum Leben und Werk von Wilma Bräuner (1891-1985)"
   wikidata = false
   debug = false
+
+[params.author]
+  email = 'mail@christianmahnke.de'
+  name = 'Christian Mahnke'
+  uri = 'http://www.wikidata.org/entity/Q137668638'
