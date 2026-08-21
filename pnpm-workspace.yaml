@@ -1,0 +1,10 @@
+allowBuilds:
+  canvas: true
+  protobufjs: true
+  puppeteer: true
+  sharp: true
+  tify: true
+blockExoticSubdeps: false
+ignoreScripts: false
+packages:
+  - .
