@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 #IMAGES=$(find 'Source Files' -name '*.svg')
 #
 #for IMAGE in $IMAGES
