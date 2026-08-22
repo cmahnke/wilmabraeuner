@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-set -e
+set -e -o pipefail
 
 CTX_PATH="$(dirname $(realpath $0))"
 
