@@ -1,5 +1,3 @@
-import "./jquery";
-
 import Headroom from 'headroom.js';
 window.Headroom = Headroom;
 
