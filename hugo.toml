@@ -1,12 +1,11 @@
 baseURL = 'https://xn--wilmabruner-r8a.projektemacher.org/'
-languageCode = 'de-de'
 title = 'Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (1891-1985)'
 
 theme = ["projektemacher-base"]
 publishDir = "docs"
 canonifyurls = true
 #disableKinds = ["taxonomy", "term"]
-languagecode = "de"
+locale = "de"
 defaultcontentlanguage = "de"
 summaryLength = 40
 
