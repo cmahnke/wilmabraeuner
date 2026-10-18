@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ site.Language.Lang }}">
 
   <head>
     <meta charset="utf-8">
@@ -9,22 +9,22 @@
     {{- partial "html/head/style.html" (dict "context" . "includes" (slice "node_modules/bootstrap/scss" )) -}}
     {{- partial "html/head/script.html" (dict "context" . "js" (partial "html/head/iiif-js.html" .)) -}}
 
-    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32.png" | absURL }}" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_16 | default "/images/favicon-16.png" | absURL }}" sizes="16x16">
-    {{ if and .Site.Params.faviconSVG (ne .Site.Params.faviconsvg "") }}
-        <link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon_svg | safeHTML }}">
+    <link rel="icon" type="image/png" href="{{ site.Params.favicon_32 | default "/images/favicon-32.png" | absURL }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ site.Params.favicon_16 | default "/images/favicon-16.png" | absURL }}" sizes="16x16">
+    {{ if and site.Params.faviconSVG (ne site.Params.faviconsvg "") }}
+        <link rel="icon" type="image/svg+xml" href="{{ site.Params.favicon_svg | safeHTML }}">
     {{ end }}
 
     <link rel="shortcut icon" href="{{ "images/favicon.ico" | absURL }}" type="image/x-icon">
     <link rel="icon" href="{{ "images/favicon.ico" | absURL }}" type="image/x-icon">
 
     {{/* External Styles - Fonts etc */}}
-    {{ range .Site.Params.stylesheets -}}
+    {{ range site.Params.stylesheets -}}
         <link href="{{ . }}" rel="stylesheet">
     {{- end -}}
 
     {{ range .AlternativeOutputFormats -}}
-      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
     {{ end -}}
     {{- partial "metadata/schema.org/schema.org.html" . -}}
   </head>
@@ -44,10 +44,11 @@
       {{- $class = printf "%s %s" $class "meta" -}}
     {{- end -}}
      <body class="{{ $class }} {{ if .IsHome }}home{{ end }}">
+       <a class="skip-link" href="#main">{{ i18n "skipToContent" }}</a>
        <div class="page-wrapper">
          {{ partial "header.html" . }}
          {{- partial "status.html" . -}}
-         <main class="main">
+         <main id="main" class="main">
              {{ block "content" . }}{{ end }}
          </main>
          {{- partial "footer.html" . -}}

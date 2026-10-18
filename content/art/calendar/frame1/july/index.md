@@ -4,7 +4,7 @@ type: picture
 outputs:
   - html
   - qrcode
-  - iiif
+  - iiif-manifest
 aliases:
   - /k/14/2/8f/
 weight: 8

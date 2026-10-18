@@ -4,7 +4,7 @@ type: drawing
 outputs:
   - html
   - qrcode
-  - iiif
+  - iiif-manifest
 aliases:
   - /n/25/3/9k/
 iiifContext: http://iiif.io/api/image/2/context.json

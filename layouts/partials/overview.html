@@ -71,7 +71,7 @@
             {{/*
             {{- $preview := partial "iiif/preview.html" . -}}
             {{- with $preview -}}
-              {{- $width := div (int $.Site.Params.maxWidth) 2 -}}
+              {{- $width := div (int site.Params.maxWidth) 2 -}}
               {{- $image := .Resize (printf "%dx" $width) -}}
               <div class="preview">
                 <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">

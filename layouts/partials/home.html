@@ -42,7 +42,7 @@
               {{- end -}}
             </ul>
         {{- else -}}
-          {{- partial "page.html" (.Site.GetPage "/home/index.md") -}}
+          {{- partial "page.html" (site.GetPage "/home/index.md") -}}
         {{- end -}}
       {{- else -}}
         {{/* TODO: Other list will be rendered here, currently disabled, since we haven't got any tags yet */}}

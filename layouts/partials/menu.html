@@ -1,36 +1,51 @@
-{{- $menu := union .Site.Menus.content .Site.Menus.main -}}
-
-{{ if or .Site.Menus.main hugo.IsMultilingual }}
-    {{- $contextPath := "" -}}
-    {{- if and (ne .File nil) (ne .File.Path nil) -}}
-      {{- $contextPath = path.Dir .File.Path -}}
-    {{- end -}}
-    {{- $basePath := trim ($contextPath) "/" -}}
-    {{- $basePath = replaceRE "^(.*)/.*$" "$1" $basePath -}}
-    <nav class="top top-menu">
-        <input type="checkbox" id="menu-toggle" />
-        <label class="menu-button float-right" for="menu-toggle"><i class="menu-icon"></i></label>
-        <ul class="navigation-list">
-            {{- with $menu -}}
-                {{ range . }}
-                    {{- $class := trim (path.Base .URL) "/" -}}
-                    {{- $class = replaceRE "^/$" "root" $class -}}
-                    {{- $class = printf "navto-%s" $class -}}
-                    {{- if eq (trim (path.Base .URL) "/") $basePath -}}
-                        {{- $class = printf "current %s" $class -}}
-                    {{- end -}}
-                    <li class="navigation-item {{ $class }}"><a class="navigation-link" href="{{ .URL | absLangURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
-                {{ end }}
-            {{ end }}
-            {{ if hugo.IsMultilingual }}
-                {{ range (default .Site.Home.AllTranslations .Translations) }}
-                    {{ if ne $.Site.Language .Language }}
-                        <li class="navigation-item lang">
-                            <a href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
-                        </li>
-                    {{ end }}
-                {{ end }}
-            {{ end }}
-        </ul>
-    </nav>
-{{ end }}
+{{- $menu := union site.Menus.content site.Menus.main -}}
+{{- if or $menu hugo.IsMultilingual -}}
+  {{- $basePath := "" -}}
+  {{- if and (ne .File nil) (ne .File.Dir nil) -}}
+    {{- $basePath = trim .File.Dir "/" -}}
+  {{- end -}}
+  {{- $basePath = replaceRE "^(.*)/.*$" "$1" $basePath -}}
+  <nav class="top top-menu" aria-label="{{ i18n "mainNavigation" }}" data-menu-open-label="{{ i18n "openNavigation" }}" data-menu-close-label="{{ i18n "closeNavigation" }}">
+    {{/* Checkbox hack kept as the no-JS fallback; the theme's assets/ts/menu.ts
+        replaces the label with a real <button> and takes over state handling. */}}
+    <input type="checkbox" id="menu-toggle" aria-label="{{ i18n "mainNavigation" }}" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="menu-icon" aria-hidden="true"></i></label>
+    <ul id="main-navigation-list" class="navigation-list">
+      {{- with $menu -}}
+        {{- range sort . -}}
+          {{- if and .Params.draft (not site.BuildDrafts) -}}
+            {{- continue -}}
+          {{- end -}}
+          {{- $class := trim (path.Base .URL) "/" -}}
+          {{- $class = replaceRE "^/$" "root" $class -}}
+          {{- $class = printf "navto-%s" $class -}}
+          {{- $current := false -}}
+          {{- if eq (trim (path.Base .URL) "/") $basePath -}}
+            {{- $class = printf "current %s" $class -}}
+            {{- $current = true -}}
+          {{- end -}}
+          <li class="navigation-item {{ $class }}">
+            {{- if not .Params.html -}}
+              <a class="navigation-link" href="{{ .URL | absLangURL }}" title="{{ .Name }}"{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}<i class="link-icon" aria-hidden="true"></i></a>
+            {{- else -}}
+              {{- .Name | safeHTML -}}
+            {{- end -}}
+          </li>
+        {{- end -}}
+      {{- end -}}
+      {{- if hugo.IsMultilingual -}}
+        {{- range (default site.Home.AllTranslations .Translations) -}}
+          {{- if ne site.Language .Language -}}
+            <li class="navigation-item lang">
+              <a href="{{ .Permalink }}" title="{{ .Language.Label }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}">{{ .Language.Label }}</a>
+            </li>
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    </ul>
+  </nav>
+  {{- with resources.Get "ts/menu.ts" -}}
+    {{- $menuJs := . | js.Build (dict "targetPath" "js/menu.js" "minify" (cond hugo.IsDevelopment false true) "sourceMap" (cond hugo.IsDevelopment "linked" "none")) | fingerprint -}}
+    <script defer src="{{ $menuJs.RelPermalink }}" integrity="{{ $menuJs.Data.Integrity | html }}"></script>
+  {{- end -}}
+{{- end -}}

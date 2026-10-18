@@ -1,12 +1,15 @@
 import Headroom from 'headroom.js';
+import Sticky from 'sticky-js';
 window.Headroom = Headroom;
 
 /* See https://github.com/rgalus/sticky-js */
-window.Sticky = require('sticky-js');
+window.Sticky = Sticky;
 
-import { addConsent } from './iframe-consent';
-import { audioplayer } from './audioplayer';
-import { compare_view } from './compare_view';
+/* Side-effect imports: register the window globals (window.audioplayer,
+   window.addCompareView) for partial-based usage the shortcode helper
+   can't detect */
+import './audioplayer.ts';
+import './compare_view';
 
 import 'bootstrap/js/dist/tab';
 

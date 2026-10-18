@@ -5,7 +5,7 @@
   {{- $id = .id -}}
 {{- else -}}
   {{- $seed := printf "%s%#v" $context.File.UniqueID .images -}}
-  {{- $id = printf "compare_view-%s" (substr (md5 $seed) 0 6) -}}
+  {{- $id = printf "compare_view-%s" (strings.Substr (md5 $seed) 0 6) -}}
 {{- end -}}
 {{- $images := .images -}}
 

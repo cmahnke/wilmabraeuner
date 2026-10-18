@@ -1,11 +1,11 @@
-{{ $baseurl := .Site.BaseURL }}
+{{ $baseurl := site.BaseURL }}
 <div class="container">
     <main role="main" class="homepage">
 
       {{ partial "hero.html" . }}
 
       <h1 class="headline">{{ i18n "posts" }}</h1>
-      {{- $pages := where (where .Site.RegularPages "Section" "post") "Params.displayinlist" "!=" false -}}
+      {{- $pages := where (where site.RegularPages "Section" "post") "Params.displayinlist" "!=" false -}}
       {{- .Scratch.Set "pages" $pages -}}
       {{- $mainSite := .Sites.Default -}}
       {{- if ne $mainSite .Site -}}
@@ -14,8 +14,8 @@
       {{- $pages = .Scratch.Get "pages" -}}
 
     {{/*
-      {{- $pages := where .Site.RegularPages "Section" "post" -}}
-      {{- $pages = $pages | lang.Merge (where .Site.RegularPages "Section" "post") -}}
+      {{- $pages := where site.RegularPages "Section" "post" -}}
+      {{- $pages = $pages | lang.Merge (where site.RegularPages "Section" "post") -}}
     */}}
       {{- $paginator := .Paginate ($pages) (or .Sites.Default.Params.paginate 3) -}}
       <div class="article-list">
@@ -26,7 +26,7 @@
 
       {{ partial "paginator.html" $paginator }}
 
-    {{ with .Site.Taxonomies.categories }}
+    {{ with site.Taxonomies.categories }}
 
       <h1 class="headline">Kategorien</h1>
 
@@ -41,7 +41,7 @@
 
     {{ end }}
 
-    {{ with .Site.Taxonomies.tags }}
+    {{ with site.Taxonomies.tags }}
 
       <h1 class="headline">Tags</h1>
 

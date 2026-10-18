@@ -1,8 +1,10 @@
-{{- $rotate := "" }}
-{{- range (seq 0 1) -}}
-    {{- $rotate = printf "%s%d" $rotate (index (shuffle (seq 0 99)) 0) -}}
-{{- end -}}
-{{- $rotate = printf "%s%d.%s" (index (shuffle (slice "-" "")) 0) (index (shuffle (seq 0 1)) 0) $rotate -}}
+{{- $seed := md5 .RelPermalink -}}
+{{- $hexDigits := "0123456789abcdef" -}}
+{{- $i := strings.Index $hexDigits (strings.Substr $seed 0 1) -}}
+{{- $j := strings.Index $hexDigits (strings.Substr $seed 1 1) -}}
+{{- $k := strings.Index $hexDigits (strings.Substr $seed 2 1) -}}
+{{- $sign := index (slice "" "-") (mod $j 2) -}}
+{{- $rotate := printf "%s%d.%d" $sign (mul $i 6) $k -}}
 {{- $style := printf "transform: rotate(%sdeg);" $rotate -}}
 {{/* style="{{ $style | safeCSS }}" */}}
 <ol class="content-header-nav">
@@ -12,7 +14,7 @@
   {{ if .p1.Parent }}
     {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
   {{ else if not .p1.IsHome }}
-    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+    {{ template "breadcrumbnav" (dict "p1" site.Home "p2" .p2 )  }}
   {{ end }}
   <li class="content-header-nav-item {{ if eq .p1 .p2 }} active{{ end }}{{- if .p1.IsHome -}} home{{ end }}">
       <a href="{{ .p1.Permalink }}">

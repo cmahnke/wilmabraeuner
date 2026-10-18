@@ -3,7 +3,7 @@ title = 'Spurensuche im Sylter Archiv... Zum Leben und Werk von Wilma Bräuner (
 
 theme = ["projektemacher-base"]
 publishDir = "docs"
-canonifyurls = true
+canonifyURLs = true
 #disableKinds = ["taxonomy", "term"]
 locale = "de"
 defaultcontentlanguage = "de"
@@ -118,7 +118,7 @@ summaryLength = 40
     baseName = "map"
     notAlternative = true
 
-  [outputFormats.iiif]
+  [outputFormats.iiif-manifest]
     mediaType = "application/ld+json"
     isPlainText = true
     isHTML = false

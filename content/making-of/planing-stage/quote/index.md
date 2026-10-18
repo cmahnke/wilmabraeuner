@@ -1,8 +1,6 @@
 ---
 title: 'Vorwort "Leuchtendes Sylt"'
 date: 2022-10-29T16:05:07+02:00
-js:
-  - js/audioplayer.js
 outputs:
   - html
   - qrcode

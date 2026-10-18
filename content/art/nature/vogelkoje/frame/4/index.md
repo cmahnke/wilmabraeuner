@@ -4,7 +4,7 @@ type: picture
 outputs:
   - html
   - qrcode
-  - iiif
+  - iiif-manifest
 aliases:
   - /k/22/2/4f/
 iiifContext: http://iiif.io/api/image/2/context.json

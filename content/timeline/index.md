@@ -6,5 +6,5 @@ check: false
 draft: true
 layout: timeline
 js:
-  - js/timeline.js
+  - ts/timeline.ts
 ---

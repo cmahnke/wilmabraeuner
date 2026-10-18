@@ -54,10 +54,12 @@ layout: documentation
   * Bildvergleich
 
 ## Zusätzliche Inhalte
-* Umfang klären
+* Lesehilfe
 
 ## Layout
 
+
+---
 # Was noch zu tun ist (Alt)
 
 ## Infrastruktur

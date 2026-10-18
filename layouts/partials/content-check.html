@@ -1,12 +1,12 @@
 {{- define "partials/itemnumber.html" -}}
-  {{- $objectNumber := substr .alias 3 -2 -}}
+  {{- $objectNumber := strings.Substr .alias 3 -2 -}}
   {{- $objectNumber = index (last 1 (split $objectNumber "/")) 0 -}}
   {{- return $objectNumber -}}
 {{- end -}}
 {{- $types := slice "a" "d" "f" "k" "o" "t" "w" -}}
 {{- $objectNumber := partial "functions/object-number.html" . -}}
 {{- $objectNumber = (trim (plainify $objectNumber) " ") -}}
-{{- $type := lower (substr $objectNumber -1 1) -}}
+{{- $type := lower (strings.Substr $objectNumber -1 1) -}}
 {{- if or (not .Params.check) .Params.layout  -}}
   {{- if ne .Params.check false -}}
     {{- if eq (.OutputFormats.Get "qrcode") nil -}}
@@ -23,7 +23,7 @@
       {{- else if not .Aliases -}}
         {{- errorf "No alias for audio type, file %s" .File.Path -}}
       {{- end -}}
-      {{- if ne (substr (index .Aliases 0) -2 1) "a" -}}
+      {{- if ne (strings.Substr (index .Aliases 0) -2 1) "a" -}}
         {{- errorf "Alias for audio type doesn't ends with 'a', file %s" .File.Path -}}
       {{- end -}}
       {{- if not .Title -}}
@@ -42,7 +42,7 @@
       {{- if not .Aliases -}}
         {{- errorf "%s has no alias!" .File.Path -}}
       {{- end -}}
-      {{- if ne (substr (index .Aliases 0) -2 1) "t" -}}
+      {{- if ne (strings.Substr (index .Aliases 0) -2 1) "t" -}}
         {{- errorf "Alias for text type doesn't ends with 't', file %s" .File.Path -}}
       {{- end -}}
       {{- if not .Title -}}
@@ -114,15 +114,15 @@
       {{- end -}}
       {{/* Check for alias suffixes */}}
       {{- if in (slice "print" "drawing" "painting") .Params.type -}}
-        {{- if ne (substr (index .Aliases 0) -2 1) "k" -}}
+        {{- if ne (strings.Substr (index .Aliases 0) -2 1) "k" -}}
           {{- errorf "Alias for artwork print, drawing, painting) type doesn't ends with 'k', file %s" .File.Path -}}
         {{- end -}}
       {{- else if eq .Params.type "picture" -}}
-        {{- if ne (substr (index .Aliases 0) -2 1) "f" -}}
+        {{- if ne (strings.Substr (index .Aliases 0) -2 1) "f" -}}
           {{- errorf "Alias for picture type doesn't ends with 'f', file %s" .File.Path -}}
         {{- end -}}
       {{- else if in (slice "document" "reproduction") .Params.type -}}
-        {{- if ne (substr (index .Aliases 0) -2 1) "d" -}}
+        {{- if ne (strings.Substr (index .Aliases 0) -2 1) "d" -}}
           {{- errorf "Alias for document or reproduction type doesn't ends with 'd', file %s" .File.Path -}}
         {{- end -}}
       {{- end -}}

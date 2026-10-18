@@ -4,7 +4,7 @@ type: drawing
 outputs:
   - html
   - qrcode
-  - iiif
+  - iiif-manifest
 description: Genfer See
 aliases:
   - /k/21/2/4k/
