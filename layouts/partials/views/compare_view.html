@@ -18,6 +18,15 @@
         {{- end -}}
       {{- end -}}
     ];
-    var view = addCompareView('{{ $id }}', images, {});
-    document.getElementById("{{ $id }}").data = view;
+    var initCompareView = function () {
+        var view = addCompareView('{{ $id }}', images, {});
+        document.getElementById("{{ $id }}").data = view;
+    };
+    /* The main script bundle is loaded with defer, so it might not be
+       executed when this inline script runs */
+    if (typeof addCompareView === 'function') {
+        initCompareView();
+    } else {
+        document.addEventListener('DOMContentLoaded', initCompareView);
+    }
 </script>

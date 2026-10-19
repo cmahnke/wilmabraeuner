@@ -8,6 +8,15 @@
     </div>
     <script type="text/javascript">
         var player = document.getElementById('{{ $id }}');
-        audioplayer(player, '{{ $src }}', player.querySelector('button.audioplayer-button'));
+        var initPlayer = function () {
+            audioplayer(player, '{{ $src }}', player.querySelector('button.audioplayer-button'));
+        };
+        /* The main script bundle is loaded with defer, so it might not be
+           executed when this inline script runs */
+        if (typeof audioplayer === 'function') {
+            initPlayer();
+        } else {
+            document.addEventListener('DOMContentLoaded', initPlayer);
+        }
     </script>
 </div>
