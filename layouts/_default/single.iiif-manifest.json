@@ -1,0 +1,8 @@
+{{/* Site-specific copy of themes/projektemacher-base/layouts/_default/single.iiif-manifest.json - only used by this site, kept here to allow warn-only IIIF handling */}}
+{{- $version := partial "functions/iiif/presentation-version.html" . -}}
+{{- $isLeaflet := partial "functions/iiif/is-leaflet.html" . -}}
+{{- if $isLeaflet -}}
+  {{- partial (printf "iiif/%d/manifest-leaflet.json" $version) . -}}
+{{- else -}}
+  {{- partial (printf "iiif/%d/manifest.json" $version) . -}}
+{{- end -}}

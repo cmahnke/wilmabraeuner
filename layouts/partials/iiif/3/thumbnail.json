@@ -1,0 +1,107 @@
+{{/* Site-specific copy of themes/projektemacher-base/layouts/partials/iiif/3/thumbnail.json - only used by this site, changed to warn (instead of fail) on unusable previews */}}
+{{- $fullResImgSuffix := "/full/full/0/default.jpg" -}}
+{{- $debug := partialCached "functions/debug/enabled.html" . -}}
+{{- $previewImg := "" -}}
+{{- $previewReference := "" -}}
+{{- $contextPath := "" -}}
+
+{{- if and (ne .File nil) (ne .File.Path nil) -}}
+  {{- $contextPath = path.Dir .File.Path -}}
+{{- end -}}
+
+{{- $urlBase := "" -}}
+{{- $localPath := printf "%s/" (strings.Substr (path.Dir .RelPermalink) 1) -}}
+{{- if or hugo.IsServer (not (isset site.Params "productioniiifurlprefix")) -}}
+  {{- $urlBase = printf "%s%s" hugo.Sites.Default.BaseURL $localPath -}}
+{{- else -}}
+  {{- $urlBase = printf "%s%s" site.Params.productionIIIFURLPrefix $localPath -}}
+{{- end -}}
+
+{{- if and (isset .Params "preview") .Params.preview -}}
+  {{- if reflect.IsMap .Params.preview -}}
+    {{- /* Map shaped preview param (e.g. preview.image/hide): match the resource by src, no resource name can ever match a map */ -}}
+    {{- $previewMatches := where .Params.resources "src" (index .Params.preview "image") -}}
+    {{- if gt (len $previewMatches) 0 -}}
+      {{- $previewReference = index $previewMatches 0 -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $previewReference = index (where .Params.resources "name" .Params.preview) 0 -}}
+  {{- end -}}
+{{- else if isset .Params "resources" -}}
+  {{- if (gt (where .Params.resources "name" "preview" | len) 0) -}}
+    {{- $previewReference = index (where .Params.resources "name" "preview") 0 -}}
+  {{- else if (gt (where .Params.resources "name" "cover" | len) 0) -}}
+    {{- $previewReference = index (where .Params.resources "name" "cover") 0 -}}
+  {{- else if (gt (where .Params.resources "name" "front" | len) 0) -}}
+    {{- $previewReference = index (where .Params.resources "name" "front") 0 -}}
+  {{- else if (gt (.Params.resources | len) 0) -}}
+    {{- $previewReference = index .Params.resources 0 -}}
+  {{- end -}}
+{{- end -}}
+{{- $loaderCtx := . -}}
+{{- if and (or (eq $previewReference "") (eq $previewReference nil)) (eq .Kind "section") -}}
+  {{- $firstChild := index .CurrentSection.Pages 0 -}}
+  {{- $loaderCtx = $firstChild -}}
+  {{- $previewReference = index $firstChild.Params.resources 0 -}}
+{{- end -}}
+
+{{- if or (eq $previewReference "") (eq $previewReference nil) -}}
+  {{- warnf "[iiif/3/thumbnail.json] Couldn't resolve preview for %s from %s, skipping thumbnail" $contextPath (jsonify .Params.resources) -}}
+  {{- return (slice) -}}
+{{- end -}}
+{{- $previewImg = $loaderCtx.Resources.Get $previewReference.src -}}
+{{- if and $debug (and (eq $previewImg nil) (eq $previewReference nil)) -}}
+  {{- warnf "[iiif/3/thumbnail.json] Couldn't load %#v (<- this should never be nil)" $previewReference -}}
+{{- end -}}
+{{/* Check for JXL */}}
+{{- /* Panic-safe media type resolution: never access .MediaType on a possibly nil resource */ -}}
+{{- $previewMediaType := "" -}}
+{{- if $previewImg -}}
+  {{- with $previewImg.MediaType -}}
+    {{- $previewMediaType = string . -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq $previewMediaType "" -}}
+  {{- warnf "[iiif/3/thumbnail.json] MediaType for %s (referenced from %s) is nil, skipping thumbnail" $previewReference.src $contextPath -}}
+  {{- return (slice) -}}
+{{- end -}}
+{{- if eq $previewMediaType "image/jxl" -}}
+  {{- $previewLoc := path.Join (path.Dir $previewReference.params.iiif) $fullResImgSuffix -}}
+  {{- if $debug -}}
+    {{ warnf "[iiif/3/thumbnail.json] Using %s as preview, trying to load %s as JPEG substitute for %s" $previewReference.src $previewLoc .File.Path }}
+  {{- end -}}
+  {{- $previewImg = .Resources.Get $previewLoc -}}
+  {{- $previewMediaType = "" -}}
+  {{- if $previewImg -}}
+    {{- with $previewImg.MediaType -}}
+      {{- $previewMediaType = string . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq $previewMediaType "" -}}
+    {{- warnf "[iiif/3/thumbnail.json] Couldn't load JPEG substitute %s (referenced from %s), skipping thumbnail" $previewLoc $contextPath -}}
+    {{- return (slice) -}}
+  {{- end -}}
+{{- else if not (hasPrefix $previewMediaType "image") -}}
+  {{- $previewImg = "" -}}
+{{- end -}}
+{{- $thumbnails := slice -}}
+{{- if and (ne $previewImg nil) (ne $previewImg "") -}}
+  {{- /* Presentation 4 canvases and scenes also carry thumbnails of the same image (300x/240x), use a smaller derivative at the manifest level to keep ids unique */ -}}
+  {{- $thumbWidth := "300x" -}}
+  {{- if eq (partial "functions/iiif/presentation-version.html" .) 4 -}}
+    {{- $thumbWidth = "200x" -}}
+  {{- end -}}
+  {{- $thumbnailRes := $previewImg.Resize $thumbWidth -}}
+  {{- $thumbnails = slice (dict "id" $thumbnailRes.Permalink "format" (string $thumbnailRes.MediaType) "type" "Image" "height" $thumbnailRes.Height "width" $thumbnailRes.Width) -}}
+  {{- /* Add IIIF Image Service for preview if not section */ -}}
+  {{- if and (hasPrefix $previewImg.MediaType "image") (ne $.Kind "section") -}}
+    {{- with $previewReference.params.iiif -}}
+      {{- $imageId := printf "%s%s" $urlBase (path.Dir .) -}}
+      {{- $thumbServicePreview := printf "%s%s%s" $urlBase (path.Dir .) $fullResImgSuffix -}}
+      {{- $service := slice (dict "id" $imageId "type" "ImageService2" "profile" "level0") -}}
+      {{- $thumbnails = $thumbnails | append (dict "id" $thumbServicePreview "format" "image/jpeg" "type" "Image" "height" $previewImg.Height "width" $previewImg.Width "service" $service) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $thumbnails -}}

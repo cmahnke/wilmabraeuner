@@ -1,0 +1,85 @@
+{{/* Site-specific copy of themes/projektemacher-base/layouts/partials/iiif/3/common.json - only used by this site, kept here to allow warn-only IIIF handling */}}
+{{- $defaultBehavior := "paged" -}}
+{{- $version := partial "functions/iiif/presentation-version.html" . -}}
+{{- $context := printf "http://iiif.io/api/presentation/%d/context.json" $version -}}
+{{- $common := dict "@context" $context "type" "Manifest" "id" (.OutputFormats.Get "iiif-manifest").Permalink "viewingDirection" "left-to-right" -}}
+
+{{- if isset .Params "iiifMetadata" -}}
+  {{- errorf "[single.iiii-metadata.json] .Params.iiifMetadata isn't supported anymore use .Params.iiif.metadata" -}}
+{{- end -}}
+{{- if isset .Params "iiifStructure" -}}
+  {{- errorf "[single.iiii-metadata.json] .Params.iiifStructure isn't supported anymore use .Params.iiif.structure" -}}
+{{- end -}}
+
+{{- with .Params.iiif.behavior -}}
+  {{- if reflect.IsSlice . -}}
+    {{- errorf "[iiif/3/common.json] .Params.iiif.behavior is a slice, but it should be a string" -}}
+  {{- end -}}
+  {{- $common = $common | merge (dict "behavior" (slice .)) -}}
+{{- else -}}
+  {{- $common = $common | merge (dict "behavior" (slice $defaultBehavior)) -}}
+{{- end -}}
+
+{{- if .Description -}}
+  {{- $summary := partial "iiif/3/manifest-summary.json" . -}}
+  {{- $common = $common | merge (dict "summary" $summary) -}}
+{{- end -}}
+
+{{- $label := dict site.Language.Lang (slice (printf "%s: %s" site.Title .Title)) -}}
+{{- if hugo.IsMultilingual -}}
+  {{- $translations := where .Translations ".Lang" "!=" site.Language.Lang -}}
+  {{- range $translations -}}
+    {{- $label = $label | merge (dict .Lang (slice (printf "%s: %s" site.Title .Title))) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $homepage := slice (dict "id" .Permalink "type" "Text" "format" "text/html" "label" $label) -}}
+{{- $label := partial "iiif/3/manifest-label.json" . -}}
+{{- $requiredStatement := partial "iiif/3/required-statement.json" . -}}
+{{- $thumbnails := partial "iiif/3/thumbnail.json" . -}}
+{{- $provider := partialCached "iiif/3/provider.json" . -}}
+
+{{- $common = $common | merge (dict "provider" $provider) -}}
+{{- $common = $common | merge (dict "homepage" $homepage) -}}
+{{- $common = $common | merge (dict "label" $label) -}}
+{{- $common = $common | merge (dict "requiredStatement" $requiredStatement) -}}
+
+{{- if gt ($thumbnails | len) 0 -}}
+  {{- $common = $common | merge (dict "thumbnail" $thumbnails) -}}
+{{- end -}}
+
+{{- $metadata := slice -}}
+{{- with .Params.iiif.metadata -}}
+  {{- range $entry := . -}}
+    {{- if not (reflect.IsMap $entry) -}}
+      {{- errorf "[iiif/3/common.json] iiif.metadata entry is not an object (%s)" $.RelPermalink -}}
+    {{- end -}}
+    {{- /* Build a fresh dict: Hugo's merge deep-merges and would keep the original nested values */ -}}
+    {{- $coerced := dict -}}
+    {{- range $field := slice "label" "value" -}}
+      {{- with index $entry $field -}}
+        {{- $coerced = $coerced | merge (dict $field (partial "functions/iiif/coerce-language-map.html" .)) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $metadata = $metadata | append $coerced -}}
+  {{- end -}}
+{{- end -}}
+{{- $year := or .Params.issueYear .Params.year -}}
+{{- with $year -}}
+  {{- $year := printf "%v" . -}}
+  {{- $metadata = $metadata | append (dict "label" (dict "en" (slice "Year of publication") "de" (slice "Erscheinungsjahr")) "value" (dict "en" (slice $year) "de" (slice $year))) -}}
+{{- end -}}
+{{- with $metadata -}}
+  {{- $common = $common | merge (dict "metadata" .) -}}
+{{- end -}}
+{{- with .Params.iiif.structure -}}
+  {{- $structures := partial "iiif/3/structures.html" (dict "page" $ "entries" .) -}}
+  {{- if $structures -}}
+    {{- $common = $common | merge (dict "structures" $structures) -}}
+  {{- end -}}
+{{- end -}}
+{{- with .Params.iiif.rights -}}
+  {{- $common = $common | merge (dict "rights" .Params.iiif.rights) -}}
+{{- end -}}
+
+{{- return $common -}}
