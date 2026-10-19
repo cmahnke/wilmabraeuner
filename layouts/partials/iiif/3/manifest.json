@@ -47,7 +47,11 @@
   {{- if (isset .Params "resources") -}}
     {{- range $res := where .Params.resources "params.iiif" "ne" nil -}}
       {{- $res := $.Resources.Get .src -}}
-      {{- if eq (string $res.MediaType) "image/jxl" -}}
+      {{- $resMediaType := "" -}}
+      {{- if $res -}}
+        {{- $resMediaType = string $res.MediaType -}}
+      {{- end -}}
+      {{- if eq $resMediaType "image/jxl" -}}
         {{- $previewLoc := path.Join (path.Dir .params.iiif) $fullResImgSuffix -}}
         {{- $res = $.Resources.Get $previewLoc -}}
       {{- end -}}
@@ -64,7 +68,11 @@
       {{- $res := $childPage.Resources.Get .src -}}
 
       {{/* Check for JXL */}}
-      {{- if eq (string $res.MediaType) "image/jxl" -}}
+      {{- $resMediaType := "" -}}
+      {{- if $res -}}
+        {{- $resMediaType = string $res.MediaType -}}
+      {{- end -}}
+      {{- if eq $resMediaType "image/jxl" -}}
         {{- $previewLoc := path.Join (path.Dir .params.iiif) $fullResImgSuffix -}}
         {{- $res = $childPage.Resources.Get $previewLoc -}}
       {{- end -}}
@@ -88,7 +96,8 @@
   {{- if or (hasPrefix $res.src "/") (hasPrefix $res.src "http") -}}
     {{- $isExternal = true -}}
     {{- if not (eq (path.Ext $res.src) ".glb") -}}
-      {{- errorf "[iiif/3/manifest.json] External resources are only supported for GLB models, got %s for %s" $res.src $.RelPermalink -}}
+      {{- warnf "[iiif/3/manifest.json] External resources are only supported for GLB models, got %s for %s, skipping" $res.src $.RelPermalink -}}
+      {{- continue -}}
     {{- end -}}
   {{- end -}}
   {{- $isModel := or $isExternal (eq (path.Ext $res.src) ".glb") -}}
@@ -99,19 +108,25 @@
   {{- if and (eq $.Kind "section") (isset $res "res") -}}
     {{- $imageRes = $res.res -}}
   {{- end -}}
-  {{- if and (not .params.iiif) (ne $imageRes nil) (not (or $isModel (in (slice "image" "audio" "model") $imageRes.MediaType.MainType))) -}}
+  {{- /* Panic-safe: truthiness check, a typed nil resource would pass eq ... nil */ -}}
+  {{- if and (not .params.iiif) ($imageRes) (not (or $isModel (in (slice "image" "audio" "model") $imageRes.MediaType.MainType))) -}}
     {{- if $debug -}}
       {{- warnf "[iiif/3/manifest.json] Skipping non media resource %s for page %s" $res.src $.RelPermalink -}}
     {{- end -}}
     {{- continue -}}
   {{- end -}}
-  {{- if and (not $isExternal) (eq $imageRes nil) -}}
-    {{- errorf "[iiif/3/manifest.json] Couldn't resolve resource %s for page %s, check the resource's 'src' entry" ($res | jsonify) $.RelPermalink -}}
+  {{- if and (not $isExternal) (not $imageRes) -}}
+    {{- warnf "[iiif/3/manifest.json] Couldn't resolve resource %s for page %s, check the resource's 'src' entry, skipping" ($res | jsonify) $.RelPermalink -}}
+    {{- continue -}}
   {{- end -}}
 
   {{- $mediatype := "model/gltf-binary" -}}
   {{- if not $isExternal -}}
     {{- $mediatype = string $imageRes.MediaType -}}
+  {{- end -}}
+  {{- if and (not $isExternal) (eq $mediatype "") -}}
+    {{- warnf "[iiif/3/manifest.json] MediaType for %s (referenced from %s) is nil, skipping" $res.src $.RelPermalink -}}
+    {{- continue -}}
   {{- end -}}
   {{/* Check for JXL */}}
   {{- if eq $mediatype "image/jxl" -}}
@@ -126,8 +141,13 @@
     {{- end -}}
     {{- $imageRes = $.Resources.Get $previewLoc -}}
   {{- end -}}
-  {{- if and (not $isExternal) (eq $imageRes nil) -}}
-    {{- errorf "[iiif/3/manifest.json] failed to load from %#v" $res -}}
+  {{- if and (not $isExternal) (not $imageRes) -}}
+    {{- warnf "[iiif/3/manifest.json] failed to load from %#v, skipping" $res -}}
+    {{- continue -}}
+  {{- end -}}
+  {{- $mediaMainType := "" -}}
+  {{- if $imageRes -}}
+    {{- $mediaMainType = $imageRes.MediaType.MainType -}}
   {{- end -}}
 
   {{- $manifestDir := "" -}}
@@ -203,10 +223,11 @@
     {{- $canvas = $canvas | merge (dict "behavior" (slice .params.hint)) -}}
   {{- end -}}
 
-  {{- if eq $imageRes.MediaType.MainType "image" -}}
+  {{- if eq $mediaMainType "image" -}}
     {{- $thumbnailRes := $imageRes.Resize "300x" -}}
     {{- if or (not $thumbnailRes.Height) (not $thumbnailRes.Width) -}}
-      {{- errorf "[single.iiii-metadata.json] Can't get thumbnail for %s, image %d" $manifestDir $i -}}
+      {{- warnf "[single.iiii-metadata.json] Can't get thumbnail for %s, image %d, skipping" $manifestDir $i -}}
+      {{- continue -}}
     {{- end -}}
     {{- $thumbnail := slice (dict "id" $thumbnailRes.Permalink "format" (string $thumbnailRes.MediaType) "type" "Image" "height" $thumbnailRes.Height "width" $thumbnailRes.Width) -}}
     {{- $canvas = $canvas | merge (dict "thumbnail" $thumbnail "height" $imageRes.Height "width" $imageRes.Width) -}}
@@ -216,30 +237,32 @@
 
   {{- $imageId := "" -}}
 
-  {{- if eq $imageRes.MediaType.MainType "image" -}}
+  {{- if eq $mediaMainType "image" -}}
     {{- if .params.iiif -}}
       {{- $imageId = printf "%s%s%s" $imageUrlBase $manifestDir $imageIdSuffix -}}
     {{- else -}}
       {{- /* Plain image resource without Image API: reference the file itself */ -}}
       {{- $imageId = $imageRes.Permalink -}}
     {{- end -}}
-  {{ else if eq $imageRes.MediaType.MainType "audio" }}
+  {{ else if eq $mediaMainType "audio" }}
     {{- $imageId = printf "%s%s" $imageUrlBase .src -}}
   {{- else -}}
-    {{- errorf "[iiif/3/manifest.json] Unsupported media type %s for %s" $imageRes.MediaType.MainType $imageId -}}
+    {{- warnf "[iiif/3/manifest.json] Unsupported media type %s for %s, skipping" $mediaMainType $imageId -}}
+    {{- continue -}}
   {{- end -}}
 
   {{- $body := dict -}}
-  {{- if eq $imageRes.MediaType.MainType "image" -}}
+  {{- if eq $mediaMainType "image" -}}
     {{- $body = dict "id" $imageId "type" "Image" "format" (string $imageRes.MediaType) "height" $imageRes.Height "width" $imageRes.Width -}}
     {{- if .params.iiif -}}
       {{- $service := dict "id" $imageId "type" "ImageService2" "profile" "level0" -}}
       {{- $body = $body | merge (dict "service" (slice $service)) -}}
     {{- end -}}
-  {{- else if eq $imageRes.MediaType.MainType "audio" -}}
+  {{- else if eq $mediaMainType "audio" -}}
     {{- $body = dict "id" $imageId "type" "Sound" "format" $mediatype -}}
   {{- else -}}
-    {{- errorf "[iiif/3/manifest.json] Unsupported media type %s for %s" $imageRes.MediaType.MainType $imageId -}}
+    {{- warnf "[iiif/3/manifest.json] Unsupported media type %s for %s, skipping" $mediaMainType $imageId -}}
+    {{- continue -}}
   {{- end -}}
 
   {{- /* Presentation 4 requires array motivations and object targets, 3 requires strings */ -}}
