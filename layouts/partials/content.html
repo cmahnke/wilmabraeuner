@@ -13,7 +13,7 @@
                   {{- end -}}
                 {{- end -}}
             </div>
-        {{- else if and (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/presentation/") (or .Page.Params.iiifmanifest .Page.Params.iiif.manifest) -}}
+        {{- else if and (hasPrefix .Page.Params.iiifcontext "http://iiif.io/api/presentation/") .Page.Params.iiif.manifest -}}
             <div class="iiif">
                 {{- partial "iiif/iiif-presentation.html" . -}}
             </div>

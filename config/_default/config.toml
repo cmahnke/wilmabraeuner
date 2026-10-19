@@ -5,7 +5,6 @@
   Copyright = "false"
   homeList = true
   maxWidth = "1280"
-  disableScale = true
   description = "Spurensuche im Sylter Archiv: Zum Leben und Werk von Wilma Bräuner (1891-1985)"
   wikidata = false
   debug = false
