@@ -15,8 +15,8 @@ summaryLength = 40
         target = "assets/scss"
 
     [[module.mounts]]
-        source = "assets/js"
-        target = "assets/js"
+        source = "assets/ts"
+        target = "assets/ts"
 
     [[module.mounts]]
         source = "static"
