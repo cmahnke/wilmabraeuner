@@ -1,18 +1,19 @@
+@use "normalize";
+@use "icons" as *;
+@use "ol-iiif";
+@use "iframe-consent";
+@use "npm-fonts/lato";
+@use "npm-fonts/sono";
+@use "npm-fonts/cormorant-garamond";
+@use "npm-fonts/roboto";
+@use "npm-fonts/oswald";
+@use "share";
+@use "audioplayer";
+@use "iiif";
+@use "status";
+@use "menu";
 @import "bootstrap";
-@import "normalize";
-@import "icons";
-@import "ol-iiif";
-@import "iframe-consent";
-@import "npm-fonts/lato";
-@import "npm-fonts/sono";
-@import "npm-fonts/cormorant-garamond";
-@import "npm-fonts/roboto";
-@import "npm-fonts/oswald";
-@import "share";
-@import "audioplayer";
-@import "iiif";
 
-@import "status";
 
 /* Menu */
 $font-color-body: var(--base00);
@@ -21,7 +22,6 @@ $frame-bg-color: var(--base01);
 $color-body-text: var(--base00);
 $fullscreen-color: var(--base07);
 
-@import "menu";
 
 $font-face-body: "Roboto", helvetica, sans-serif;
 $font-face-archive: "Sono Variable", helvetica, sans-serif;
