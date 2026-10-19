@@ -1,13 +1,11 @@
-{{- $seed := md5 .RelPermalink -}}
-{{- $hexDigits := "0123456789abcdef" -}}
-{{- $i := strings.Index $hexDigits (strings.Substr $seed 0 1) -}}
-{{- $j := strings.Index $hexDigits (strings.Substr $seed 1 1) -}}
-{{- $k := strings.Index $hexDigits (strings.Substr $seed 2 1) -}}
-{{- $sign := index (slice "" "-") (mod $j 2) -}}
-{{- $rotate := printf "%s%d.%d" $sign (mul $i 6) $k -}}
+{{/* A random rotation angle is picked on every build - this is intentional. */}}
+{{- $rotate := "" }}
+{{- range (seq 0 1) -}}
+    {{- $rotate = printf "%s%d" $rotate (index (shuffle (seq 0 99)) 0) -}}
+{{- end -}}
+{{- $rotate = printf "%s%d.%s" (index (shuffle (slice "-" "")) 0) (index (shuffle (seq 0 1)) 0) $rotate -}}
 {{- $style := printf "transform: rotate(%sdeg);" $rotate -}}
-{{/* style="{{ $style | safeCSS }}" */}}
-<ol class="content-header-nav">
+<ol class="content-header-nav" style="{{ $style | safeCSS }}">
     {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
 </ol>
 {{ define "breadcrumbnav" }}
