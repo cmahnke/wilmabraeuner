@@ -109,6 +109,20 @@
 
         {{- if and (.Params.resources) (or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing")) -}}
           {{- if gt (len .Params.resources) 1 -}}
+            {{- $page := . -}}
+            {{- $images := slice -}}
+            {{- range .Params.resources -}}
+              {{/*
+              {{- if .params.iiif -}}
+                {{- $image := partial "iiif/preview.html" (dict "context" $page "name" .name) -}}
+                {{- $image = $image.Resize (printf "%sx" site.Params.maxWidth) -}}
+                {{- $images = $images | append (dict .name $image.RelPermalink) -}}
+              {{- end -}}
+              */}}
+            {{- end -}}
+            {{/*
+            {{- $images := partial "functions/arrays/reverse-slice.html" $images -}}
+            */}}
             {{- $tabCount := 0 -}}
             <ul class="nav nav-tabs" role="tablist">
               {{- range .Params.resources -}}
@@ -121,9 +135,11 @@
                   {{- $tabCount = add $tabCount 1 -}}
                 {{- end -}}
               {{- end -}}
+              {{- if ge (len $images) 2 -}}
               <li class="nav-item" role="presentation">
                 <button class="nav-link" href="#" role="tab" id="compare-tab" data-bs-toggle="tab" data-bs-target="#compare-pane">{{ i18n "compareView" }}</button>
               </li>
+              {{- end -}}
             </ul>
             {{- $tabCount = 0 -}}
             <div class="tab-content" id="viewerTabContent">
@@ -142,23 +158,11 @@
                   {{- $tabCount = add $tabCount 1 -}}
                 {{- end -}}
               {{- end -}}
+              {{- if ge (len $images) 2 -}}
               <div class="tab-pane fade" id="compare-pane" role="tabpanel" aria-labelledby="compare-tab">
-                {{- $page := . -}}
-                {{- $images := slice -}}
-                {{- range .Params.resources -}}
-                  {{/*
-                  {{- if .params.iiif -}}
-                    {{- $image := partial "iiif/preview.html" (dict "context" $page "name" .name) -}}
-                    {{- $image = $image.Resize (printf "%sx" site.Params.maxWidth) -}}
-                    {{- $images = $images | append (dict .name $image.RelPermalink) -}}
-                  {{- end -}}
-                  */}}
-                {{- end -}}
-                {{/*
-                {{- $images := partial "functions/arrays/reverse-slice.html" $images -}}
-                */}}
                 {{- partial "views/compare_view.html" (dict "context" $page "id" "" "images" $images) -}}
               </div>
+              {{- end -}}
             </div>
           {{- else -}}
             {{- with (index .Params.resources 0) -}}

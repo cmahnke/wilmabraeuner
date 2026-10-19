@@ -1,4 +1,6 @@
 {{- $context := .context -}}
+{{/* The viewer needs at least two images to compare */}}
+{{- if lt (len .images) 2 -}}{{- return -}}{{- end -}}
 {{/* TODO: Also work only on context */}}
 {{- $id := "" -}}
 {{- if and (isset . "id") (ne .id "") -}}
