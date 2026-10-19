@@ -1,6 +1,6 @@
-{{- site.Home.Scratch.Add "alias2Page" dict -}}
-{{- site.Home.Scratch.Add "page2Alias" dict -}}
-{{- range site.AllPages -}}
+{{- hugo.Store.Add "alias2Page" dict -}}
+{{- hugo.Store.Add "page2Alias" dict -}}
+{{- range partial "hugo/site/AllPages" -}}
   {{- $page := .RelPermalink -}}
   {{- if .Aliases -}}
     {{- $alias2Page := dict -}}
@@ -9,8 +9,8 @@
       {{- $alias2Page = merge $alias2Page (dict . $page) -}}
       {{- $page2Alias = merge $page2Alias (dict $page .) -}}
     {{- end -}}
-    {{- site.Home.Scratch.Set "alias2Page" (merge (site.Home.Scratch.Get "alias2Page") $alias2Page) -}}
-    {{- site.Home.Scratch.Set "page2Alias" (merge (site.Home.Scratch.Get "page2Alias") $page2Alias) -}}
+    {{- hugo.Store.Set "alias2Page" (merge (hugo.Store.Get "alias2Page") $alias2Page) -}}
+    {{- hugo.Store.Set "page2Alias" (merge (hugo.Store.Get "page2Alias") $page2Alias) -}}
 
   {{- end -}}
 {{- end -}}

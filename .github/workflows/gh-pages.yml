@@ -14,7 +14,7 @@ concurrency:
 
 env:
   HUGO_VERSION: 0.168.0
-  DEPENDENCY_MANAGER: yarn
+  DEPENDENCY_MANAGER: npm
   PYTHON_VERSION: '3.13'
 
 jobs:
@@ -75,7 +75,7 @@ jobs:
         env:
           OSTYPE: linux
         run: |
-          yarn run validate
+          npm run validate
 
       - name: Puppeteer
         run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh

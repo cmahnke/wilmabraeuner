@@ -13,7 +13,7 @@
     <ul id="main-navigation-list" class="navigation-list">
       {{- with $menu -}}
         {{- range sort . -}}
-          {{- if and .Params.draft (not site.BuildDrafts) -}}
+          {{- if .Params.draft -}}
             {{- continue -}}
           {{- end -}}
           {{- $class := trim (path.Base .URL) "/" -}}

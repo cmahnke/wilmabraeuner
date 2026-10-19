@@ -82,7 +82,7 @@
               <div class="relation {{ $class }}">
                 {{- $description := printf "%s %s" (title (i18n "is")) (i18n $relation) -}}
                 {{- $link := partial "functions/number2alias.html" $object -}}
-                {{- $link = index (site.Home.Scratch.Get "alias2Page") $link -}}
+                {{- $link = index (hugo.Store.Get "alias2Page") $link -}}
                 {{- $description -}}: <a href="{{ $link }}" title="{{ $description }}">{{- $object -}}</a>
               </div>
             {{- end -}}
