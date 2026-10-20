@@ -41,3 +41,11 @@ assets/css/fonts
 static/fonts
 assets/scss/flags/
 assets/scss/npm-fonts/
+
+/package-lock.json
+
+/npm-shrinkwrap.json
+
+/pnpm-lock.yaml
+
+/yarn.lock

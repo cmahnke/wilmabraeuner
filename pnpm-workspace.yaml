@@ -1,10 +1,15 @@
+packages:
+  - .
 allowBuilds:
   canvas: true
+  esbuild: true
+  gl: true
   protobufjs: true
   puppeteer: true
   sharp: true
   tify: true
 blockExoticSubdeps: false
 ignoreScripts: false
-packages:
-  - .
+minimumReleaseAgeExclude:
+  - puppeteer-core@25.0.4
+  - puppeteer@25.0.4
