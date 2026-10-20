@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "platform": "github",
+  "autodiscover": true,
+  "autodiscoverFilter": ["cmahnke/wilmabraeuner"],
+  "enabledManagers": ["custom.regex"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Automatically update HUGO_VERSION in GitHub Actions workflows",
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
+      ],
+      "matchStrings": [
+        "HUGO_VERSION:\\s*[\"']?(?<currentValue>[\\w.-]+)[\"']?"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "gohugoio/hugo",
+      "versioningTemplate": "semver"
+    }
+  ]
+}
