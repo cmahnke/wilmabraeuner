@@ -11,7 +11,7 @@
 {{- end -}}
 {{- $images := .images -}}
 
-<canvas id="{{ $id }}" class="compare_view"></canvas>
+<div id="{{ $id }}" class="compare_view"></div>
 <script>
     var images = [
       {{- range $images -}}
@@ -21,8 +21,7 @@
       {{- end -}}
     ];
     var initCompareView = function () {
-        var view = addCompareView('{{ $id }}', images, {});
-        document.getElementById("{{ $id }}").data = view;
+        addCompareView('{{ $id }}', images, {});
     };
     /* The main script bundle is loaded with defer, so it might not be
        executed when this inline script runs */
