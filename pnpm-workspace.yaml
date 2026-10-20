@@ -10,8 +10,6 @@ allowBuilds:
   tify: true
 blockExoticSubdeps: false
 ignoreScripts: false
-overrides:
-  compare_view>react: ^19.3.1
 minimumReleaseAgeExclude:
   - puppeteer-core@25.0.4
   - puppeteer@25.0.4

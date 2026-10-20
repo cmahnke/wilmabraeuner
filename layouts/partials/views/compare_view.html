@@ -11,23 +11,27 @@
 {{- end -}}
 {{- $images := .images -}}
 
-<div id="{{ $id }}" class="compare_view"></div>
-<script>
-    var images = [
-      {{- range $images -}}
-        {{- range $name, $src := . -}}
-          '{{ $src | safeJS }}',
-        {{- end -}}
-      {{- end -}}
-    ];
-    var initCompareView = function () {
-        addCompareView('{{ $id }}', images, {});
-    };
-    /* The main script bundle is loaded with defer, so it might not be
-       executed when this inline script runs */
-    if (typeof addCompareView === 'function') {
-        initCompareView();
-    } else {
-        document.addEventListener('DOMContentLoaded', initCompareView);
-    }
-</script>
+{{/* Markup shim for the theme's img-comparison-slider component.
+   TODO: The JS wiring for the web component isn't in place yet, until then
+   this renders as plain stacked images
+   TODO: Only the first two images of the list are used */}}
+{{- $first := index $images 0 -}}
+{{- $second := index $images 1 -}}
+<img-comparison-slider class="compare compare_view" id="{{ $id }}">
+  {{- range $name, $src := $first -}}
+  <figure slot="first" class="first">
+    <img width="100%" src="{{ $src }}" alt="{{ $name }}">
+    {{- with $name -}}
+      <figcaption>{{ . }}</figcaption>
+    {{- end -}}
+  </figure>
+  {{- end -}}
+  {{- range $name, $src := $second -}}
+  <figure slot="second" class="second">
+    <img width="100%" src="{{ $src }}" alt="{{ $name }}">
+    {{- with $name -}}
+      <figcaption>{{ . }}</figcaption>
+    {{- end -}}
+  </figure>
+  {{- end -}}
+</img-comparison-slider>

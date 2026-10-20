@@ -5,11 +5,11 @@ window.Headroom = Headroom;
 /* See https://github.com/rgalus/sticky-js */
 window.Sticky = Sticky;
 
-/* Side-effect imports: register the window globals (window.audioplayer,
-   window.addCompareView) for partial-based usage the shortcode helper
-   can't detect */
+/* Side-effect imports: register the window globals (window.audioplayer)
+   for partial-based usage the shortcode helper can't detect */
 import './audioplayer.ts';
-import './compare_view';
+/* TODO: Register the img-comparison-slider web component here once its JS
+   wiring is decided (the base theme provides the dependency) */
 
 import 'bootstrap/js/dist/tab';
 
