@@ -37,7 +37,7 @@
         {{- range (default site.Home.AllTranslations .Translations) -}}
           {{- if ne site.Language .Language -}}
             <li class="navigation-item lang">
-              <a href="{{ .Permalink }}" title="{{ .Language.Label }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}">{{ .Language.Label }}</a>
+              <a href="{{ .Permalink }}" title="{{ .Language.Label }}" hreflang="{{ .Language.Name }}" lang="{{ .Language.Name }}">{{ .Language.Label }}</a>
             </li>
           {{- end -}}
         {{- end -}}
@@ -45,7 +45,7 @@
     </ul>
   </nav>
   {{- with resources.Get "ts/menu.ts" -}}
-    {{- $menuJs := . | js.Build (dict "targetPath" "js/menu.js" "minify" (cond hugo.IsDevelopment false true) "sourceMap" (cond hugo.IsDevelopment "linked" "none")) | fingerprint -}}
-    <script defer src="{{ $menuJs.RelPermalink }}" integrity="{{ $menuJs.Data.Integrity | html }}"></script>
+    {{- $menuJs := . | js.Build (dict "targetPath" "js/menu.js" "minify" (cond hugo.IsDevelopment false true) "sourceMap" (cond hugo.IsDevelopment "linked" "none") "format" "esm") | fingerprint -}}
+    <script type="module" src="{{ $menuJs.RelPermalink }}" integrity="{{ $menuJs.Data.Integrity | html }}"></script>
   {{- end -}}
 {{- end -}}

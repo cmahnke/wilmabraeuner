@@ -1,8 +1,3 @@
-{{- define "partials/itemnumber.html" -}}
-  {{- $objectNumber := strings.Substr .alias 3 -2 -}}
-  {{- $objectNumber = index (last 1 (split $objectNumber "/")) 0 -}}
-  {{- return $objectNumber -}}
-{{- end -}}
 {{- $types := slice "a" "d" "f" "k" "o" "t" "w" -}}
 {{- $objectNumber := partial "functions/object-number.html" . -}}
 {{- $objectNumber = (trim (plainify $objectNumber) " ") -}}
@@ -51,12 +46,12 @@
       {{- if ne .Parent.Kind "section" -}}
         {{- errorf "Text entry %s has wrong parent type" .File.Path -}}
       {{- end -}}
-      {{- $objectNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+      {{- $objectNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
 
       {{- $foundAudio := false -}}
       {{- range .Parent.Pages -}}
         {{- if eq .Params.type "audio" -}}
-          {{- $audioNumber := partial "partials/itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
+          {{- $audioNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
           {{- if eq $objectNumber $audioNumber -}}
             {{- $foundAudio = true -}}
           {{- end -}}

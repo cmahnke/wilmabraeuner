@@ -1,0 +1,3 @@
+{{- $objectNumber := strings.Substr .alias 3 -2 -}}
+{{- $objectNumber = index (last 1 (split $objectNumber "/")) 0 -}}
+{{- return $objectNumber -}}

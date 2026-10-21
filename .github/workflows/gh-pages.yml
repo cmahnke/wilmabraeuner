@@ -78,7 +78,7 @@ jobs:
           npm run validate
 
       - name: Puppeteer
-        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh
+        run: ./themes/projektemacher-base/scripts/github/check-js-errors.sh -i
 
       - name: Remove JXL file before deployment
         run: |

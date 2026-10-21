@@ -24,7 +24,7 @@
 
 {{- $manifest = $manifest | merge $common -}}
 
-{{- $defaultContentLanguage := hugo.Sites.Default.Language.Lang -}}
+{{- $defaultContentLanguage := hugo.Sites.Default.Language.Name -}}
 {{ $defaultContentPage := "" }}
 {{- if hugo.IsMultilingual -}}
   {{- $defaultContentPage = index (where .AllTranslations ".Lang" "eq" $defaultContentLanguage) 0 -}}

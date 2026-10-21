@@ -25,9 +25,9 @@
   {{- $common = $common | merge (dict "summary" $summary) -}}
 {{- end -}}
 
-{{- $label := dict site.Language.Lang (slice (printf "%s: %s" site.Title .Title)) -}}
+{{- $label := dict site.Language.Name (slice (printf "%s: %s" site.Title .Title)) -}}
 {{- if hugo.IsMultilingual -}}
-  {{- $translations := where .Translations ".Lang" "!=" site.Language.Lang -}}
+  {{- $translations := where .Translations ".Lang" "!=" site.Language.Name -}}
   {{- range $translations -}}
     {{- $label = $label | merge (dict .Lang (slice (printf "%s: %s" site.Title .Title))) -}}
   {{- end -}}
