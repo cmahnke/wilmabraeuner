@@ -4,6 +4,7 @@
 [submodule "themes/projektemacher-base"]
 	path = themes/projektemacher-base
 	url = https://github.com/cmahnke/projektemacher-base.git
+	branch = main
 [submodule "www.xn--wilmabruner-r8a-redirect"]
 	path = www.xn--wilmabruner-r8a-redirect
 	url = https://github.com/cmahnke/www.xn--wilmabruner-r8a-redirect.git

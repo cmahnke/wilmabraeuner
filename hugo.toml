@@ -9,6 +9,8 @@ locale = "de"
 defaultContentLanguage = "de"
 summaryLength = 40
 
+enableRobotsTXT = true
+
 [module]
     [[module.mounts]]
         source = "assets/scss"
@@ -174,3 +176,6 @@ defaultMarkdownHandler = 'goldmark'
 
 [params]
   js = "esm"
+
+[params.robots]
+  llmsTXT = true
