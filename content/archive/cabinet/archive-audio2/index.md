@@ -9,8 +9,9 @@ aliases:
 resources:
 - name: audio
   src: "Vitrine_Archiv-Fressen-2.mp3"
-qr-icon: comment.svg
-qr-icon-color: '#808080'
+params:
+  qr-icon: comment.svg
+  qr-icon-color: '#808080'
 tags:
   - audio:archive
 ---

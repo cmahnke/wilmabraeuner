@@ -7,15 +7,16 @@ outputs:
   - iiif-manifest
 aliases:
   - /k/6/2/3f/
-iiifContext: http://iiif.io/api/image/2/context.json
+params:
+  iiifContext: http://iiif.io/api/image/2/context.json
+  related:
+    isSourceFor: K6.2.4F
+    isDerivedFrom: K6.2.2F
 weight: 3
 tags:
   - content:bonus
   - content:backside
   - feature:imageEditing
-related:
-  isSourceFor: K6.2.4F
-  isDerivedFrom: K6.2.2F
 resources:
 - src: "front.jxl"
   name: front

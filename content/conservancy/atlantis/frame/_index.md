@@ -9,6 +9,7 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-23-Atlantis.jpg"
-qr-icon: comment.svg
-qr-icon-color: '#808080'
+params:
+  qr-icon: comment.svg
+  qr-icon-color: '#808080'
 ---

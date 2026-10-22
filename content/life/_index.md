@@ -1,17 +1,18 @@
 ---
 title: Lebensstationen
-displayinlist: false
-metaPage: true
+params:
+  displayinlist: false
+  metaPage: true
+  image: ./{}.svg
+  color: #f7dba7
+  style: 'color: black; text-shadow: 0 0 7px #fff;'
+  archive: false
+  news: false
 description: "Die Lebensstationen Wilma Bräuners"
-archive: false
-news: false
 outputs:
   - html
   - qrcode
-image: ./{}.svg
 weight: 2
-color: #f7dba7
-style: 'color: black; text-shadow: 0 0 7px #fff;'
 type: topic
 aliases:
   - /l/

@@ -7,10 +7,11 @@ outputs:
   - iiif-manifest
 aliases:
   - /k/6/2/4f/
-iiifContext: http://iiif.io/api/image/2/context.json
+params:
+  iiifContext: http://iiif.io/api/image/2/context.json
+  related:
+    isDerivedFrom: K6.2.3F
 weight: 4
-related:
-  isDerivedFrom: K6.2.3F
 tags:
   - content:bonus
   - content:backside

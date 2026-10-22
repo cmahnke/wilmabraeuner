@@ -9,8 +9,9 @@ outputs:
   - qrcode
 aliases:
   - /k/12/1a/
-qr-icon: comment.svg
-qr-icon-color: '#808080'
+params:
+  qr-icon: comment.svg
+  qr-icon-color: '#808080'
 tags:
   - audio:text
 ---

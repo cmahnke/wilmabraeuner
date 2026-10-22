@@ -7,7 +7,8 @@ outputs:
   - iiif-manifest
 aliases:
   - /a/3/6d/
-iiifContext: http://iiif.io/api/image/2/context.json
+params:
+  iiifContext: http://iiif.io/api/image/2/context.json
 resources:
 - src: "front.jxl"
   name: front

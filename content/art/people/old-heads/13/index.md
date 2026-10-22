@@ -7,7 +7,8 @@ outputs:
   - iiif-manifest
 aliases:
   - /k/4/2/1f/
-iiifContext: http://iiif.io/api/image/2/context.json
+params:
+  iiifContext: http://iiif.io/api/image/2/context.json
 weight: 13
 tags:
   - content:bonus

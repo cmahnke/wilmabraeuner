@@ -6,7 +6,7 @@ publishDir = "docs"
 canonifyURLs = true
 #disableKinds = ["taxonomy", "term"]
 locale = "de"
-defaultcontentlanguage = "de"
+defaultContentLanguage = "de"
 summaryLength = 40
 
 [module]

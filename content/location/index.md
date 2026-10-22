@@ -1,7 +1,8 @@
 ---
 title: "Ort und Anfahrt"
-metaPage: true
-check: false
+params:
+  metaPage: true
+  check: false
 ---
 
 Das Sylter Archiv zeigt vom 6. Bis 17 Dezember 2022 in der Stadtgalerie „Alte Post“, Stephanstraße 4, Sylt / OT Westerland die Ausstellung:

@@ -1,10 +1,11 @@
 ---
 title: "Zeitstrahl"
-metaPage: true
-displayinlist: false
-check: false
+params:
+  metaPage: true
+  displayinlist: false
+  check: false
+  js:
+    - ts/timeline.ts
 draft: true
 layout: timeline
-js:
-  - ts/timeline.ts
 ---

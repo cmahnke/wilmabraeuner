@@ -5,9 +5,10 @@ outputs:
   - html
   - qrcode
 layout: documentation
-qr-icon: link.svg
-qr-color: '#edcb9d'
-qr-icon-color: '#edcb9d'
+params:
+  qr-icon: link.svg
+  qr-color: '#edcb9d'
+  qr-icon-color: '#edcb9d'
 ---
 
 # Beispiele

@@ -7,7 +7,8 @@ outputs:
   - iiif-manifest
 aliases:
   - /k/4/2/10k/
-iiifContext: http://iiif.io/api/image/2/context.json
+params:
+  iiifContext: http://iiif.io/api/image/2/context.json
 weight: 10
 resources:
 - src: "front.jxl"

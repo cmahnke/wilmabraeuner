@@ -1,7 +1,10 @@
 ---
 title: Oma, was ist das für ein komischer Beamer? - Hörfassung
 type: audio
-subtype: archive
+params:
+  subtype: archive
+  qr-icon: comment.svg
+  qr-icon-color: '#808080'
 outputs:
   - html
   - qrcode
@@ -10,8 +13,6 @@ aliases:
 resources:
 - name: audio
   src: "Archiv-Diaprojektor-3.mp3"
-qr-icon: comment.svg
-qr-icon-color: '#808080'
 tags:
   - audio:archive
 ---

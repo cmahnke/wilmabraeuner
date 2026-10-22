@@ -6,12 +6,13 @@ outputs:
   - html
   - qrcode
 type: audio
-subtype: archive
+params:
+  subtype: archive
+  qr-icon: comment.svg
+  qr-icon-color: '#808080'
 resources:
 - name: audio
   src: "4_Archiv.mp3"
-qr-icon: comment.svg
-qr-icon-color: '#808080'
 tags:
   - audio:archive
 ---

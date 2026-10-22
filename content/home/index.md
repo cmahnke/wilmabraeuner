@@ -1,8 +1,9 @@
 ---
 title: "Start"
-metaPage: true
-displayinlist: false
-check: false
+params:
+  metaPage: true
+  displayinlist: false
+  check: false
 ---
 
 {{< figure src="./Plakat.jpg" class="poster" alt="Poster">}}

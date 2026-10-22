@@ -6,7 +6,8 @@ outputs:
   - html
   - qrcode
 type: text
-subtype: archive
+params:
+  subtype: archive
 ---
 
 Auch das Sylter Archiv hat durch einen Brand große Verluste erlitten. Bei einem Dachstuhlbrand im Rathaus im Dezember 1950 sind knapp 90% der Bestände zerstört worden und so große Überlieferungslücken entstanden. Diese Lücken zu schließen ist nicht mehr möglich, sie durch die Restaurierung brandgeschädigter Unterlagen auszugleichen, kann und muss versucht werden und ist von großer Bedeutung zur Sicherung des historischen Erbes.

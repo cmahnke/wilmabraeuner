@@ -9,8 +9,9 @@ aliases:
 resources:
 - name: audio
   src: "7_Text.mp3"
-qr-icon: comment.svg
-qr-icon-color: '#808080'
+params:
+  qr-icon: comment.svg
+  qr-icon-color: '#808080'
 tags:
   - audio:text
 ---

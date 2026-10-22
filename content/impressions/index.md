@@ -1,7 +1,8 @@
 ---
 title: "Impressionen"
-metaPage: true
-check: false
+params:
+  metaPage: true
+  check: false
 ---
 
 # Bilder der Ausstellung

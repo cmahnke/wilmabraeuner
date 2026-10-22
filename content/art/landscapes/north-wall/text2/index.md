@@ -1,7 +1,8 @@
 ---
 title: Oma, was ist das für ein komischer Beamer?
 type: text
-subtype: archive
+params:
+  subtype: archive
 outputs:
   - html
   - qrcode
