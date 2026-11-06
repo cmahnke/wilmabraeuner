@@ -1,6 +1,5 @@
 ---
 title: Kirche Keitum
-type: picture
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /k/19/1/1f/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 weight: 1
 resources:
 - src: "front.jxl"

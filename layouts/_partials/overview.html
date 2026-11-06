@@ -1,7 +1,7 @@
 {{/* TODO add overview */}}
 {{- $singleTypes := slice "picture painting print object" -}}
 {{- if ne (len .Pages) 0 -}}
-  {{- $type := .Params.type -}}
+  {{- $type := .Params.itemType -}}
   {{- $class := printf "%s-content" $type -}}
 
   <div class="content-body {{ $class | safeCSS }}">
@@ -21,7 +21,7 @@
   <ol class="subsection-listing {{ $class | safeCSS }}">
     {{- range .Pages -}}
       {{ $class := "" }}
-      {{- $class = .Params.type -}}
+      {{- $class = .Params.itemType -}}
       {{- if .Params.subtype -}}
         {{- $class = printf "%s %s" $class .Params.subtype -}}
       {{- end -}}
@@ -51,7 +51,7 @@
           {{- end -}}
           {{- $title := .Title  -}}
           {{- if not .Title -}}
-            {{- $title = i18n .Params.type -}}
+            {{- $title = i18n .Params.itemType -}}
           {{- end -}}
           <a href="{{- .RelPermalink -}}" title="{{- $title -}}" class="section-item-link">
           <div class="object-title listing-title">
@@ -61,13 +61,13 @@
             {{- end -}}
           </div>
 
-          {{- if or (eq .Params.type "text") (eq .Params.type "audio") -}}
+          {{- if or (eq .Params.itemType "text") (eq .Params.itemType "audio") -}}
             <div class="{{ $class | safeCSS }}">
               {{- if .Summary -}}
                {{ .Summary -}}...
               {{- end -}}
             </div>
-          {{- else if in (slice "picture" "print" "reproduction" "drawing" "document") .Params.type -}}
+          {{- else if in (slice "picture" "print" "reproduction" "drawing" "document") .Params.itemType -}}
             {{/*
             {{- $preview := partial "iiif/preview.html" . -}}
             {{- with $preview -}}
@@ -92,7 +92,7 @@
                   <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="preview-image">
                 </div>
               {{ end }}
-              {{- if in $singleTypes .Params.type  -}}
+              {{- if in $singleTypes .Params.itemType  -}}
                 <div class="single-view">
                   <a href="{{ .RelPermalink }}">
                     {{ i18n "singleView" }} {{ .Title }}

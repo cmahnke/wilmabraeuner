@@ -1,6 +1,5 @@
 ---
 title: Radierung
-type: print
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /k/21/2/2k/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: print
 weight: 2
 resources:
 - src: "front.jxl"

@@ -1,6 +1,5 @@
 ---
 title: Einleitung „Von diesem Mosaik… abgesehen… arbeitsloser Engel“ - Lebenserinnerung
-type: audio
 outputs:
   - html
   - qrcode
@@ -12,6 +11,7 @@ resources:
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 tags:
   - audio:bonus
 ---

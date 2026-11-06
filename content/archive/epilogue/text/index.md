@@ -5,7 +5,8 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
+params:
+  itemType: text
 ---
 
 Als Person wie als Künstlerin scheint Wilma Bräuner heute fast vergessen zu sein und wie bei vielen Frauen in der bildenden Kunst ist auch sie in der Fachliteratur wenig beachtet worden. Bis vor Kurzem gab es nicht einmal einen Interneteintrag zu ihr.

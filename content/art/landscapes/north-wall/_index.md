@@ -1,6 +1,5 @@
 ---
 title: Meer und Sturm (Nordwand)
-type: wall
 aliases:
   - /k/n/
 outputs:
@@ -10,4 +9,6 @@ resources:
 - name: preview
   src: "N_Nordwand.jpg"
 weight: 2
+params:
+  itemType: wall
 ---

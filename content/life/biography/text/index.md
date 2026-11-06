@@ -5,7 +5,8 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
+params:
+  itemType: text
 ---
 
 Als Kind von sieben Jahren fuhr Wilma Bräuner mit ihrer Familie erstmals nach . In den folgenden Jahren verbrachte sie regelmäßig Ferien- und Urlaubszeiten auf . 1921 siedelte sie nach  um und lebte viele Jahre in ihrem Haus in der Henningstraße 7 in Westerland.

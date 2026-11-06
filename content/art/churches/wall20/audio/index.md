@@ -1,6 +1,5 @@
 ---
 title: Kirchen - Hörfassung
-type: audio
 resources:
 - name: audio
   src: "20-Kirche-2.mp3"
@@ -12,6 +11,7 @@ aliases:
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 tags:
   - audio:text
 ---

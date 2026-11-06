@@ -8,12 +8,12 @@ params:
   style: 'color: white; text-shadow: 0 0 7px #000;'
   archive: false
   news: false
+  itemType: topic
 description: "Wilma Bräuners Engagement gegen Atlantis und für den Naturschutz"
 outputs:
   - html
   - qrcode
 weight: 4
-type: topic
 aliases:
   - /n/
 ---

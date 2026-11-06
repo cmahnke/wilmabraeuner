@@ -5,5 +5,6 @@ aliases:
 outputs:
   - html
   - qrcode
-type: painting
+params:
+  itemType: painting
 ---

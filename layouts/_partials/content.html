@@ -19,7 +19,7 @@
             </div>
         {{- end -}}
 {{- end -}}
-{{- if and (isset .Page.Params "type") (eq .Page.Params.type "3d") -}}
+{{- if and (isset .Page.Params "itemtype") (eq .Page.Params.itemType "3d") -}}
     {{ partial "3d.html" . }}
 {{- end -}}
 */}}

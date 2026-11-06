@@ -5,7 +5,8 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
+params:
+  itemType: text
 ---
 
 

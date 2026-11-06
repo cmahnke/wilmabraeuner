@@ -1,7 +1,8 @@
 ---
 title:
-type: painting
 outputs:
   - html
   - qrcode
+params:
+  itemType: painting
 ---

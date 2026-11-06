@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Kirchen"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-19-Kirchen.jpg"  
+params:
+  itemType: frame
 ---

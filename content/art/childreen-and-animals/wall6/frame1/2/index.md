@@ -1,6 +1,5 @@
 ---
 title:
-type: picture
 outputs:
   - html
   - qrcode
@@ -12,6 +11,7 @@ params:
   related:
     isSourceFor: K6.2.3F
     isDerivedFrom: K6.2.1F
+  itemType: picture
 weight: 2
 tags:
   - feature:imageEditing

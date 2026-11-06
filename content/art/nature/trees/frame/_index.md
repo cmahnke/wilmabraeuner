@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Bäume"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-21-Baeume-2.jpg"  
+params:
+  itemType: frame
 ---

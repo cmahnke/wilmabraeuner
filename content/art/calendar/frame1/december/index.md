@@ -1,6 +1,5 @@
 ---
 title: Dezember
-type: picture
 outputs:
   - html
   - qrcode
@@ -10,6 +9,7 @@ aliases:
   - /k/14/2/13f/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 resources:
 - src: "front.jxl"
   name: front

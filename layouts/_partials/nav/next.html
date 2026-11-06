@@ -14,8 +14,8 @@
 
 {{- if $next -}}
   {{- $title := i18n "nextObject" -}}
-  {{- if $next.Params.type -}}
-    {{- $title := i18n (printf "next%s" (title $next.Params.type)) -}}
+  {{- if $next.Params.itemType -}}
+    {{- $title := i18n (printf "next%s" (title $next.Params.itemType)) -}}
   {{- end -}}
   <div class="post-nav post-nav-next">
     <a href="{{ $next.RelPermalink }}" class="post-nav-link">

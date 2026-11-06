@@ -1,11 +1,12 @@
 ---
 title: Alte Köpfe
-type: text
 aliases:
   - /k/4/1t/
 outputs:
   - html
   - qrcode
+params:
+  itemType: text
 ---
 
 In ihren Anfängen begann Bräuner erst Aktstudien zu zeichnen, dann ältere Menschen. Dazu zog sie sich regelmäßig in das Gängeviertel zurück – nicht weit vom väterlichen Juweliergeschäft in der Mönckebergstraße, aber abseits des bürgerlichen Milieus. Dort fand sie zuhauf Motive und Modelle nach ihrem Gefallen: „Ich bin der Ansicht, dass gerade alte Leute das schönste Motiv für die Malerei sind.“

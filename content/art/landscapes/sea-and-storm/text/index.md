@@ -1,11 +1,12 @@
 ---
 title: Landschaft (Sturm und Meer)
-type: text
 outputs:
   - html
   - qrcode
 aliases:
   - /k/7/1t/
+params:
+  itemType: text
 ---
 
 Bräuners Schwerpunkt von den Alten hin zu naturalistischen Landschaftsdarstellungen verlagerte sich mit ihrem Umzug nach Sylt.

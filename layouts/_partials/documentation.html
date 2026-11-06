@@ -3,12 +3,12 @@
 {{- $pageURL := .Permalink -}}
 {{- $singleTypes := slice "picture painting print object" -}}
 
-<div class="content-container {{ .Params.type }}">
+<div class="content-container {{ .Params.itemType }}">
     <div class="content-area">
       <div class="content-header">
         {{ partial "breadcrumb-nav.html" . }}
       </div>
-      <div class="content documentation {{ .Params.type }}">
+      <div class="content documentation {{ .Params.itemType }}">
         <h1 class="post-title">{{ .Title }}</h1>
         {{- if eq .Kind "section" -}}
           <h2 class="toc-header">{{- i18n "toc" -}}</h2>

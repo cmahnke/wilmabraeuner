@@ -1,6 +1,5 @@
 ---
 title:
-type: picture
 outputs:
   - html
   - qrcode
@@ -11,6 +10,7 @@ params:
   iiifContext: http://iiif.io/api/image/2/context.json
   related:
     isSourceFor: K6.2.2F
+  itemType: picture
 tags:
   - content:bonus
   - content:backside

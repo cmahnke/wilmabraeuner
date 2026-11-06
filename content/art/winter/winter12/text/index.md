@@ -3,9 +3,10 @@ title: Winter - Ausstellungsbesprechung 1918 und Totenschiff
 outputs:
   - html
   - qrcode
-type: text
 aliases:
   - /k/12/1t/
+params:
+  itemType: text
 ---
 
 Bevor Bräuner sich auf Sylt niederließ, stellte sie einige Male in Hamburg aus, in der Galerie Commeter und im Kunsthaus Bock. Die Besprechung der Ausstellung im Kunsthaus Bock aus dem Jahre 1918 ebenso wie ihre Anerkennung als Berufsfotografin zeugen von der Qualität ihrer Arbeiten und ihrem Talent.

@@ -3,7 +3,6 @@ title: Bräuners Lebensende - Hörfassung
 outputs:
   - html
   - qrcode
-type: audio
 aliases:
   - /n/25/1a/
 resources:
@@ -12,6 +11,7 @@ resources:
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 tags:
   - audio:text
 ---

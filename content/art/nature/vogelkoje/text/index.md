@@ -1,11 +1,12 @@
 ---
 title: Vogelkoje
-type: text
 outputs:
   - html
   - qrcode
 aliases:
   - /k/22/1t/
+params:
+  itemType: text
 ---
 
 In der zuvor gezeigten Ausstellungsbesprechung wurde noch auf ein weiteres von Wilma Bräuners bevorzugten Bildthemen verwiesen, das ihr künstlerisches Schaffen durchgehend bestimmt hat: Wald und Bäume.

@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Dörfer 1"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-17-Doerfer.jpg"
+params:
+  itemType: frame
 ---

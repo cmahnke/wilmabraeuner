@@ -1,6 +1,5 @@
 ---
 title: Februar
-type: picture
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /k/14/2/3f/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 weight: 3
 resources:
 - src: "front.jxl"

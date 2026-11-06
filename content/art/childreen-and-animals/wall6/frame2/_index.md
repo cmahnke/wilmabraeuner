@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Tiere"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-6-Tiere.jpg"
+params:
+  itemType: frame
 ---

@@ -14,8 +14,8 @@
 
 {{- if $prev -}}
   {{- $title := i18n "prevObject" -}}
-  {{- if $prev.Params.type -}}
-    {{- $title := i18n (printf "prev%s" (title $prev.Params.type)) -}}
+  {{- if $prev.Params.itemType -}}
+    {{- $title := i18n (printf "prev%s" (title $prev.Params.itemType)) -}}
   {{- end -}}
   <div class="post-nav post-nav-prev">
     <a href="{{ $prev.RelPermalink }}" class="post-nav-link">

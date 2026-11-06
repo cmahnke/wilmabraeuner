@@ -1,6 +1,5 @@
 ---
 title: "Kollage: Kalender"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-14-Kalender.jpg"  
+params:
+  itemType: frame
 ---

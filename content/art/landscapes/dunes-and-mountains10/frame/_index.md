@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Dünen und Berge"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-10-Duenen-und-Berge.jpg"  
+params:
+  itemType: frame
 ---

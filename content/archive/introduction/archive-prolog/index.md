@@ -5,7 +5,8 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
+params:
+  itemType: text
 ---
 
 Parallel dazu möchten wir Ihnen die Arbeit des Sylter Archivs näher bringen. Denn um Ihnen das Leben und Werk der Künstlerin vorstellen zu können, müssen natürlich einige Voraussetzungen erfüllt sein:

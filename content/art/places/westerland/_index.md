@@ -1,6 +1,5 @@
 ---
 title: "Stellwand: Westerland"
-type: wall
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "18_Stellwand-Haeuser-4.jpg"  
+params:
+  itemType: wall
 ---

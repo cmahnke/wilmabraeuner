@@ -3,7 +3,6 @@ title: Kampf gegen Atlantis, 1. Absatz - Lebenserinnerung
 outputs:
   - html
   - qrcode
-type: audio
 aliases:
   - /n/23/10a/
 resources:
@@ -12,6 +11,7 @@ resources:
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 tags:
   - audio:bonus
 ---

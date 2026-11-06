@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Westerland"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-18-Westerland.jpg"  
+params:
+  itemType: frame
 ---

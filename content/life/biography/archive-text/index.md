@@ -5,9 +5,9 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
 params:
   subtype: archive
+  itemType: text
 ---
 
 Geburten-, Ehe- und Sterberegister sind eine wichtige Quelle für Familienforscher*innen und Erbenermittlungen. Die seit 1874 geführten Register sind bis ins 20. Jahrhundert hinein handschriftlich geführt. Hier sehen Sie den Auszug von Wilma Bräuners Geburtseintrag (Quelle: Staatsarchiv Hamburg, 332-5 Standesämter, Nr. 2264).

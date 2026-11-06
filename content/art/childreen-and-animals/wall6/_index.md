@@ -5,8 +5,9 @@ outputs:
   - qrcode
 aliases:
   - /k/6/
-type: wall
 resources:
 - name: preview
   src: "6_Stellwand-Tiere.jpg"  
+params:
+  itemType: wall
 ---

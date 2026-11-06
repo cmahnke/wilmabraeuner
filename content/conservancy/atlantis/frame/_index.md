@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Atlantis"
-type: frame
 outputs:
   - html
   - qrcode
@@ -12,4 +11,5 @@ resources:
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: frame
 ---

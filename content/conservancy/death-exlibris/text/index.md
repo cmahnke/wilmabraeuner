@@ -3,9 +3,10 @@ title: Bräuners Lebensende
 outputs:
   - html
   - qrcode
-type: text
 aliases:
   - /n/24/1t/
+params:
+  itemType: text
 ---
 
 Bräuner wusste, was sie wollte und verstand es, mit Witz und Ironie ihren Standpunkt zu vertreten. Die Quellen geben einen Eindruck davon und zugleich von ihrer Fähigkeit zur Selbstironie.

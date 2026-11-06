@@ -5,13 +5,13 @@ aliases:
 outputs:
   - html
   - qrcode
-type: audio
 resources:
 - name: audio
   src: "1_Einleitung-Archiv-3.mp3"
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 tags:
   - audio:archive
 ---

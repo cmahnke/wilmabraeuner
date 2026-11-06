@@ -8,12 +8,12 @@ params:
   style: 'color: black; text-shadow: 0 0 7px #fff;'
   archive: false
   news: false
+  itemType: topic
 description: "Die Lebensstationen Wilma Bräuners"
 outputs:
   - html
   - qrcode
 weight: 2
-type: topic
 aliases:
   - /l/
 ---

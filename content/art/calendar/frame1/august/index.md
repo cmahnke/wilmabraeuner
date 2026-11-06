@@ -1,6 +1,5 @@
 ---
 title: August
-type: picture
 outputs:
   - html
   - qrcode
@@ -10,6 +9,7 @@ aliases:
 weight: 9
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 resources:
 - src: "front.jxl"
   name: front

@@ -5,11 +5,11 @@ aliases:
 outputs:
   - html
   - qrcode
-type: audio
 params:
   subtype: archive
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 resources:
 - name: audio
   src: "4_Archiv.mp3"

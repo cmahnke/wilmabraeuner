@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Fünkchen"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ resources:
   src: "Rahmen-3-Fuenkchen.jpg"
 aliases:
   - /l/26/5/
+params:
+  itemType: frame
 ---

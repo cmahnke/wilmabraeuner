@@ -1,6 +1,5 @@
 ---
 title: Rantum
-type: picture
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /k/17/1/8f/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 weight: 8
 tags:
   - content:bonus

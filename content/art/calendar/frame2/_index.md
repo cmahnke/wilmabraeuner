@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Rechnungen"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-14-Rechnungen.jpg"  
+params:
+  itemType: frame
 ---

@@ -1,6 +1,5 @@
 ---
 title: Kurzeitung 1971, Seite 156
-type: document
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /n/23/2/1d/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: document
 weight: 2
 resources:
 - src: "front.jxl"

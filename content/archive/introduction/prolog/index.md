@@ -5,7 +5,8 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
+params:
+  itemType: text
 ---
 
 Fast ihr ganzes Leben kannte sie die Insel und lebte und arbeitete mehr als 60 Jahre auf Sylt . Zahlreiche ihrer Bilder hängen in Sylter Häusern und über 30 Jahre waren ihre Fotokalender allseits bekannt und gefragt. Auch für ihr Engagement für den Sylter Naturschutz war sie inselweit bekannt – und doch scheint die Malerin, Grafikern und Fotografin Wilma Bräuner (1891-1985) heute fast vergessen.

@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Radierungen"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "Rahmen-20-Zirl.jpg"
+params:
+  itemType: frame
 ---

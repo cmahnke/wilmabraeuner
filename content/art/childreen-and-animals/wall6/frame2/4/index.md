@@ -1,6 +1,5 @@
 ---
 title:
-type: picture
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /k/6/3/4f/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 resources:
 - src: "front.jxl"
   name: front

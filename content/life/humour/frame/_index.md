@@ -5,8 +5,9 @@ aliases:
 outputs:
   - html
   - qrcode
-type: frame
 resources:
 - name: preview
   src: "Rahmen-26-Humor.jpg"
+params:
+  itemType: frame
 ---

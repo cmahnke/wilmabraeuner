@@ -1,11 +1,12 @@
 ---
 title: Kirchen
-type: text
 outputs:
   - html
   - qrcode
 aliases:
   - /k/20/1t/
+params:
+  itemType: text
 ---
 
 In den 1950er und 1960er Jahren meldeten sich häufig Besuchergruppen im Morsumer Pastorat an, um die Kirche zu besichtigen. Bei der Abreise kauften viele Postkarten von der Kirchenansicht und -innenräumen. Auch diese Postkarten waren von Bräuner.

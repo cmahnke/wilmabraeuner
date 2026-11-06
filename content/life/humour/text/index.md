@@ -5,7 +5,8 @@ aliases:
 outputs:
   - html
   - qrcode
-type: text
+params:
+  itemType: text
 ---
 
 In ihren Lebenserinnerung wird auch ihr gelegentlicher Hang zur Süffisanz deutlich – gerade im Umgang mit öffentlichen Stellen.

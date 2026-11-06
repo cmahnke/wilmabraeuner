@@ -8,8 +8,8 @@ params:
   image: ./{}.svg
   color: #F5E2C8
   style: 'color: black; text-shadow: 0 0 7px #fff;'
+  itemType: topic
 weight: 1
-type: topic
 aliases:
   - /a/
 ---

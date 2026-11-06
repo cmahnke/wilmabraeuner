@@ -1,8 +1,8 @@
 ---
 title: Ist das Kunst oder kann das weg?
-type: text
 params:
   subtype: archive
+  itemType: text
 outputs:
   - html
   - qrcode

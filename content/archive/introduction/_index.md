@@ -5,9 +5,10 @@ aliases:
 outputs:
   - html
   - qrcode
-type: wall
 resources:
 - name: preview
   src: "1_Stellwand-Einleitung.jpg"
 weight: 1
+params:
+  itemType: wall
 ---

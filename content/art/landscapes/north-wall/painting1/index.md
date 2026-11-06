@@ -1,6 +1,5 @@
 ---
 title:
-type: painting
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ aliases:
 resources:
 - name: preview
   src: "15_Stellwand-Haeuser-1.jpg"  
+params:
+  itemType: painting
 ---

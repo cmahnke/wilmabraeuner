@@ -1,6 +1,5 @@
 ---
 title:
-type: picture
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /k/9/2/1f/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: picture
 tags:
   - content:bonus
   - content:backside

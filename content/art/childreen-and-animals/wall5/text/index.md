@@ -1,11 +1,12 @@
 ---
 title: Menschen und Tiere
-type: text
 outputs:
   - html
   - qrcode
 aliases:
   - /k/5/1t/
+params:
+  itemType: text
 ---
 
 Neben ihren „Alten Köpfen“, an denen sie ihren persönlichen Äußerungen, Aufzeichnungen und Lebenserinnerungen nach auch emotional hing, existieren aus ihrer Sylter Zeit nur wenige Aufnahmen ausgewählter Personen aus ihrem persönlichen Umfeld wie etwa von Frau Dr. Neumann oder Swami Sambuddhananda - ein indischer Mönch, der 1961 auf Sylt Vorträge hielt, Yoga-Unterricht gab und in dieser Zeit bei Wilma Bräuner wohnte.

@@ -3,9 +3,10 @@ title: "Atlantis / Klara Enss"
 outputs:
   - html
   - qrcode
-type: text
 aliases:
   - /n/24/1t/
+params:
+  itemType: text
 ---
 
 Ihre Liebe zur Natur und zu malerischen Landschaften, die sich in ihrem Werk widerspiegelt, macht auch verständlich, dass Wilma Bräuner sich mit dem Thema Naturschutz beschäftigte.

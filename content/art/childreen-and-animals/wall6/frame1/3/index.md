@@ -1,6 +1,5 @@
 ---
 title:
-type: picture
 outputs:
   - html
   - qrcode
@@ -12,6 +11,7 @@ params:
   related:
     isSourceFor: K6.2.4F
     isDerivedFrom: K6.2.2F
+  itemType: picture
 weight: 3
 tags:
   - content:bonus

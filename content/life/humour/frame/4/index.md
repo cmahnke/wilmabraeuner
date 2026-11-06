@@ -1,6 +1,5 @@
 ---
 title:
-type: print
 outputs:
   - html
   - qrcode
@@ -9,6 +8,7 @@ aliases:
   - /a/26/2/4k/
 params:
   iiifContext: http://iiif.io/api/image/2/context.json
+  itemType: print
 weight: 4
 resources:
 - src: "front.jxl"

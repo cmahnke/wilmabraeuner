@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Kunstgewerbehaus Frisia"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ resources:
   src: "Rahmen-3-Kunstgewerbehaus-Frisia.jpg"
 aliases:
   - /l/26/4/
+params:
+  itemType: frame
 ---

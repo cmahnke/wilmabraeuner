@@ -1,6 +1,5 @@
 ---
 title: "Rahmen: Brief"
-type: frame
 outputs:
   - html
   - qrcode
@@ -9,4 +8,6 @@ resources:
   src: "Rahmen-3-Brief-Schild.jpg"
 aliases:
   - /l/26/3/
+params:
+  itemType: frame
 ---

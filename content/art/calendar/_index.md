@@ -5,9 +5,10 @@ outputs:
   - qrcode
 aliases:
   - /a/14/
-type: wall
 resources:
 - name: preview
   src: "14_Stellwand-Kalender.jpg"  
 weight: 4
+params:
+  itemType: wall
 ---

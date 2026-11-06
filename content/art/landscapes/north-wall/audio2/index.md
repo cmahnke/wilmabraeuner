@@ -1,10 +1,10 @@
 ---
 title: Oma, was ist das für ein komischer Beamer? - Hörfassung
-type: audio
 params:
   subtype: archive
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 outputs:
   - html
   - qrcode

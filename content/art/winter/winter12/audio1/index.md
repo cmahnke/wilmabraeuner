@@ -1,6 +1,5 @@
 ---
 title: Ausbildung zur Fotografin - Hörfassung
-type: audio
 resources:
 - name: audio
   src: "12_Ausbildung-fotografin.mp3"
@@ -12,6 +11,7 @@ aliases:
 params:
   qr-icon: comment.svg
   qr-icon-color: '#808080'
+  itemType: audio
 tags:
   - audio:text
 ---

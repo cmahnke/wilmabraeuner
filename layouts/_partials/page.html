@@ -8,13 +8,13 @@
 {{/*
 {{- partial "content-check.html" . -}}
 */}}
-<div class="content-container {{ .Params.type }}">
+<div class="content-container {{ .Params.itemType }}">
     <div class="content-area">
       <div class="content-header">
         {{ partial "breadcrumb-nav.html" . }}
         {{ partial "nav/prev.html" . }}
       </div>
-      {{- $class := .Params.type -}}
+      {{- $class := .Params.itemType -}}
       {{- if .Params.subtype -}}
         {{- $class = printf "%s %s" $class .Params.subtype -}}
       {{- end -}}
@@ -23,8 +23,8 @@
           <div class="content-title">
             {{- if .Title -}}
               <h1 class="post-title">{{ .Title }}</h1>
-            {{- else if or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing") -}}
-              <h1 class="post-title">{{ i18n .Params.type }}</h1>
+            {{- else if or (eq .Params.itemType "picture") (eq .Params.itemType "document") (eq .Params.itemType "print") (eq .Params.itemType "drawing") -}}
+              <h1 class="post-title">{{ i18n .Params.itemType }}</h1>
             {{- end -}}
             <h2 class="object-number">{{ i18n "objectNumber" }} {{ partial "functions/object-number.html" . -}}</h2>
           </div>
@@ -89,7 +89,7 @@
           </div>
         {{- end -}}
 
-        {{- if eq .Params.type "audio" -}}
+        {{- if eq .Params.itemType "audio" -}}
           {{- $audio := .Resources.GetMatch "audio" -}}
           {{- with $audio -}}
             {{- $src := .RelPermalink -}}
@@ -97,7 +97,7 @@
           {{- end -}}
         {{- end -}}
 
-        {{- if or (eq .Params.type "frame") (eq .Params.type "wall") -}}
+        {{- if or (eq .Params.itemType "frame") (eq .Params.itemType "wall") -}}
           {{- $preview := .Resources.GetMatch "preview" -}}
           {{ with $preview }}
             {{ $image := .Resize "600x" }}
@@ -107,7 +107,7 @@
           {{- end -}}
         {{- end -}}
 
-        {{- if and (.Params.resources) (or (eq .Params.type "picture") (eq .Params.type "document") (eq .Params.type "print") (eq .Params.type "drawing")) -}}
+        {{- if and (.Params.resources) (or (eq .Params.itemType "picture") (eq .Params.itemType "document") (eq .Params.itemType "print") (eq .Params.itemType "drawing")) -}}
           {{- if gt (len .Params.resources) 1 -}}
             {{- $page := . -}}
             {{- $images := slice -}}
@@ -195,17 +195,17 @@
         */}}
 
         {{/*
-        {{- if and .Params.type (or .Description .Params.bookTitle) -}}
-            {{- partial (printf "media/%s.html" .Params.type ) . -}}
+        {{- if and .Params.itemType (or .Description .Params.bookTitle) -}}
+            {{- partial (printf "media/%s.html" .Params.itemType ) . -}}
         {{- end -}}
         */}}
 
         {{- $objectNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
-        {{- if eq .Params.type "audio" -}}
+        {{- if eq .Params.itemType "audio" -}}
           <a class="up" href="{{ .Parent.RelPermalink}}">{{ i18n "overview" }}</a>
           {{- $foundText := false -}}
           {{- range .Parent.Pages -}}
-            {{- if eq .Params.type "text" -}}
+            {{- if eq .Params.itemType "text" -}}
               {{- $textNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
               {{- if eq $objectNumber $textNumber -}}
                 <div class="related-popup related-text">
@@ -216,10 +216,10 @@
               {{- end -}}
             {{- end -}}
           {{- end -}}
-        {{- else if eq .Params.type "text" -}}
+        {{- else if eq .Params.itemType "text" -}}
           {{- $foundAudio := false -}}
           {{- range .Parent.Pages -}}
-            {{- if eq .Params.type "audio" -}}
+            {{- if eq .Params.itemType "audio" -}}
               {{- $audioNumber := partial "itemnumber.html" (dict "alias" (index .Aliases 0)) -}}
               {{- if eq $objectNumber $audioNumber -}}
                 <div class="related-popup related-audio">
