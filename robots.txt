@@ -1,0 +1,17 @@
+User-agent: *
+
+Disallow: /privacy/
+
+Disallow: /meta/_index.en/
+
+
+Disallow: /*.bib$
+
+Disallow: /*.json$
+
+Disallow: /*.xml$
+
+Sitemap: https://xn--wilmabruner-r8a.projektemacher.org/sitemap.xml
+
+
+llms-txt: https://xn--wilmabruner-r8a.projektemacher.org/llms.txt
