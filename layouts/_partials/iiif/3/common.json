@@ -67,7 +67,7 @@
 {{- $year := or .Params.issueYear .Params.year -}}
 {{- with $year -}}
   {{- $year := printf "%v" . -}}
-  {{- $metadata = $metadata | append (dict "label" (dict "en" (slice "Year of publication") "de" (slice "Erscheinungsjahr")) "value" (dict "en" (slice $year) "de" (slice $year))) -}}
+  {{- $metadata = $metadata | append (dict "label" (partial "functions/iiif/i18n-label.html" (dict "key" "iiifYearOfPublication")) "value" (dict site.Language.Lang (slice $year))) -}}
 {{- end -}}
 {{- with $metadata -}}
   {{- $common = $common | merge (dict "metadata" .) -}}
